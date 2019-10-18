@@ -199,5 +199,10 @@ class MBConv(nn.Module):
         if self._expand_ratio != 1:
             x = self._econv(x, in_channels, hidden_dim)
         x = self._sconv(x, hidden_dim, hidden_dim, kernel_size)
+        if self._se:
+            num_squeezed_channels = max(1, int(in_channels * self._se)) if in_channels else self._num_squeezed_channels
+            x = self._se_rconv(x, hidden_dim, num_squeezed_channels)
+            x = self._se_acti(x)
+            x = self._se_econv(x, num_squeezed_channels, hidden_dim)
         x = self._rconv(x, hidden_dim, out_channels)
         return x

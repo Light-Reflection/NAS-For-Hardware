@@ -166,6 +166,7 @@ class supernet(nn.Module,AutoModel):
             x = cell(x, self._op_cfg[index_op_layer:(index_op_layer+sample_length)], self._channel_cfg[index_layer:(index_layer+sample_length)], \
                 self._channel_cfg[(index_layer+1):(index_layer+1+sample_length)], \
                 self._ksize_cfg[index_layer:(index_layer+sample_length)], sample_length)
+
             index_layer += sample_length
             index_op_layer += sample_length
 
@@ -361,7 +362,8 @@ class supernet(nn.Module,AutoModel):
         return basic_channel_cfg
 
 
-# model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
+#model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
+#model(torch.ones((3,3,224,224)))
 
 
 # model.fit(x,y)
