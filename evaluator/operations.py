@@ -42,6 +42,7 @@ def drop_connect(input_, p, training):
     bs = input_.shape[0] 
     keep_prob = 1 - p
     random_tensor = keep_prob
+    print(input_.dtype, input_.device)
     random_tensor += torch.rand([bs, 1, 1, 1], dtype=input_.dtype, devices=input_.device)
     binary_tensor = torch.floor(random_tensor)
     output = input_ / keep_prob * binary_tensor
@@ -70,7 +71,7 @@ class ManualConv2d(nn.Conv2d):
         # only support when kernel size is odd
         rbound = (kernel_size+self._max_ksize)//2
         lbound = (self._max_ksize-kernel_size)//2
-
+        # in group conv :in_channels = 1
         return F.conv2d(x, self.weight[:out_channels, :in_channels, lbound:rbound, lbound:rbound],
             self.bias[:out_channels] if self._has_bias else None, self.stride, self.padding, self.dilation, int(groups) if groups else self.groups)
 
@@ -168,8 +169,8 @@ class MBConv(nn.Module):
     """
     Enable to choose : expand ratio / kernel_size / se / skip / drop connect
     """
-    def __init__(self, max_in_channels, max_out_channels, expand_ratio, max_kernel_size, stride, padding, bias, affine, act_type, se=False, skip=False, drop=False):
-        # TODO: Support the drop and skip connect when training supernet
+    def __init__(self, max_in_channels, max_out_channels, expand_ratio, max_kernel_size, stride, padding, bias, affine, act_type, se=False, skip=True, drop=False):
+        # TODO: Support the drop  connect when training supernet
         super(MBConv, self).__init__()
         self._stride = stride 
         self._expand_ratio =  expand_ratio
@@ -178,6 +179,10 @@ class MBConv(nn.Module):
         self._padding = padding 
         self._act_type = act_type
         self._se = se
+        self._skip = skip
+        self._drop_prob = drop
+        self._max_inc = max_in_channels
+        self._max_outc = max_out_channels
 
         max_hidden_dim = round(expand_ratio * max_in_channels)
         if expand_ratio != 1:
@@ -194,8 +199,10 @@ class MBConv(nn.Module):
         self._hidden_dim = max_hidden_dim
 
     def forward(self, x, in_channels=None, out_channels=None, kernel_size=None):
+        inputs = x
         hidden_dim = round(in_channels * self._expand_ratio) if in_channels else self._hidden_dim
-
+        inc = in_channels if in_channels else self._max_inc
+        outc = out_channels if out_channels else self._max_outc
         if self._expand_ratio != 1:
             x = self._econv(x, in_channels, hidden_dim)
         x = self._sconv(x, hidden_dim, hidden_dim, kernel_size)
@@ -205,4 +212,21 @@ class MBConv(nn.Module):
             x = self._se_acti(x)
             x = self._se_econv(x, num_squeezed_channels, hidden_dim)
         x = self._rconv(x, hidden_dim, out_channels)
+        if self._skip and self._stride == 1 and inc == outc:
+            # if self._drop_prob:
+            #     x = drop_connect(x , self._drop_prob, training=self.training) # Error: Drop Connect 
+            x = x + inputs
+
         return x
+
+
+if __name__ == '__main__':
+    # x = torch.ones((1,3,6,6))
+    # conv2d = nn.Conv2d(5, 5, 3, groups=5)
+    # # print(conv2d.weight.shape)
+    # mconv2d = ManualConv2d(6, 6, 3, groups=6)
+    # print(mconv2d.weight.shape)
+    # y = mconv2d(x, 3, 3)
+    # print(mconv2d.weight)
+    op = MBConv(3, 3, 3, 3, 1, 1, False, False, 'relu6', 0.25, True, 0.1)
+    print(op(torch.rand(3,3,6,6)))
