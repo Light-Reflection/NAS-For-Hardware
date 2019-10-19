@@ -25,6 +25,13 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
 
 }
 
+class swish(nn.Module):
+    # swish activation 
+    def __init__(self):
+        super(swish, self).__init__()
+    def forward(self, x):
+        return x * torch.sigmoid(x)
+
 def activation(func='relu'):
     """activate function"""
     acti = nn.ModuleDict([
@@ -32,9 +39,13 @@ def activation(func='relu'):
         ['prelu', nn.PReLU()],
         ['relu', nn.ReLU()],
         ['none', Identity()],
-        ['relu6', nn.ReLU6()]])
+        ['relu6', nn.ReLU6()],
+        ['swish', swish()]])
 
     return acti[func]
+
+
+
 
 def drop_connect(input_, p, training):
     """Build for drop connetc"""
@@ -76,6 +87,8 @@ class ManualConv2d(nn.Conv2d):
             self.bias[:out_channels] if self._has_bias else None, self.stride, self.padding, self.dilation, int(groups) if groups else self.groups)
 
 class ManualBN2d(nn.BatchNorm2d):
+    # effi eps=0.001 / momentum=0.01
+
     def __init__(self, max_num_features, eps=1e-5, momentum=0.1, affine=True, tracking_running_stats=True):
         super(ManualBN2d, self).__init__(max_num_features, eps, momentum, affine, tracking_running_stats)
         # self._max_nf = max_num_features
@@ -191,7 +204,7 @@ class MBConv(nn.Module):
         if se:
             num_squeezed_channels = max(1, int(max_in_channels*se))
             self._se_rconv = ManualConv2d(max_hidden_dim, num_squeezed_channels, 1)
-            self._se_acti = activation('relu')
+            self._se_acti = activation(act_type)
             self._se_econv = ManualConv2d(num_squeezed_channels, max_hidden_dim, 1)
             self._num_squeezed_channels = num_squeezed_channels
 
@@ -208,9 +221,12 @@ class MBConv(nn.Module):
         x = self._sconv(x, hidden_dim, hidden_dim, kernel_size)
         if self._se:
             num_squeezed_channels = max(1, int(in_channels * self._se)) if in_channels else self._num_squeezed_channels
+            x_squeezed = F.adaptive_avg_pool2d(x, 1)
             x = self._se_rconv(x, hidden_dim, num_squeezed_channels)
             x = self._se_acti(x)
             x = self._se_econv(x, num_squeezed_channels, hidden_dim)
+            x = torch.sigmoid(x_squeezed) * x
+
         x = self._rconv(x, hidden_dim, out_channels)
         if self._skip and self._stride == 1 and inc == outc:
             # if self._drop_prob:
