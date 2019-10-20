@@ -9,7 +9,6 @@ from tensorboardX import SummaryWriter
 import torch.multiprocessing as mp
 import torchvision
 from dmmo.evaluator.utils import *
-from dmmo.generator.model import MobileNet
 # from dmmo.SuperNet import supernet
 import torch.distributed as dist
 import time
@@ -21,8 +20,8 @@ class Trainer(object):
     def __init__(self, model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank=0, world_size=1):
         super(Trainer, self).__init__()
         self._model = model
-        self._optimizer = optimizer(model.parameters(), lr= 0.2) # set optim **kw later
-        self._scheduler = scheduler(self._optimizer, [180,250]) # set scheduler **kw later
+        self._optimizer = optimizer(model.parameters(), lr= 0.04) # set optim **kw later
+        self._scheduler = scheduler(self._optimizer, [30,60]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer
@@ -131,19 +130,19 @@ class Trainer(object):
                     logits = self._model(inputs)
                 elif mode == 'search':
                     logits = self._model.predict(inputs, resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        loss =  self._criterion(logits, targets)
-        prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
-        if self._using_ddp:
-            # Using DDP
-            reduced_loss = reduce_tensor(loss.data, self._wsize)
-            prec1 = reduce_tensor(prec1, self._wsize)
-            prec5 = reduce_tensor(prec5, self._wsize)
-        else:
-            reduced_loss = loss.data
+            loss =  self._criterion(logits, targets)
+            prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
+            if self._using_ddp:
+                # Using DDP
+                reduced_loss = reduce_tensor(loss.data, self._wsize)
+                prec1 = reduce_tensor(prec1, self._wsize)
+                prec5 = reduce_tensor(prec5, self._wsize)
+            else:
+                reduced_loss = loss.data
 
-        self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
-        if self._rank == 0 and mode == 'train':
-            self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
+            self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
+            if self._rank == 0 and mode == 'train':
+                self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
 
 # using trainer
 
@@ -231,8 +230,8 @@ def test(rank, world_size,model):
     trainer.run() # run trainer
 
 
-if __name__ == '__main__':
-    model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
+# if __name__ == '__main__':
+#     model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
     # main(0,1)
     # must need __main__ func
    
