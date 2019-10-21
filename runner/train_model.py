@@ -20,8 +20,8 @@ class Trainer(object):
     def __init__(self, model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank=0, world_size=1):
         super(Trainer, self).__init__()
         self._model = model
-        self._optimizer = optimizer(model.parameters(), lr= 0.04) # set optim **kw later
-        self._scheduler = scheduler(self._optimizer, [100,250]) # set scheduler **kw later
+        self._optimizer = optimizer(model.parameters(), lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
+        self._scheduler = scheduler(self._optimizer, [150,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer
@@ -120,7 +120,12 @@ class Trainer(object):
         return self._prec1.avg # Get accuarcy
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
-        self._model.eval()
+        if mode == 'train':
+            self._model.eval()
+        elif mode == 'search':
+            self._model.train() # Replace BN setter
+        elif:
+            raise NotImplementedError
         self.reset_stats()
         tic = time.time()
         for step, (inputs, targets) in enumerate(self._valid_queue):
