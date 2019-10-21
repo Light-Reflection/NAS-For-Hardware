@@ -21,7 +21,7 @@ class Trainer(object):
         super(Trainer, self).__init__()
         self._model = model
         self._optimizer = optimizer(model.parameters(), lr= 0.04) # set optim **kw later
-        self._scheduler = scheduler(self._optimizer, [30,60]) # set scheduler **kw later
+        self._scheduler = scheduler(self._optimizer, [100,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer

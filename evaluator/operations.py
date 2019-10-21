@@ -3,25 +3,25 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
     'MB6_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish'),
     'MB3_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
     'MB3_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='relu6'),    
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish'),    
     'Conv3x3_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6'),
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
     'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
     'Conv1x1_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, padding=0, bias=False, affine=affine, act_type='relu6'),
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, padding=0, bias=False, affine=affine, act_type='swish'),
     'MB6_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6', se=0.25),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish', se=0.25),
     'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='relu6', se=0.25),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish', se=0.25),
     'MB1_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='relu6', se=0.25),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish', se=0.25),
 
 }
 
@@ -89,7 +89,7 @@ class ManualConv2d(nn.Conv2d):
 class ManualBN2d(nn.BatchNorm2d):
     # effi eps=0.001 / momentum=0.01
 
-    def __init__(self, max_num_features, eps=1e-5, momentum=0.1, affine=True, tracking_running_stats=True):
+    def __init__(self, max_num_features, eps=0.001, momentum=0.01, affine=True, tracking_running_stats=True):
         super(ManualBN2d, self).__init__(max_num_features, eps, momentum, affine, tracking_running_stats)
         # self._max_nf = max_num_features
     def forward(self, x, num_features=None):
