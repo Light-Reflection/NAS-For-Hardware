@@ -20,8 +20,8 @@ class Trainer(object):
     def __init__(self, model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank=0, world_size=1):
         super(Trainer, self).__init__()
         self._model = model
-        self._optimizer = optimizer(model.parameters(), lr= 0.04) # set optim **kw later
-        self._scheduler = scheduler(self._optimizer, [100,250]) # set scheduler **kw later
+        self._optimizer = optimizer(model.parameters(), lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
+        self._scheduler = scheduler(self._optimizer, [150,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer
@@ -36,6 +36,9 @@ class Trainer(object):
         self._loss = AvgrageMeter()
         self._prec1 = AvgrageMeter()
         self._prec5 = AvgrageMeter()
+        self._bn_setter_init = True
+        self._bn_setter_num_batch = 1
+
 
     def reset_stats(self):
         self._loss.reset()
@@ -112,15 +115,29 @@ class Trainer(object):
     def validate(self):
         self.inference(mode='train')
 
+    # def bn_setter(self, num_batches=1):
+        # get bn setter, if you call this func it will changes the model the bn params
+        
     def predict(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
+        if self._bn_setter_init:
+            # only initalize once
+            self._bn_setter =  BN_Correction(self._model, self._train_queue, self._bn_setter_num_batch)  
+            self._bn_setter_init = False
         print("Into Predict Module......")
+        print("Rest == bn ==")
+        self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(self._prec1.avg)
         return self._prec1.avg # Get accuarcy
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
-        self._model.eval()
+        if mode == 'train':
+            self._model.train() # Random Net to eval (the params in BN is failed)
+        elif mode == 'search':
+            self._model.eval() # Replace BN setter
+        else:
+            raise NotImplementedError
         self.reset_stats()
         tic = time.time()
         for step, (inputs, targets) in enumerate(self._valid_queue):
@@ -143,13 +160,6 @@ class Trainer(object):
             self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
             if self._rank == 0 and mode == 'train':
                 self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
-
-# using trainer
-
-# debug test 
-
-
-
 
 def main(rank, world_size):
     if rank == 0:

@@ -1,0 +1,5 @@
+./evaluator/__pycache__/*
+./generator/__pycache__/*
+./runner/__pycache__/*
+./__pycache__/*
+

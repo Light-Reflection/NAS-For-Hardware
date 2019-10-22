@@ -89,7 +89,7 @@ class supernet(nn.Module,AutoModel):
         stem_inc = 3
         stem_outc = self._channel_init_cfg[0] if to_dispatch else self._stem_cfg[0][0]
         print('first',stem_outc)
-        self._stem.append(OPS['Conv3x3_BN_ReLU6'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine))
+        self._stem.append(OPS['Conv3x3_BN_Act'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine, act_type='swish'))
         stem_inc = stem_outc
         stem_outc = self._channel_init_cfg[1] if to_dispatch else self._stem_cfg[1][0]
         print('second',stem_outc)
@@ -125,7 +125,7 @@ class supernet(nn.Module,AutoModel):
         self._stern.append(OPS['MB6_3x3_se0.25'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[0][1], affine=self._affine))
         stern_inc = stern_outc
         stern_outc = self._channel_init_cfg[-1] if to_dispatch else self._stern_cfg[1][0]
-        self._stern.append(OPS['Conv1x1_BN_ReLU6'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine))
+        self._stern.append(OPS['Conv1x1_BN_Act'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine, act_type='swish'))
 
         self._linear = ManualLinear(max_in_channels=stern_outc, max_out_channels=self._num_classes)
 
@@ -254,11 +254,11 @@ class supernet(nn.Module,AutoModel):
         else:
             print("="*20, "Start building supernet", "="*20)
         kwargs.setdefault('layers', 19)
-        kwargs.setdefault('affine', True)
+        kwargs.setdefault('affine', False)
         kwargs.setdefault('num_of_ops', 2)
         kwargs.setdefault('division', 1)
         kwargs.setdefault('search_direction', [True, True, True, False]) # resolution/channel/op/ksize
-        kwargs.setdefault('channels', [(32,2), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
+        kwargs.setdefault('channels', [(32,1), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
         kwargs.setdefault('num_of_classes',1000)
         for i,channel_setting in enumerate(kwargs['channels']):
             if isinstance(channel_setting, list):
