@@ -25,7 +25,6 @@ class  MixOPs(nn.Module):
                 self._mix_ops.append(OPS[primitive](max_in_channels, max_out_channels, stride, affine))
 
     def forward(self, x, op_index=0, in_channels=None, out_channels=None, kernel_size=None):
-        # print(x.shape)
         return self._mix_ops[op_index](x, in_channels, out_channels, kernel_size) 
 
 class Cell(nn.Module):
@@ -108,8 +107,7 @@ class supernet(nn.Module,AutoModel):
             else:
                 init_cell_length = init_super_cells if self._search_direction[0] else self._resolution_init_cfg[i]
                 init_cell_outc = self._cells_cfg[i][0] # if not search set it in channel cfg
-                # print(self._op_init_cfg)
-                init_op_cfg = None # if self._search_direction[2] else self._op_init_cfg[sum(resolution_encoding[:i]):sum(resolution_encoding[:(i+1)])] 
+                init_op_cfg = None 
                 # if not search all op is zero
                 # Bug: must to assign resolution encoding
 
@@ -173,10 +171,8 @@ class supernet(nn.Module,AutoModel):
 
             elif mode == 'train':
                 self.random_set_forward_cfg(self._search_direction)
-                # TODO: Auto set the search direction 
             else:
                 raise ValueError
-
             # self._channel_cfg.insert(0, 3) # Bug: will always insert 3 if not search channel 
 
     def manual_set_init_cfg(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
@@ -218,14 +214,13 @@ class supernet(nn.Module,AutoModel):
             self._channel_cfg = self.convert_channel_encoding_to_channel_cfg(channel_encoding, self._division, basic_channel_cfg)
             self._channel_cfg.insert(0, 3)
         else: 
-            pass # using the config channel #TODO: support the manual setting
+            pass # using the config channel # TODO: support the manual setting
         if search_direction[2]: # serach in op
             self._op_cfg = self.produce_op_encoding() 
         else:
             self._op_cfg = self._op_init_cfg
         if search_direction[3]:
             raise NotImplementedError
-            # self._ksize_cfg = self.produce_ksize_encoding() 
 
     def manual_set_forwad_cfg(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
         # activate this method to get the subnet acc.
@@ -301,24 +296,6 @@ class supernet(nn.Module,AutoModel):
         # [0:self._num_cells,self._num_cells:self._num_cells+self._layers-1,self._num_cells+self._layers-1:self._num_cells+self._layers=1+self._cells_layers]
         net_encoding_list = [-1]*length
         for i,direction in enumerate(self._search_direction):
-        #     # resolution_encoding = self._resolution_init_cfg 
-        #     if self._search_direction[0]:
-        #         resolution_encoding = self.produce_resolution_encoding()
-        #     else:
-        #         resolution_encoding = self._resolution_init_cfg
-        #     net_encoding_list[:self._num_cells] = resolution_encoding
-        #     if self._search_direction[1]:
-        #         channel_encoding = self.produce_channel_encoding()
-        #     else:
-        #         channel_encoding = self._channel_init_cfg
-        #     net_encoding_list[self._num_cells+self._layers-1:self._num_cells+self._layers-1+self._cells_layers]=op_encoding
-        #     if self._search_direction[2]:
-        #         op_encoding = self.produce_op_encoding()
-        #     else:
-        #         op_encoding = self._op_init_cfg
-        #     if self._search_direction[3]:
-        #         raise NotImplementedError
-
             if direction is True:
                 if i == 0: 
                     resolution_encoding = self.produce_resolution_encoding()
@@ -334,15 +311,12 @@ class supernet(nn.Module,AutoModel):
         return np.array(net_encoding_list)
 
     def convert_encoding_list_to_dict(self, net_encoding_list):
-        # TODO: support channel_encoding
         net_encoding_dict = {'resolution_encoding':net_encoding_list[:self._num_cells].tolist() if self._search_direction[0] else self._resolution_init_cfg, 
         'channel_encoding':net_encoding_list[self._num_cells:self._num_cells+self._layers-1].tolist()  if self._search_direction[1] else None, \
         'op_encoding':net_encoding_list[self._num_cells+self._layers-1:self._num_cells+self._layers-1+self._cells_layers].tolist() if self._search_direction[2] else self._op_init_cfg, \
         'ksize_encoding':None}
-
-        print(net_encoding_dict)
+        # print(net_encoding_dict)
         return net_encoding_dict
-
 
     def convert_channel_encoding_to_channel_cfg(self, channel_encoding, division, basic_channel_cfg):
         assert max(channel_encoding) <= division and len(channel_encoding) == len(basic_channel_cfg)
@@ -362,43 +336,3 @@ class supernet(nn.Module,AutoModel):
                 basic_channel_cfg.append(self._cells_cfg[i][0])
         basic_channel_cfg.extend([stern_cfg[0] for  stern_cfg in self._stern_cfg])
         return basic_channel_cfg
-
-
-#model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
-#model(torch.ones((3,3,224,224)))
-
-
-# model.fit(x,y)
-# model.search()
-# model.dispatch()
-
-
-
-"""model = supernet.dispatch(resolution_encoding=[2,2,3,3,4],
-                         channel_encoding=[1]*18, 
-                         op_encoding=[0,0,1,1,0,0,0,1,1,1,1,1,1,1], 
-                         layers=20)"""
-
-def get_model_parameters_number(model):
-    params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    return params_num
-
-# print(get_model_parameters_number(model))
-# from flops_counter import get_model_complexity_info
-# from efficientnet import EfficientNet
-# flops, paras = get_model_complexity_info(model, input_res=(3,224,224))
-# # flops. paras = get_model_complexity_info(EfficientNet, input_res)
-# print(flops, paras)
-
-
-
-
-
-
-
-
-
-
-
-
-        

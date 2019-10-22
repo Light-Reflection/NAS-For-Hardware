@@ -114,9 +114,6 @@ class Trainer(object):
 
     def validate(self):
         self.inference(mode='train')
-
-    # def bn_setter(self, num_batches=1):
-        # get bn setter, if you call this func it will changes the model the bn params
         
     def predict(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
         if self._bn_setter_init:
@@ -179,22 +176,7 @@ def main(rank, world_size):
         logger.info('|| torch.backends.cudnn.benchmark = %s'% cudnn.benchmark)
         logger.info('|| torch.backends.cudnn.deterministic = %s' % cudnn.deterministic)
         logger.info('|| torch.cuda.initial_seed = %d' % torch.cuda.initial_seed())
-
-# <<<<<<< Updated upstream
-#     # model = MobileNet().cuda()
-#     from SuperNet import SuperNet
-#     from model import MobileNet
-#     net_cfg = {}
-#     net_cfg['layer'] = 10
-#     torch.cuda.set_device(rank)
-#     model = MobileNet().cuda()
-# =======
     model = MobileNet().cuda()
-    #from SuperNet import SuperNet
-    #net_cfg = {}
-    #net_cfg['layer'] = 10
-    #model = SuperNet(net_cfg).cuda()
-# >>>>>>> Stashed changes
     if world_size > 1:
         distribute_set_up(rank, world_size)
         n = torch.cuda.device_count()//world_size # default run all GPUs

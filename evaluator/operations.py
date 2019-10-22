@@ -36,12 +36,15 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     SepConv(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
 }
 
-class swish(nn.Module):
-    # swish activation 
-    def __init__(self):
-        super(swish, self).__init__()
-    def forward(self, x):
-        return x * torch.sigmoid(x)
+
+
+
+
+
+
+####################################################################
+############## Design Your Basic Operations ########################
+####################################################################
 
 def activation(func='relu'):
     """activate function"""
@@ -67,11 +70,14 @@ def drop_connect(input_, p, training):
     output = input_ / keep_prob * binary_tensor
     return output
 
-from functools import partial
-def get_same_padding_conv2d(image_size=None):
-    return partial(ManualConv2dPad, image_size=image_size)
+class swish(nn.Module):
+    # swish activation 
+    def __init__(self):
+        super(swish, self).__init__()
+    def forward(self, x):
+        return x * torch.sigmoid(x)
 
-# Custom Convolution 
+
 class ManualConv2dPad(nn.Conv2d):
     """docstring for ManualConv2d"""
     def __init__(self, max_in_channels, max_out_channels, max_kernel_size, image_size=None, stride=1, dilation=1, groups=1, bias=True):
@@ -147,8 +153,15 @@ class ManualLinear(nn.Linear):
         return F.linear(x, self.weight[:out_channels, :in_channels], self.bias[:out_channels] if self._has_bias else self.bias)
 
 
+from functools import partial
+def get_same_padding_conv2d(image_size=None):
+    return partial(ManualConv2dPad, image_size=image_size)
 
 ManualConv2d = get_same_padding_conv2d(IMAGE_SIZE)
+
+####################################################################
+############## Design Your Combination Operations ##################
+####################################################################
 
 class ConvBNActi(nn.Module):
     """docstring for ConvBNActi"""
@@ -241,6 +254,7 @@ class  SepConv_NoMidReLU(nn.Module):
 class MBConv(nn.Module):
     """
     Enable to choose : expand ratio / kernel_size / se / skip / drop connect
+    # TODO: SUPPORT DROP CONNECT
     """
     def __init__(self, max_in_channels, max_out_channels, expand_ratio, max_kernel_size, stride, bias, affine, act_type, se=False, skip=True, drop=False):
         # TODO: Support the drop  connect when training supernet
@@ -249,7 +263,6 @@ class MBConv(nn.Module):
         self._expand_ratio =  expand_ratio
         self._bias = bias 
         self._affine = affine
-        # self._padding = padding 
         self._act_type = act_type
         self._se = se
         self._skip = skip
