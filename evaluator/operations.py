@@ -14,12 +14,12 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish'),
     'MB3_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, bias=False, affine=affine, act_type='swish'),    
-    'Conv3x3_BN_ReLU': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='relu'),
+    'Conv3x3_BN_Act': lambda max_in_channels, max_out_channels, stride, affine, act_type: \
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type=act_type),
     'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish'),
-    'Conv1x1_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'Conv1x1_BN_Act': lambda max_in_channels, max_out_channels, stride, affine, act_type: \
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, bias=False, affine=affine, act_type=act_type),
     'MB6_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish', se=0.25),
     'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
@@ -257,7 +257,7 @@ class MBConv(nn.Module):
         max_hidden_dim = round(expand_ratio * max_in_channels)
         if expand_ratio != 1:
             self._econv = PwConvBNActi(max_in_channels, max_hidden_dim, bias, affine, act_type) # expand channels
-        self._sconv = DwConvBNActi(max_hidden_dim, max_hidden_dim, max_kernel_size, stride, padding, bias, affine, act_type) # sepconv
+        self._sconv = DwConvBNActi(max_hidden_dim, max_hidden_dim, max_kernel_size, stride, bias, affine, act_type) # sepconv
         if se:
             num_squeezed_channels = max(1, int(max_in_channels*se))
             self._se_rconv = ManualConv2d(max_hidden_dim, num_squeezed_channels, 1)

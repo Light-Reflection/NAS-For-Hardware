@@ -7,8 +7,7 @@ from dmmo.generator.utils import produce_channel_encoding, produce_resolution_en
 # able to changes layers
 # able to changes search direction/ set diff encoding
 
-# PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25']
-PRIMITIVES = ['Sep_3x3_N']
+PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25']
 
 class  MixOPs(nn.Module):
     """docstring for  MixOPs"""
@@ -34,7 +33,6 @@ class Cell(nn.Module):
     def __init__(self, max_in_channels, max_out_channels, stride, init_length, affine, to_dispatch=False, op_cfg=None):
         super(Cell, self).__init__()
         self._cell_nets = nn.ModuleList()
-        # print(max_in_channels, max_out_channels)
         # init: not to sample and choose the 0 op
         self._init_inc_list = [None]*init_length
         self._init_outc_list = [None]*init_length
@@ -86,16 +84,16 @@ class supernet(nn.Module,AutoModel):
         self._to_dispatch = to_dispatch
         self._stem = nn.ModuleList()
         self._cells = nn.ModuleList()
-        # self._stern = nn.ModuleList()
+        self._stern = nn.ModuleList()
         self.subnets = []
         stem_inc = 3
         stem_outc = self._channel_init_cfg[0] if to_dispatch else self._stem_cfg[0][0]
         print('first',stem_outc)
-        self._stem.append(OPS['Conv3x3_BN_ReLU'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine))
+        self._stem.append(OPS['Conv3x3_BN_Act'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine, act_type='swish'))
         stem_inc = stem_outc
         stem_outc = self._channel_init_cfg[1] if to_dispatch else self._stem_cfg[1][0]
         print('second',stem_outc)
-        self._stem.append(OPS['Sep_3x3'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[1][1], affine=self._affine))
+        self._stem.append(OPS['MB1_3x3_se0.25'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[1][1], affine=self._affine))
 
         init_super_cells = self._cells_layers - (len(self._cells_cfg) - 1)  # not include cell 0
         init_cell_inc = stem_outc
@@ -121,13 +119,13 @@ class supernet(nn.Module,AutoModel):
                 affine=self._affine, to_dispatch=to_dispatch, op_cfg=init_op_cfg))
 
             init_cell_inc = init_cell_outc
-        stern_outc = self._cells_cfg[-1][0]
-        # stern_inc = init_cell_outc[-1] if to_dispatch else init_cell_outc
-        # stern_outc = self._channel_init_cfg[-2] if to_dispatch else self._stern_cfg[0][0]
-        # self._stern.append(OPS['MB6_3x3_se0.25'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[0][1], affine=self._affine))
-        # stern_inc = stern_outc
-        # stern_outc = self._channel_init_cfg[-1] if to_dispatch else self._stern_cfg[1][0]
-        # self._stern.append(OPS['Conv1x1_BN_ReLU6'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine))
+
+        stern_inc = init_cell_outc[-1] if to_dispatch else init_cell_outc
+        stern_outc = self._channel_init_cfg[-2] if to_dispatch else self._stern_cfg[0][0]
+        self._stern.append(OPS['MB6_3x3_se0.25'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[0][1], affine=self._affine))
+        stern_inc = stern_outc
+        stern_outc = self._channel_init_cfg[-1] if to_dispatch else self._stern_cfg[1][0]
+        self._stern.append(OPS['Conv1x1_BN_Act'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine, act_type='swish'))
 
         self._linear = ManualLinear(max_in_channels=stern_outc, max_out_channels=self._num_classes)
 
@@ -150,9 +148,9 @@ class supernet(nn.Module,AutoModel):
             index_layer += sample_length
             index_op_layer += sample_length
 
-        # for stern_layer in self._stern:
-        #     x = stern_layer(x, self._channel_cfg[index_layer], self._channel_cfg[index_layer+1], self._ksize_cfg[index_layer])
-        #     index_layer += 1
+        for stern_layer in self._stern:
+            x = stern_layer(x, self._channel_cfg[index_layer], self._channel_cfg[index_layer+1], self._ksize_cfg[index_layer])
+            index_layer += 1
 
         x = self._linear(x.mean(3).mean(2), self._channel_cfg[index_layer], self._num_classes) # include avg pool
 
@@ -255,12 +253,12 @@ class supernet(nn.Module,AutoModel):
             print("="*20, "Dispatching subnet from SuperNet", "="*20)
         else:
             print("="*20, "Start building supernet", "="*20)
-        kwargs.setdefault('layers', 15)
-        kwargs.setdefault('affine', True)
-        kwargs.setdefault('num_of_ops', 1)
+        kwargs.setdefault('layers', 19)
+        kwargs.setdefault('affine', False)
+        kwargs.setdefault('num_of_ops', 2)
         kwargs.setdefault('division', 1)
         kwargs.setdefault('search_direction', [True, True, True, False]) # resolution/channel/op/ksize
-        kwargs.setdefault('channels', [(32,1), (64,1), [(128,2),(256,2),(512,2),(1024,2)]]) #[stem, [cells], stern] , (outc, stride)
+        kwargs.setdefault('channels', [(32,2), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
         kwargs.setdefault('num_of_classes',1000)
         for i,channel_setting in enumerate(kwargs['channels']):
             if isinstance(channel_setting, list):
@@ -268,7 +266,7 @@ class supernet(nn.Module,AutoModel):
                 self._cells_index = i
 
         self._stem_cfg = kwargs['channels'][:self._cells_index]
-        # self._stern_cfg = kwargs['channels'][(self._cells_index+1):]
+        self._stern_cfg = kwargs['channels'][(self._cells_index+1):]
         self._num_classes = kwargs['num_of_classes']
         self._channels = kwargs['channels']
         self._layers = kwargs['layers']
@@ -277,8 +275,8 @@ class supernet(nn.Module,AutoModel):
         self._division = kwargs['division']
         self._search_direction = kwargs['search_direction']
         self._num_cells = len(self._cells_cfg) 
-        self._cells_layers = self._layers - len(self._stem_cfg) - 1 #len(self._stern_cfg) - 1 # 1 for classifier
-        print(self._cells_layers,'???')
+        self._cells_layers = self._layers - len(self._stem_cfg) - len(self._stern_cfg) - 1 # 1 for classifier
+
         # defalut 
         self._resolution_cfg = [None]*self._num_cells 
         self._op_cfg = [0]*self._cells_layers
@@ -362,7 +360,7 @@ class supernet(nn.Module,AutoModel):
         for i,encoding in enumerate(resolution_encoding):
             for _ in range(encoding):
                 basic_channel_cfg.append(self._cells_cfg[i][0])
-        # basic_channel_cfg.extend([stern_cfg[0] for  stern_cfg in self._stern_cfg])
+        basic_channel_cfg.extend([stern_cfg[0] for  stern_cfg in self._stern_cfg])
         return basic_channel_cfg
 
 
