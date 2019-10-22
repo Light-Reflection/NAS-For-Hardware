@@ -29,7 +29,7 @@ class AutoModel(object):
             model = None,
             train_data_loader = None, 
             valid_data_loader = None,
-            max_samples = None,
+            max_samples = 1000000,
             target_acc = 100,
             top_k = 5
            ):
@@ -97,7 +97,6 @@ class AutoModel(object):
             
 
     def get_net_acc(self, net_dict):
-        # print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         return self._trainer.predict(net_dict['resolution_encoding'], net_dict['channel_encoding'], net_dict['op_encoding'], net_dict['ksize_encoding'])
 
     def search(self, model, top_k, target_acc,max_samples):
