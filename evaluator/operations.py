@@ -2,27 +2,34 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
-    'MB6_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish'),
-    'MB3_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
-    'MB3_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish'),    
-    'Conv3x3_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
-    'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish'),
-    'Conv1x1_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, padding=0, bias=False, affine=affine, act_type='swish'),
-    'MB6_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish', se=0.25),
-    'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, padding=2, bias=False, affine=affine, act_type='swish', se=0.25),
-    'MB1_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, padding=1, bias=False, affine=affine, act_type='swish', se=0.25),
 
+# global params
+BIAS = False 
+IMAGE_SIZE = 32
+OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'MB6_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'MB3_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'MB3_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, bias=False, affine=affine, act_type='swish'),    
+    'Conv3x3_BN_ReLU': lambda max_in_channels, max_out_channels, stride, affine: \
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='relu'),
+    'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'Conv1x1_BN_ReLU6': lambda max_in_channels, max_out_channels, stride, affine: \
+    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, bias=False, affine=affine, act_type='swish'),
+    'MB6_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish', se=0.25),
+    'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, bias=False, affine=affine, act_type='swish', se=0.25),
+    'MB1_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, bias=False, affine=affine, act_type='swish', se=0.25),
+    'Sep_3x3_N': lambda max_in_channels, max_out_channels, stride, affine:\
+    SepConv_NoMidReLU(max_in_channels, max_out_channels, 3, stride, bias=False, affine=affine, act_type='relu'),
+    'Sep_3x3': lambda max_in_channels, max_out_channels, stride, affine:\
+    SepConv(max_in_channels, max_out_channels, 3, stride, bias=False, affine=affine, act_type='relu'),
 }
 
 class swish(nn.Module):
@@ -59,19 +66,38 @@ def drop_connect(input_, p, training):
     output = input_ / keep_prob * binary_tensor
     return output
 
+from functools import partial
+def get_same_padding_conv2d(image_size=None):
+    return partial(ManualConv2dPad, image_size=image_size)
+
 # Custom Convolution 
-class ManualConv2d(nn.Conv2d):
+class ManualConv2dPad(nn.Conv2d):
     """docstring for ManualConv2d"""
-    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True):
-        super(ManualConv2d, self).__init__(max_in_channels, max_out_channels, max_kernel_size, stride, padding, dilation, groups, bias)
+    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, image_size=None, stride=1, dilation=1, groups=1, bias=True):
+        super(ManualConv2dPad, self).__init__(max_in_channels, max_out_channels, max_kernel_size, stride, dilation, groups, bias)
+
+        # Calculate padding based on image size and save it
+        assert image_size is not None
+        ih, iw = image_size if type(image_size) == list else [image_size, image_size]
+        kh, kw = self.weight.size()[-2:]
+        sh = sw = self.stride
+        oh, ow = math.ceil(ih / sh), math.ceil(iw / sw)
+        pad_h = max((oh - 1) * self.stride[0] + (kh - 1) * self.dilation[0] + 1 - ih, 0)
+        pad_w = max((ow - 1) * self.stride[1] + (kw - 1) * self.dilation[1] + 1 - iw, 0)
+        if pad_h > 0 or pad_w > 0:
+            self.static_padding = nn.ZeroPad2d((pad_w // 2, pad_w - pad_w // 2, pad_h // 2, pad_h - pad_h // 2))
+        else:
+            self.static_padding = Identity()
+
         self._has_bias = bias
         self._max_ksize = max_kernel_size
-        self._padding = padding
+        # self._padding = padding
         self._max_inc = max_in_channels
         self._max_outc = max_out_channels
         self._max_ksize = max_kernel_size
 
     def forward(self, x, in_channels=None, out_channels=None, kernel_size=None, groups=None):
+        x = self.static_padding(x)
         kernel_size = kernel_size if kernel_size  else self._max_ksize
         if in_channels:
             assert in_channels <= self._max_inc, 'in_channels:{}, max_in_channels:{}'.format(in_channels, self._max_inc)
@@ -120,11 +146,15 @@ class ManualLinear(nn.Linear):
     def forward(self, x, in_channels=None, out_channels=None):
         return F.linear(x, self.weight[:out_channels, :in_channels], self.bias[:out_channels] if self._has_bias else self.bias)
 
+
+
+ManualConv2d = get_same_padding_conv2d(IMAGE_SIZE)
+
 class ConvBNActi(nn.Module):
     """docstring for ConvBNActi"""
-    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, padding, bias, affine, act_type):
+    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, bias, affine, act_type):
         super(ConvBNActi, self).__init__()
-        self._conv = ManualConv2d(max_in_channels, max_out_channels, max_kernel_size, stride=stride, padding=padding, bias=bias)
+        self._conv = ManualConv2d(max_in_channels, max_out_channels, max_kernel_size, stride=stride, bias=bias)
         self._bn = ManualBN2d(max_out_channels, affine=affine)
         self._acti = activation(act_type)
         self._max_outc = max_out_channels
@@ -144,11 +174,10 @@ class Identity(nn.Module):
     return x
 
 class DwConvBNActi(nn.Module):
-    """docstring for ConvBNReLU"""
-    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, padding, bias, affine, act_type):
+    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, bias, affine, act_type):
         super(DwConvBNActi, self).__init__()
         assert max_in_channels==max_out_channels
-        self._dwconv = ManualConv2d(max_in_channels, max_in_channels, max_kernel_size, stride=stride, padding=padding, groups=max_in_channels, bias=bias)
+        self._dwconv = ManualConv2d(max_in_channels, max_in_channels, max_kernel_size, stride=stride, groups=max_in_channels, bias=bias)
         self._bn = ManualBN2d(max_in_channels, affine=affine)
         self._acti = activation(act_type)
         self._affine = affine
@@ -178,18 +207,49 @@ class PwConvBNActi(nn.Module):
 
         return x
 
+class  SepConv(nn.Module):
+    """docstring for  SepConv"""
+    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, bias, affine, act_type):
+        super( SepConv, self).__init__()
+        self._max_inc = max_in_channels
+        self._max_outc = max_out_channels
+        self._bias = bias
+        self._affine = affine
+        self._sconv = DwConvBNActi(max_in_channels, max_in_channels, max_kernel_size, stride, bias, affine, act_type) # previous not have this activation
+        self._pconv = PwConvBNActi(max_in_channels, max_out_channels, bias, affine, act_type)
+    def forward(self, x, in_channels=None, out_channels=None, kernel_size=None):
+        x = self._sconv(x, in_channels, in_channels, kernel_size)
+        x = self._pconv(x, in_channels, out_channels, kernel_size)
+        return x
+        
+class  SepConv_NoMidReLU(nn.Module):
+    """docstring for  SepConv"""
+    def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, bias, affine, act_type):
+        super(SepConv_NoMidReLU, self).__init__()
+        self._max_inc = max_in_channels
+        self._max_outc = max_out_channels
+        self._bias = bias
+        self._affine = affine
+        self._sconv = DwConvBNActi(max_in_channels, max_in_channels, max_kernel_size, stride, bias, affine, act_type='none') # previous not have this activation
+        self._pconv = PwConvBNActi(max_in_channels, max_out_channels, bias, affine, act_type)
+    def forward(self, x, in_channels=None, out_channels=None, kernel_size=None):
+        x = self._sconv(x, in_channels, in_channels, kernel_size)
+        x = self._pconv(x, in_channels, out_channels, kernel_size)
+        return x
+        
+
 class MBConv(nn.Module):
     """
     Enable to choose : expand ratio / kernel_size / se / skip / drop connect
     """
-    def __init__(self, max_in_channels, max_out_channels, expand_ratio, max_kernel_size, stride, padding, bias, affine, act_type, se=False, skip=True, drop=False):
+    def __init__(self, max_in_channels, max_out_channels, expand_ratio, max_kernel_size, stride, bias, affine, act_type, se=False, skip=True, drop=False):
         # TODO: Support the drop  connect when training supernet
         super(MBConv, self).__init__()
         self._stride = stride 
         self._expand_ratio =  expand_ratio
         self._bias = bias 
         self._affine = affine
-        self._padding = padding 
+        # self._padding = padding 
         self._act_type = act_type
         self._se = se
         self._skip = skip

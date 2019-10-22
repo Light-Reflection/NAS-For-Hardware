@@ -121,10 +121,10 @@ class Trainer(object):
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
         if mode == 'train':
-            self._model.eval()
+            self._model.train() # Random Net to eval (the params in BN is failed)
         elif mode == 'search':
-            self._model.train() # Replace BN setter
-        elif:
+            self._model.eval() # Replace BN setter
+        else:
             raise NotImplementedError
         self.reset_stats()
         tic = time.time()
