@@ -23,13 +23,16 @@ class AutoModel(object):
             scheduler = torch.optim.lr_scheduler.MultiStepLR,
             criterion = torch.nn.CrossEntropyLoss(),
             data_root = None,
+            save_path = './report',
             rank = 0,
             world_size = 1,
             model = None,
             train_data_loader = None, 
             valid_data_loader = None,
-
-            **kwargs):
+            max_samples = None,
+            target_acc = 100,
+            top_k = 5
+           ):
         """
            A print function which is the same as the original func
 
@@ -45,7 +48,7 @@ class AutoModel(object):
 
         reproducibility(cudnn_mode='deterministic', seed=0)
 
-        logger, writer = set_logger_writer('./testing-10-15')
+        logger, writer = set_logger_writer(save_path)
 
         # output info 
         assert cudnn.benchmark != cudnn.deterministic or cudnn.enabled == False
@@ -64,7 +67,7 @@ class AutoModel(object):
             # model = model.to(device_ids[0])
             model = DDP(model, device_ids = device_ids)
         if data_root:
-            train_queue, valid_queue = load_data(data_root, batch_size=64, num_workers=4)
+            train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
             self._trainer.run()
         else:
@@ -74,18 +77,22 @@ class AutoModel(object):
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
             self._trainer.run()
 
-        self.search(model,5,100,12000)
-
+        self.search(model,top_k,target_acc,max_samples)
+        ite = 0
         for i in self.topk_encoding:
             diction = self.convert_encoding_list_to_dict(i[0])
             resolution_encoding = diction['resolution_encoding']
             channel_encoding = diction['channel_encoding']
             op_encoding = diction['op_encoding']
             model.dispatch(resolution_encoding,channel_encoding, op_encoding)
-        for j in self.subnets:
-            train_queue, valid_queue = load_data(data_root, batch_size=64, num_workers=4)
-            self._trainer = Trainer(j, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
-            self._trainer.run()
+        for j in range(len(self.subnets)):
+            train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
+            self._trainer = Trainer(self.subnets[j], train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size)
+            self.submodelname = ''
+            self.submodelname += '-submodel-number-'
+            self.submodelname += str(j)
+            self._trainer.run(self.submodelname,save_path = save_path,save_frequency= save_frequency)
+            print('*'*20,'Subnet number',ite,'training finished!','*'*20)
 
             
 
