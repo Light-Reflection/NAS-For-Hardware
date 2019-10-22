@@ -258,7 +258,7 @@ class supernet(nn.Module,AutoModel):
         kwargs.setdefault('num_of_ops', 2)
         kwargs.setdefault('division', 1)
         kwargs.setdefault('search_direction', [True, True, True, False]) # resolution/channel/op/ksize
-        kwargs.setdefault('channels', [(32,2), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
+        kwargs.setdefault('channels', [(32,1), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
         kwargs.setdefault('num_of_classes',1000)
         for i,channel_setting in enumerate(kwargs['channels']):
             if isinstance(channel_setting, list):

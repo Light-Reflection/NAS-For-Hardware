@@ -36,6 +36,9 @@ class Trainer(object):
         self._loss = AvgrageMeter()
         self._prec1 = AvgrageMeter()
         self._prec5 = AvgrageMeter()
+        self._bn_setter_init = True
+        self._bn_setter_num_batch = 1
+
 
     def reset_stats(self):
         self._loss.reset()
@@ -112,8 +115,17 @@ class Trainer(object):
     def validate(self):
         self.inference(mode='train')
 
+    # def bn_setter(self, num_batches=1):
+        # get bn setter, if you call this func it will changes the model the bn params
+        
     def predict(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
+        if self._bn_setter_init:
+            # only initalize once
+            self._bn_setter =  BN_Correction(self._model, self._train_queue, self._bn_setter_num_batch)  
+            self._bn_setter_init = False
         print("Into Predict Module......")
+        print("Rest == bn ==")
+        self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(self._prec1.avg)
@@ -148,13 +160,6 @@ class Trainer(object):
             self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
             if self._rank == 0 and mode == 'train':
                 self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
-
-# using trainer
-
-# debug test 
-
-
-
 
 def main(rank, world_size):
     if rank == 0:
