@@ -131,7 +131,6 @@ class LearningPhase:
         i = 0
         path_n = ''.join(path_node)
         while i < m:
-            print(type(sampleFunction))
             X_s = sampleFunction()
             if self.path(X_s) == path_n:
                 X_s_str = '_'.join([str(s) for s in X_s])
@@ -139,9 +138,7 @@ class LearningPhase:
                     return X_s
            
             if (i+1) % 1000 == 0:
-                print('------------------------------------current sample--------------------------------------')
-                print(path_node)
-                print(i)
+                pass
             i += 1
         i = 0
         while i < m:

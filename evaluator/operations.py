@@ -98,7 +98,6 @@ class ManualConv2dPad(nn.Conv2d):
 
         self._has_bias = bias
         self._max_ksize = max_kernel_size
-        # self._padding = padding
         self._max_inc = max_in_channels
         self._max_outc = max_out_channels
         self._max_ksize = max_kernel_size

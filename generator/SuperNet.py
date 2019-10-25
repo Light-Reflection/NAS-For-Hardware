@@ -1,9 +1,9 @@
 import torch 
 import torch.nn as nn
-from dmmo.evaluator.operations import OPS, ManualLinear
+from ..evaluator.operations import OPS, ManualLinear
 import numpy as np
-from dmmo.generator.automodel import AutoModel
-from dmmo.generator.utils import produce_channel_encoding, produce_resolution_encoding, produce_op_encoding, produce_ksize_encoding, print_dict
+from ..generator.automodel import AutoModel
+from ..generator.utils import produce_channel_encoding, produce_resolution_encoding, produce_op_encoding, produce_ksize_encoding, print_dict
 # able to changes layers
 # able to changes search direction/ set diff encoding
 
@@ -43,7 +43,7 @@ class Cell(nn.Module):
             max_out_channels = [max_out_channels]*init_length
         else:
             assert len(max_in_channels) == len(max_out_channels) == init_length, 'The length of in_channel list must be matched'
-        print(self._init_index_list)
+        # print(self._init_index_list)
         for i,init_op_index in enumerate(self._init_index_list):
             self._cell_nets.append(MixOPs(max_in_channels[i], max_out_channels[i], stride if i==0 else 1, affine, to_dispatch, init_op_index))
 
@@ -87,11 +87,9 @@ class supernet(nn.Module,AutoModel):
         self.subnets = []
         stem_inc = 3
         stem_outc = self._channel_init_cfg[0] if to_dispatch else self._stem_cfg[0][0]
-        print('first',stem_outc)
         self._stem.append(OPS['Conv3x3_BN_Act'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine, act_type='swish'))
         stem_inc = stem_outc
         stem_outc = self._channel_init_cfg[1] if to_dispatch else self._stem_cfg[1][0]
-        print('second',stem_outc)
         self._stem.append(OPS['MB1_3x3_se0.25'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[1][1], affine=self._affine))
 
         init_super_cells = self._cells_layers - (len(self._cells_cfg) - 1)  # not include cell 0
