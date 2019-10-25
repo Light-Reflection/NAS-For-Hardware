@@ -26,7 +26,6 @@ class SearchPhase():
     def selectSample(self):
         while len(self.y) < self.initial_sample:
             X_s = self.sampleFunction()
-            print(X_s)
             yield X_s 
 
         self.classifier = LearningPhase(self.X, self.y, self.height(), 1)
