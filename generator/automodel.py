@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from dmmo.runner.train_model import *
 from dmmo.evaluator.Search import Searcher
-
+import time
 class AutoModel(object):
 
 
@@ -47,9 +47,15 @@ class AutoModel(object):
         print("into main .......")
 
         reproducibility(cudnn_mode='deterministic', seed=0)
+<<<<<<< ca0a19293827e2966ea21614c5a069d29988a481
 
         logger, writer = set_logger_writer(save_path)
 
+=======
+        save_path = os.path.join('./{}'.format(self.name), time.strftime("%Y%m%d-%H%M%S"), 'logs')
+        logger, writer = set_logger_writer(save_path)
+        logger.info(model)
+>>>>>>> #7 able to use tensorboardX
         # output info 
         assert cudnn.benchmark != cudnn.deterministic or cudnn.enabled == False
         logger.info('|| torch.backends.cudnn.enabled = %s' % cudnn.enabled)
@@ -75,7 +81,7 @@ class AutoModel(object):
             valid_queue = valid_data_loader
 
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
-            self._trainer.run()
+            self._trainer.run(os.path.join())
 
         self.search(model,top_k,target_acc,max_samples)
         ite = 0
@@ -85,6 +91,7 @@ class AutoModel(object):
             channel_encoding = diction['channel_encoding']
             op_encoding = diction['op_encoding']
             model.dispatch(resolution_encoding,channel_encoding, op_encoding)
+<<<<<<< ca0a19293827e2966ea21614c5a069d29988a481
         for j in range(len(self.subnets)):
             train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
             self._trainer = Trainer(self.subnets[j], train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size)
@@ -93,6 +100,12 @@ class AutoModel(object):
             self.submodelname += str(j)
             self._trainer.run(self.submodelname,save_path = save_path,save_frequency= save_frequency)
             print('*'*20,'Subnet number',ite,'training finished!','*'*20)
+=======
+        for j in self.subnets:
+            train_queue, valid_queue = load_data(data_root, batch_size=64, num_workers=4)
+            self._trainer = Trainer(j, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
+            self._trainer.run(save_path)
+>>>>>>> #7 able to use tensorboardX
 
             
 
