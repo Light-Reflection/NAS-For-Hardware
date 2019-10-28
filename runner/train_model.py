@@ -9,7 +9,6 @@ from tensorboardX import SummaryWriter
 import torch.multiprocessing as mp
 import torchvision
 from dmmo.evaluator.utils import *
-from dmmo.generator.model import MobileNet
 # from dmmo.SuperNet import supernet
 import torch.distributed as dist
 import time
@@ -21,8 +20,8 @@ class Trainer(object):
     def __init__(self, model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank=0, world_size=1):
         super(Trainer, self).__init__()
         self._model = model
-        self._optimizer = optimizer(model.parameters(), lr= 0.2) # set optim **kw later
-        self._scheduler = scheduler(self._optimizer, [180,250]) # set scheduler **kw later
+        self._optimizer = optimizer(model.parameters(), lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
+        self._scheduler = scheduler(self._optimizer, [150,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer
@@ -37,6 +36,9 @@ class Trainer(object):
         self._loss = AvgrageMeter()
         self._prec1 = AvgrageMeter()
         self._prec5 = AvgrageMeter()
+        self._bn_setter_init = True
+        self._bn_setter_num_batch = 1
+
 
     def reset_stats(self):
         self._loss.reset()
@@ -112,16 +114,27 @@ class Trainer(object):
 
     def validate(self):
         self.inference(mode='train')
-
+        
     def predict(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
+        if self._bn_setter_init:
+            # only initalize once
+            self._bn_setter =  BN_Correction(self._model, self._train_queue, self._bn_setter_num_batch)  
+            self._bn_setter_init = False
         print("Into Predict Module......")
+        print("Rest == bn ==")
+        self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         print(self._prec1.avg)
         return self._prec1.avg # Get accuarcy
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
-        self._model.eval()
+        if mode == 'train':
+            self._model.train() # Random Net to eval (the params in BN is failed)
+        elif mode == 'search':
+            self._model.eval() # Replace BN setter
+        else:
+            raise NotImplementedError
         self.reset_stats()
         tic = time.time()
         for step, (inputs, targets) in enumerate(self._valid_queue):
@@ -131,26 +144,19 @@ class Trainer(object):
                     logits = self._model(inputs)
                 elif mode == 'search':
                     logits = self._model.predict(inputs, resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        loss =  self._criterion(logits, targets)
-        prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
-        if self._using_ddp:
-            # Using DDP
-            reduced_loss = reduce_tensor(loss.data, self._wsize)
-            prec1 = reduce_tensor(prec1, self._wsize)
-            prec5 = reduce_tensor(prec5, self._wsize)
-        else:
-            reduced_loss = loss.data
+            loss =  self._criterion(logits, targets)
+            prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
+            if self._using_ddp:
+                # Using DDP
+                reduced_loss = reduce_tensor(loss.data, self._wsize)
+                prec1 = reduce_tensor(prec1, self._wsize)
+                prec5 = reduce_tensor(prec5, self._wsize)
+            else:
+                reduced_loss = loss.data
 
-        self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
-        if self._rank == 0 and mode == 'train':
-            self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
-
-# using trainer
-
-# debug test 
-
-
-
+            self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
+            if self._rank == 0 and mode == 'train':
+                self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
 
 def main(rank, world_size):
     if rank == 0:
@@ -170,22 +176,7 @@ def main(rank, world_size):
         logger.info('|| torch.backends.cudnn.benchmark = %s'% cudnn.benchmark)
         logger.info('|| torch.backends.cudnn.deterministic = %s' % cudnn.deterministic)
         logger.info('|| torch.cuda.initial_seed = %d' % torch.cuda.initial_seed())
-
-# <<<<<<< Updated upstream
-#     # model = MobileNet().cuda()
-#     from SuperNet import SuperNet
-#     from model import MobileNet
-#     net_cfg = {}
-#     net_cfg['layer'] = 10
-#     torch.cuda.set_device(rank)
-#     model = MobileNet().cuda()
-# =======
     model = MobileNet().cuda()
-    #from SuperNet import SuperNet
-    #net_cfg = {}
-    #net_cfg['layer'] = 10
-    #model = SuperNet(net_cfg).cuda()
-# >>>>>>> Stashed changes
     if world_size > 1:
         distribute_set_up(rank, world_size)
         n = torch.cuda.device_count()//world_size # default run all GPUs
@@ -231,8 +222,8 @@ def test(rank, world_size,model):
     trainer.run() # run trainer
 
 
-if __name__ == '__main__':
-    model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
+# if __name__ == '__main__':
+#     model = supernet(num_of_ops = 10,layers = 20,num_of_classes = 2000)
     # main(0,1)
     # must need __main__ func
    

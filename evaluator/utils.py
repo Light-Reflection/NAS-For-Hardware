@@ -10,7 +10,8 @@ import torchvision.transforms as transforms
 import collections
 import torch.distributed as dist
 import torch.backends.cudnn as cudnn
-
+import torch.nn as nn
+import time
 def accuracy(output, target, topk=(1,)):
     maxk = max(topk)
     batch_size = target.size(0)
@@ -105,7 +106,7 @@ def cifar10_data_transform():
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        # transforms.Normalize(cfg['data_mean'], cfg['data_std']),
+        transforms.Normalize([0.49139968, 0.48215827, 0.44653124], [0.24703233, 0.24348505, 0.26158768]),
         ])
 
     # if cfg['cutout']:
@@ -113,7 +114,7 @@ def cifar10_data_transform():
 
     valid_transform = transforms.Compose([
         transforms.ToTensor(),
-        # transforms.Normalize(cfg['data_mean'], cfg['data_std']),
+        transforms.Normalize([0.49139968, 0.48215827, 0.44653124], [0.24703233, 0.24348505, 0.26158768]),
         ])
     return train_transform, valid_transform
 
@@ -157,3 +158,48 @@ def load_model(model, load_path, strict=True):
       model.load_state_dict(model_dict)
 
     return model
+
+
+class BN_Correction(object):
+    """docstring for BN_Correction"""
+    def __init__(self, model, train_queue, num_bacthes=4, logger=None):
+        super(BN_Correction, self).__init__()
+        self.model = model
+        self.logger = logger
+        num_bn = 0
+
+        for layer in self.model.modules():
+            if isinstance(layer, nn.BatchNorm2d):
+                layer.momentum = 1
+                num_bn += 1
+        if self.logger:
+          self.logger.info('Number of BN momentumn reset: {}'.format(num_bn))
+        raw_data = []
+        count = 0
+        for data,_ in train_queue:
+            raw_data.append(data)
+            count += 1
+            if count >= num_bacthes:
+                break
+        self.data = torch.cat(raw_data, dim=0)
+        # assert h == w == img_dim, (h, w, img_dim)
+
+        self.data = self.data.cuda()
+
+        # self.save is deleted in this script 
+
+    def __call__(self):
+        print("Rest BN")
+        # net_idx = str(self.model.net_id)
+        # if self.logger:
+        #   self.logger.info("Reseting BN running stats in Net_idx: {}".format(net_idx))
+        torch.cuda.synchronize()
+        tic = time.time()
+        self.model.train()
+        with torch.no_grad():
+          _ = self.model(self.data)
+        torch.cuda.synchronize()
+        toc = time.time()
+        if self.logger:
+          self.logger.info("Reset BN running stats cost time:{:.1f} s".format(toc-tic))
+
