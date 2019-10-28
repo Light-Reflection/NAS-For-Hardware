@@ -2,4 +2,6 @@
 ./generator/__pycache__/*
 ./runner/__pycache__/*
 ./__pycache__/*
+./methods/learning_action_space/__pycache__/*
+./methods/__pycache__/*
 
