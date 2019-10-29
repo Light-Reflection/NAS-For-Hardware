@@ -118,12 +118,13 @@ class Trainer(object):
             # only initalize once
             self._bn_setter =  BN_Correction(self._model, self._train_queue, self._bn_setter_num_batch)  
             self._bn_setter_init = False
-        print("Into Predict Module......")
-        print("Rest == bn ==")
+        self._logger.info("Into Predict Module......")
+        self._logger.info("======== Rest bn =========")
         self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        print(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        print(self._prec1.avg)
+        self._logger.info('Net encoding:')
+        self._logger.info(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
+        self._logger.info('net Prec1 avg: %s', self._prec1.avg)
         return self._prec1.avg # Get accuarcy
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):

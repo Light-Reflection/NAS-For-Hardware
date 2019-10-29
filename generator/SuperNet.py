@@ -18,7 +18,6 @@ class  MixOPs(nn.Module):
         self._mix_ops = nn.ModuleList()
         if to_dispatch:
             # only support single op in the mix ops for now 
-            print('designed mix op')
             self._mix_ops.append(OPS[PRIMITIVES[init_op_index]](max_in_channels, max_out_channels, stride, affine))
         else:
             for primitive in PRIMITIVES:
