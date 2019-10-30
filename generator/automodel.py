@@ -2,19 +2,19 @@ import torch
 import torch.nn as nn
 from dmmo.runner.train_model import *
 from dmmo.evaluator.Search import Searcher
+import time
 
 class AutoModel(object):
-
-
-
     def __init__(self,
                  name='auto_model',
                  maxtime=60* 60 * 3,
-                 seed=None):
+                 seed=None,
+                 ):
         self.name = name
         self.tuner = None
         self.maxtime = maxtime
         self.seed = seed
+
 
 
     def fit(self,
@@ -31,7 +31,9 @@ class AutoModel(object):
             valid_data_loader = None,
             max_samples = 1000000,
             target_acc = 100,
-            top_k = 5
+            top_k = 5,
+            batch_size=128,
+            **kwargs,
            ):
         """
            A print function which is the same as the original func
@@ -44,11 +46,10 @@ class AutoModel(object):
 
         :return: no return a nn.Module modle: tok_k submodels of supernet
         """
-        print("into main .......")
-
         reproducibility(cudnn_mode='deterministic', seed=0)
-
+        save_path = os.path.join('./{}'.format(self.name), time.strftime("%Y%m%d-%H%M%S"), 'logs')
         logger, writer = set_logger_writer(save_path)
+        logger.info(model)
 
         # output info 
         assert cudnn.benchmark != cudnn.deterministic or cudnn.enabled == False
@@ -60,6 +61,8 @@ class AutoModel(object):
         valid_queue = valid_data_loader
     
         if world_size > 1:
+            if rank == 0:
+                logger.info(' ## You are using DDP ##')
             distribute_set_up(rank, world_size)
             n = torch.cuda.device_count()//world_size # default run all GPUs
             device_ids = list(range(rank * n, (rank + 1)*n))    
@@ -67,7 +70,7 @@ class AutoModel(object):
             # model = model.to(device_ids[0])
             model = DDP(model, device_ids = device_ids)
         if data_root:
-            train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
+            train_queue, valid_queue = load_data(data_root, batch_size=batch_size, num_workers=4)
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
             self._trainer.run()
         else:
@@ -75,7 +78,7 @@ class AutoModel(object):
             valid_queue = valid_data_loader
 
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
-            self._trainer.run()
+            self._trainer.run(save_path=os.path.join(save_path, 'checkpoints'))
 
         self.search(model,top_k,target_acc,max_samples)
         ite = 0
@@ -91,8 +94,9 @@ class AutoModel(object):
             self.submodelname = ''
             self.submodelname += '-submodel-number-'
             self.submodelname += str(j)
-            self._trainer.run(self.submodelname,save_path = save_path,save_frequency= save_frequency)
+            self._trainer.run(save_path = os.path.join(save_path, self.submodelname))
             print('*'*20,'Subnet number',ite,'training finished!','*'*20)
+
 
             
 

@@ -90,8 +90,12 @@ def create_exp_dir(path, scripts_to_save=None):
             for script in scripts_to_save:
                 dst_file = os.path.join(path, 'scripts', os.path.basename(script))
                 shutil.copyfile(script, dst_file)
-            
 
+def check_path(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+    else:
+        print('Save path is exists')
 
 def setup_logger(path, name):
     log_format = '%(asctime)s %(message)s'

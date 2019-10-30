@@ -28,8 +28,6 @@ class Trainer(object):
         self._epoch = epoch
         self._rank = rank
         self._wsize = world_size
-        # self._current_epoch = 0
-        # self._epoch_size = len(self._train_data)//batch_size
         self._using_ddp = world_size > 1
         self._train_queue = train_queue
         self._valid_queue = valid_queue
@@ -50,12 +48,12 @@ class Trainer(object):
         self._prec1.update(prec1, bs)
         self._prec5.update(prec5, bs)
 
-    def write_stats(self, step, loss, prec1, prec5, phase):
-        self._writer.add_scalar('{}_loss'.format(phase), loss, step)
-        self._writer.add_scalar('{}_prec1'.format(phase), prec1, step)
-        self._writer.add_scalar('{}_prec5'.format(phase), prec5, step)
+    def write_stats(self, epoch, loss, prec1, prec5, phase):
+        self._writer.add_scalar('{}_loss'.format(phase), loss, epoch)
+        self._writer.add_scalar('{}_prec1'.format(phase), prec1, epoch)
+        self._writer.add_scalar('{}_prec5'.format(phase), prec5, epoch)
 
-    def run(self, start_epoch=0, save_path='.'):
+    def run(self, start_epoch=0, save_path='./logs/'):
         best_prec = 0
         save_frequency = 50
         for current_epoch in range(start_epoch, self._epoch):
@@ -99,7 +97,6 @@ class Trainer(object):
             self._optimizer.step()
 
             prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
-            # iters = (self._current_epoch-1) * epoch_size + step 
             if self._using_ddp:
                 # Using DDP
                 reduced_loss = reduce_tensor(loss.data, self._wsize)
@@ -111,6 +108,7 @@ class Trainer(object):
             self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
             if step % report_freq == 0 and self._rank == 0: # set rank for logger
                 self._logger.info('train: %03d | loss: %e | prec1:%f | prec5: %f', step, self._loss.avg, self._prec1.avg, self._prec5.avg)
+        self.write_stats(self._current_epoch, reduced_loss, prec1, prec5, 'train')
 
     def validate(self):
         self.inference(mode='train')
@@ -120,12 +118,13 @@ class Trainer(object):
             # only initalize once
             self._bn_setter =  BN_Correction(self._model, self._train_queue, self._bn_setter_num_batch)  
             self._bn_setter_init = False
-        print("Into Predict Module......")
-        print("Rest == bn ==")
+        self._logger.info("Into Predict Module......")
+        self._logger.info("======== Rest bn =========")
         self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        print(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-        print(self._prec1.avg)
+        self._logger.info('Net encoding:')
+        self._logger.info(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
+        self._logger.info('net Prec1 avg: %s', self._prec1.avg)
         return self._prec1.avg # Get accuarcy
 
     def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
