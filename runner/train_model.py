@@ -17,16 +17,19 @@ import datetime
 # parser.add_argument("--local_rank", default=0, type=int)
 class Trainer(object):
     """docstring for Trainer"""
-    def __init__(self, model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank=0, world_size=1):
+    def __init__(self, model, train_queue, valid_queue, epoch, optimizer, \
+        scheduler, criterion, logger, writer, rank=0, world_size=1, stats='S'):
         super(Trainer, self).__init__()
         self._model = model
-        self._optimizer = optimizer(model.parameters(), lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
+        self._optimizer = optimizer(model.parameters(), \
+        lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
         self._scheduler = scheduler(self._optimizer, [150,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
         self._writer = writer
         self._epoch = epoch
         self._rank = rank
+        self._stats = stats
         self._wsize = world_size
         self._using_ddp = world_size > 1
         self._train_queue = train_queue
@@ -54,6 +57,7 @@ class Trainer(object):
         self._writer.add_scalar('{}_prec5'.format(phase), prec5, epoch)
 
     def run(self, start_epoch=0, save_path='./logs/'):
+        check_path(save_path) # create path if not exists 
         best_prec = 0
         save_frequency = 50
         for current_epoch in range(start_epoch, self._epoch):
@@ -63,8 +67,8 @@ class Trainer(object):
             self.train_epoch()
             torch.cuda.synchronize()
             if self._rank == 0:
-                self._logger.info('Epoch %03d | Time: %s | train_acc %f | learning_rate %s', current_epoch, 
-                    str(datetime.timedelta(seconds=round(time.time()-tic))), self._prec1.avg, str(self._scheduler.get_lr()))
+                self._logger.info('Epoch %03d | Time: %s | train_acc %f | learning_rate %s', \
+                    current_epoch, str(datetime.timedelta(seconds=round(time.time()-tic))), self._prec1.avg, str(self._scheduler.get_lr()))
             if current_epoch % save_frequency == 0 and self._rank == 0 :
                 save_model(self._model, os.path.join(save_path, 'Epoch{}.pt'.format(current_epoch)))
 
@@ -108,10 +112,18 @@ class Trainer(object):
             self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
             if step % report_freq == 0 and self._rank == 0: # set rank for logger
                 self._logger.info('train: %03d | loss: %e | prec1:%f | prec5: %f', step, self._loss.avg, self._prec1.avg, self._prec5.avg)
-        self.write_stats(self._current_epoch, reduced_loss, prec1, prec5, 'train')
+        if self._rank == 0:
+            self.write_stats(self._current_epoch, reduced_loss, prec1, prec5, self._stats+'_train')
 
     def validate(self):
-        self.inference(mode='train')
+        if self._stats == 'S':
+            self._logger.info("Val SuperNet")
+            self.inference(mode='trainS')
+        elif  'D' in self._stats:
+            self._logger.info("Val DispatchNet")
+            self.inference(mode='trainD')
+        else:
+            raise ValueError('Check Trainer stats')
         
     def predict(self, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
         if self._bn_setter_init:
@@ -123,15 +135,16 @@ class Trainer(object):
         self._bn_setter()
         self.inference('search', resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         self._logger.info('Net encoding:')
-        self._logger.info(resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
+        self._logger.info('resolution_encoding:%s ; channel_encoding:%s; op_encoding:%s; ksize_encoding:%s',\
+            resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
         self._logger.info('net Prec1 avg: %s', self._prec1.avg)
         return self._prec1.avg # Get accuarcy
 
-    def inference(self, mode='train', resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
-        if mode == 'train':
-            self._model.train() # Random Net to eval (the params in BN is failed)
-        elif mode == 'search':
-            self._model.eval() # Replace BN setter
+    def inference(self, mode, resolution_encoding=None, channel_encoding=None, op_encoding=None, ksize_encoding=None):
+        if mode == 'trainS':
+            self._model.train() # Train SuperNet 
+        elif mode == 'search' or mode == 'trainD':
+            self._model.eval() # Search SUperNet and Train Dispatch
         else:
             raise NotImplementedError
         self.reset_stats()
@@ -139,10 +152,11 @@ class Trainer(object):
         for step, (inputs, targets) in enumerate(self._valid_queue):
             with torch.no_grad():
                 inputs, targets = inputs.cuda(), targets.cuda()
-                if mode == 'train':
-                    logits = self._model(inputs)
+                if 'train' in mode:
+                    logits = self._model(inputs) # Train Net
                 elif mode == 'search':
-                    logits = self._model.predict(inputs, resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
+                    logits = self._model.predict(inputs, \
+                        resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
             loss =  self._criterion(logits, targets)
             prec1, prec5 = accuracy(logits, targets, topk=(1, 5))
             if self._using_ddp:
@@ -154,8 +168,8 @@ class Trainer(object):
                 reduced_loss = loss.data
 
             self.update_stats(reduced_loss.item(), prec1.item(), prec5.item(), inputs.size(0))
-            if self._rank == 0 and mode == 'train':
-                self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, 'valid')
+            if self._rank == 0 and 'train' in mode:
+                self.write_stats(self._current_epoch, self._loss.avg, self._prec1.avg, self._prec5.avg, self._stats+'_valid')
 
 def main(rank, world_size):
     if rank == 0:
