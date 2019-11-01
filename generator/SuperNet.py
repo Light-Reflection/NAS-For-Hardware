@@ -67,7 +67,6 @@ class supernet(nn.Module,AutoModel):
                      op_encoding=None, 
                      ksize_encoding=None,
                      name = None,
-                     max_parameters = None,
                      constrain = None,
                      **kwargs): 
 
@@ -78,7 +77,6 @@ class supernet(nn.Module,AutoModel):
         self.constrain = constrain
         self.config = kwargs
         self.name = name
-        self.max_parameters = max_parameters
         self.build_supernet_cfg(kwargs,to_dispatch)
         self.combination = dict()
         self.manual_set_init_cfg(resolution_encoding, channel_encoding, op_encoding, ksize_encoding) # if all None it will do nothing
@@ -338,8 +336,8 @@ class supernet(nn.Module,AutoModel):
         resolution_encoding,channel_encoding,op_encoding,net_encoding_list =helper()
         parameter = get_model_parameters_number(self.dispatch_eval(resolution_encoding,channel_encoding, op_encoding))
         
-        if self.max_parameters:
-            while parameter > self.max_parameters:
+        if self.constrain:
+            while parameter > self.constrain:
                 print('*'*24,'over sized parameters')
                 resolution_encoding,channel_encoding,op_encoding,net_encoding_list =helper()
                 parameter = get_model_parameters_number(self.dispatch_eval(resolution_encoding,channel_encoding, op_encoding))
