@@ -95,7 +95,7 @@ class AutoModel(object):
             self.submodelname = 'submodel-number-{}-checkpoints'.format(j)
             self._trainer.run(save_path = os.path.join(save_path, self.submodelname))
             print('*'*20,'Subnet number',ite,'training finished!','*'*20)
-
+            ite +=1
 
             
 
