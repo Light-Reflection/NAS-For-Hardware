@@ -135,13 +135,13 @@ class supernet(nn.Module,AutoModel):
         """
         self.set_run_cfg(mode, resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
 
-        if self.constrain:
-            para = self.count_submodel_parameter(self._channel_cfg,self._op_cfg)
-            while para > self.constrain:
+        if self.constrain and mode == 'train':
+            # para = self.count_submodel_parameter(self._channel_cfg,self._op_cfg)
+            while self.count_submodel_parameter(self._channel_cfg,self._op_cfg) > self.constrain:
                 #print('~'*20,'The parameter amount of this model is:',para,'~'*20)
                 #print('~'*20,'over sized model random again','~'*20)
                 self.set_run_cfg(mode, resolution_encoding, channel_encoding, op_encoding, ksize_encoding)
-                para = self.count_submodel_parameter(self._channel_cfg,self._op_cfg)
+                # para = self.count_submodel_parameter(self._channel_cfg,self._op_cfg)
         index_layer = 0
         for i,stem_layer in enumerate(self._stem):
             x = stem_layer(x, self._channel_cfg[index_layer], self._channel_cfg[index_layer+1], self._ksize_cfg[index_layer])
