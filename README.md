@@ -19,7 +19,7 @@ pip install -e dmmo
 
 The work flow with the code execution is illustrated as below:
 
-<img src="/home/dm/Desktop/dmmodoc/doc/source/imgs/workflow.jpg" alt="Workflow" style="zoom: 50%;" />
+<img src="./img/workflow.png" alt="Workflow" style="zoom: 30%;" />
 
 ### Initialize SuperNet
 
@@ -66,10 +66,7 @@ model.fit(model= model,
          data_root = '/home/dm/data/CIFAR',
          epoch = 100)
          
-# save trained model
-
-model.save(save_path = 'save_path')
-model.evaluate
+# model will automatically save to the path  you specify
 ```
 
 https://gitlab.dm-ai.cn/yuanliuchun/DMMO-MG
