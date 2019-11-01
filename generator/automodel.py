@@ -29,7 +29,7 @@ class AutoModel(object):
             model = None,
             train_data_loader = None, 
             valid_data_loader = None,
-            max_samples = 1000000,
+            max_samples = 100,
             target_acc = 100,
             top_k = 5,
             batch_size=128,
@@ -49,7 +49,7 @@ class AutoModel(object):
         reproducibility(cudnn_mode='deterministic', seed=0)
         save_path = os.path.join('./{}'.format(self.name), time.strftime("%Y%m%d-%H%M%S"), 'logs')
         logger, writer = set_logger_writer(save_path)
-        logger.info(model)
+        #logger.info(model)
 
         # output info 
         assert cudnn.benchmark != cudnn.deterministic or cudnn.enabled == False
@@ -78,7 +78,7 @@ class AutoModel(object):
             valid_queue = valid_data_loader
 
             self._trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size) # init trainer
-            self._trainer.run(save_path=os.path.join(save_path, 'checkpoints'))
+            self._trainer.run(save_path=os.path.join(save_path, 'SuperNet-checkpoints'))
 
         self.search(model,top_k,target_acc,max_samples)
         ite = 0
@@ -90,10 +90,9 @@ class AutoModel(object):
             model.dispatch(resolution_encoding,channel_encoding, op_encoding)
         for j in range(len(self.subnets)):
             train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
-            self._trainer = Trainer(self.subnets[j], train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size)
-            self.submodelname = ''
-            self.submodelname += '-submodel-number-'
-            self.submodelname += str(j)
+            self._trainer = Trainer(self.subnets[j], train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size, stats='D'+str(j))
+            # Train DispatchNet 
+            self.submodelname = 'submodel-number-{}-checkpoints'.format(j)
             self._trainer.run(save_path = os.path.join(save_path, self.submodelname))
             print('*'*20,'Subnet number',ite,'training finished!','*'*20)
 
