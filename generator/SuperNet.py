@@ -1,9 +1,9 @@
 import torch 
 import torch.nn as nn
-from ..evaluator.operations import OPS, ManualLinear
+from .operations import OPS, ManualLinear
 import numpy as np
-from ..generator.automodel import AutoModel
-from ..generator.utils import produce_channel_encoding, produce_resolution_encoding, produce_op_encoding, produce_ksize_encoding, print_dict
+from .automodel import AutoModel
+from .utils import produce_channel_encoding, produce_resolution_encoding, produce_op_encoding, produce_ksize_encoding, print_dict
 # able to changes layers
 # able to changes search direction/ set diff encoding
 
@@ -377,7 +377,6 @@ class supernet(nn.Module,AutoModel):
         """
         : return: The parameter amount of submodel
         """
-        from ..evaluator.operations import OPS, ManualLinear
         ops0 = OPS['MB6_3x3_se0.25']
         ops1 = OPS['MB6_5x5_se0.25']
         count = 0

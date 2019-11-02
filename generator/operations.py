@@ -306,15 +306,3 @@ class MBConv(nn.Module):
             x = x + inputs
 
         return x
-
-
-if __name__ == '__main__':
-    # x = torch.ones((1,3,6,6))
-    # conv2d = nn.Conv2d(5, 5, 3, groups=5)
-    # # print(conv2d.weight.shape)
-    # mconv2d = ManualConv2d(6, 6, 3, groups=6)
-    # print(mconv2d.weight.shape)
-    # y = mconv2d(x, 3, 3)
-    # print(mconv2d.weight)
-    op = MBConv(3, 3, 3, 3, 1, 1, False, False, 'relu6', 0.25, True, 0.1)
-    print(op(torch.rand(3,3,6,6)))
