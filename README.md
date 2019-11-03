@@ -19,7 +19,7 @@ pip install -e dmmo
 
 The work flow with the code execution is illustrated as below:
 
-<img src="/home/dm/Desktop/dmmodoc/doc/source/imgs/workflow.jpg" alt="Workflow" style="zoom: 50%;" />
+<img src="./img/workflow.png" alt="Workflow" style="zoom: 30%;" />
 
 ### Initialize SuperNet
 
@@ -66,11 +66,48 @@ model.fit(model= model,
          data_root = '/home/dm/data/CIFAR',
          epoch = 100)
          
-# save trained model
-
-model.save(save_path = 'save_path')
-model.evaluate
+# model will automatically save to the path  you specify
 ```
 
-https://gitlab.dm-ai.cn/yuanliuchun/DMMO-MG
+### Configurations
 
+#### Configurations for SuperNet
+
+    """
+    To set your own configuration for supernet, you just need to add those parameters while 
+    supernet is initionized.
+    """
+    layers = 19  # the maximun layers the supernet will have 
+    affine = True # whether used affine
+    num_of_ops = 2 # the numbers of operations you want to search
+    division =  1 # the diversity of channels the supernet 
+    search_direction =  [True, True, True, False]) # resolution/channel/op/ksize
+    channels =  [(32,2), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) 
+    num_of_classes = 1000 # the numbers of classese
+#### configurations for training searching and submodel
+
+    # training configurations
+    epoch = 350 # training iteration numbers of supernet
+    optimizer = torch.optim.SGD 
+    scheduler = torch.optim.lr_scheduler.MultiStepLR 
+    criterion = torch.nn.CrossEntropyLoss()
+    batch_size=128
+    
+    # data configurations
+    data_root = None # specify data root
+    save_path = './report' # the where you want to save the output models
+    train_data_loader = None
+    valid_data_loader = None
+    
+    # ditribution configurations
+    rank = 0
+    world_size = 1
+    
+    # search configurations
+    max_samples = 100
+    target_acc = 100
+    
+    # submodel configuratons
+    top_k = 5
+    constrain = 4000000 # 4M
+https://gitlab.dm-ai.cn/yuanliuchun/DMMO-MG
