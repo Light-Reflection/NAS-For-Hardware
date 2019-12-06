@@ -36,12 +36,6 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     SepConv(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
 }
 
-
-
-
-
-
-
 ####################################################################
 ############## Design Your Basic Operations ########################
 ####################################################################
