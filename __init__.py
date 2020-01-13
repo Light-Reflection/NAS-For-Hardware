@@ -4,4 +4,6 @@ from .runner.train_model import *
 from .evaluator.Search import Searcher
 from .generator.efficientnet import EfficientNet
 from .generator.mobilenet import MobileNet
+from .evaluator import flops_counter
+from .hardware import *
 # from dmmo.methods import SearchPhase

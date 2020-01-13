@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch
 import numpy as np
-# NOTE: modify from evaluator 
+# NOTE: modify from evaluator
 def get_model_complexity_info(model, input_res, print_per_layer_stat=True, as_strings=True):
     assert type(input_res) is tuple
     assert len(input_res) == 3

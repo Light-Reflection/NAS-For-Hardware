@@ -4,4 +4,5 @@
 ./__pycache__/*
 ./methods/learning_action_space/__pycache__/*
 ./methods/__pycache__/*
+./hardware/__pycache__/*
 

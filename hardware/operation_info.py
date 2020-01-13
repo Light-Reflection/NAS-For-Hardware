@@ -33,7 +33,7 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
     print('flops:{}, params:{}'.format(flops, params))
     inputs = list(input_shape)
     inputs.insert(0, batch_size)
-    inputs = torch.randn(inputs).cuda()
+    inputs = torch.randn(inputs)
     if platform == 'GPU':
         print("="*20+" GPU Testing "+'='*20)
         op.cuda()
@@ -42,10 +42,11 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
         print("="*20+" CPU Testing "+'='*20)
 
     op.eval()
+
     warm_up(op, inputs)
     all_t = []
     for _ in range(TEST_TIMES):
-        all_t.append(get_latency(op, inputs))
+        all_t.append(get_latency(op, inputs)/batch_size)
     t_mean, t_var = cal_mean_var(all_t)
     return t_mean, t_var
 
@@ -58,7 +59,7 @@ def cal_mean_var(alist):
     return mean, var
 
 def get_latency(op, inputs, nums_data=1000):
-    # return the cost time of processing one data
+    # return the cost time of processing one bacth data
     with torch.no_grad():
         torch.cuda.synchronize()
         tic = time.time()
@@ -75,8 +76,13 @@ if __name__ == '__main__':
         return params_num
     ops = OPS['MB6_3x3'](3, 32, 1, False)
     print(get_model_parameters_number(ops))
-    print(get_op_info(ops, input_shape=(3,28,28), batch_size=64, platform='GPU'))
+    print(get_op_info(ops, input_shape=(3,28,28), batch_size=256, platform='CPU'))
 
 
+"""
+INFO. Input=28, bs=256
+      OP                  |  Params(Bytes) |   Macs      |CPU Running Time | GPU Running Time  
+MB6_3x3(3, 32, 1, False)  |   792          |  674.24 K   | 0.00016         |                  
 
+"""
 
