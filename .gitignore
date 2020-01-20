@@ -6,3 +6,6 @@
 ./methods/__pycache__/*
 ./hardware/__pycache__/*
 
+/images/
+/gan/data/
+/generator/.SuperNet.py.swp
