@@ -1,0 +1,158 @@
+2020-04-01 01:21:40,516 - ops_gpu - INFO - batch size: 128
+2020-04-01 01:21:40,516 - ops_gpu - INFO - platform: GPU
+2020-04-01 01:21:40,516 - ops_gpu - INFO - input shape: (3, 32, 32)
+2020-04-01 01:21:54,489 - ops_gpu - INFO - Op: MB3_5x5(3, 32, 1, False), params: 540 B, flops: 0.000604 GMac, mean of time: 5.090079580744108e-06, var of time: 1.0890617651520816e-16
+2020-04-01 01:21:56,614 - ops_gpu - INFO - Op: MB3_5x5(3, 32, 2, False), params: 540 B, flops: 0.000179 GMac, mean of time: 2.713546777764956e-06, var of time: 4.007977416003387e-15
+2020-04-01 01:22:03,141 - ops_gpu - INFO - Op: MB6_5x5(3, 32, 1, False), params: 1.08 k, flops: 0.001176 GMac, mean of time: 8.416388183832169e-06, var of time: 7.779580662540613e-15
+2020-04-01 01:22:06,554 - ops_gpu - INFO - Op: MB6_5x5(3, 32, 2, False), params: 1.08 k, flops: 0.000349 GMac, mean of time: 4.360858350992203e-06, var of time: 3.841637267557961e-15
+2020-04-01 01:22:10,091 - ops_gpu - INFO - Op: MB3_3x3(3, 32, 1, False), params: 396 B, flops: 0.000457 GMac, mean of time: 4.600939651330313e-06, var of time: 1.5103235204921247e-14
+2020-04-01 01:22:12,147 - ops_gpu - INFO - Op: MB3_3x3(3, 32, 2, False), params: 396 B, flops: 0.000142 GMac, mean of time: 2.6223460833231607e-06, var of time: 9.67552349197104e-16
+2020-04-01 01:22:17,806 - ops_gpu - INFO - Op: MB6_3x3(3, 32, 1, False), params: 792 B, flops: 0.000881 GMac, mean of time: 7.258432606856028e-06, var of time: 2.8856509414229864e-14
+2020-04-01 01:22:21,004 - ops_gpu - INFO - Op: MB6_3x3(3, 32, 2, False), params: 792 B, flops: 0.000275 GMac, mean of time: 4.178640122214953e-06, var of time: 2.158898815351408e-14
+2020-04-01 01:22:21,004 - ops_gpu - INFO - input shape: (32, 32, 32)
+2020-04-01 01:22:49,959 - ops_gpu - INFO - Op: MB3_5x5(32, 16, 1, False), params: 7.008 k, flops: 0.007389 GMac, mean of time: 3.7596434354782106e-05, var of time: 4.409580665193386e-14
+2020-04-01 01:23:06,977 - ops_gpu - INFO - Op: MB3_5x5(32, 16, 2, False), params: 7.008 k, flops: 0.00428 GMac, mean of time: 2.2112894803285596e-05, var of time: 3.8828482373799065e-15
+2020-04-01 01:24:03,617 - ops_gpu - INFO - Op: MB6_5x5(32, 16, 1, False), params: 14.016 k, flops: 0.014762 GMac, mean of time: 7.369696286817393e-05, var of time: 1.5477289295865422e-15
+2020-04-01 01:24:36,623 - ops_gpu - INFO - Op: MB6_5x5(32, 16, 2, False), params: 14.016 k, flops: 0.008557 GMac, mean of time: 4.2914568136135735e-05, var of time: 1.347353022284512e-14
+2020-04-01 01:25:01,105 - ops_gpu - INFO - Op: MB3_3x3(32, 16, 1, False), params: 5.472 k, flops: 0.005816 GMac, mean of time: 3.186290959517161e-05, var of time: 5.978730435112271e-16
+2020-04-01 01:25:17,071 - ops_gpu - INFO - Op: MB3_3x3(32, 16, 2, False), params: 5.472 k, flops: 0.003887 GMac, mean of time: 2.0750068128108975e-05, var of time: 2.6213714631832468e-14
+2020-04-01 01:26:04,840 - ops_gpu - INFO - Op: MB6_3x3(32, 16, 1, False), params: 10.944 k, flops: 0.011616 GMac, mean of time: 6.227218545973301e-05, var of time: 2.8782405829079446e-14
+2020-04-01 01:26:36,014 - ops_gpu - INFO - Op: MB6_3x3(32, 16, 2, False), params: 10.944 k, flops: 0.00777 GMac, mean of time: 4.044082264105479e-05, var of time: 7.275118563903495e-15
+2020-04-01 01:26:36,015 - ops_gpu - INFO - input shape: (16, 32, 32)
+2020-04-01 01:26:51,139 - ops_gpu - INFO - Op: MB3_5x5(16, 24, 1, False), params: 3.12 k, flops: 0.003318 GMac, mean of time: 1.9755571459730468e-05, var of time: 1.427842275047385e-14
+2020-04-01 01:26:59,661 - ops_gpu - INFO - Op: MB3_5x5(16, 24, 2, False), params: 3.12 k, flops: 0.001456 GMac, mean of time: 1.1092246199647584e-05, var of time: 1.9292625729225545e-14
+2020-04-01 01:27:28,795 - ops_gpu - INFO - Op: MB6_5x5(16, 24, 1, False), params: 6.24 k, flops: 0.006611 GMac, mean of time: 3.790716951092084e-05, var of time: 9.064583746418726e-15
+2020-04-01 01:27:45,417 - ops_gpu - INFO - Op: MB6_5x5(16, 24, 2, False), params: 6.24 k, flops: 0.002906 GMac, mean of time: 2.168473539253076e-05, var of time: 6.205984983394124e-14
+2020-04-01 01:27:58,185 - ops_gpu - INFO - Op: MB3_3x3(16, 24, 1, False), params: 2.352 k, flops: 0.002531 GMac, mean of time: 1.654827470580737e-05, var of time: 7.115712043049968e-14
+2020-04-01 01:28:06,265 - ops_gpu - INFO - Op: MB3_3x3(16, 24, 2, False), params: 2.352 k, flops: 0.00126 GMac, mean of time: 1.0531568899750711e-05, var of time: 2.1884413013243777e-14
+2020-04-01 01:28:30,782 - ops_gpu - INFO - Op: MB6_3x3(16, 24, 1, False), params: 4.704 k, flops: 0.005038 GMac, mean of time: 3.1942252690593405e-05, var of time: 4.024905403024737e-14
+2020-04-01 01:28:46,694 - ops_gpu - INFO - Op: MB6_3x3(16, 24, 2, False), params: 4.704 k, flops: 0.002513 GMac, mean of time: 2.0698492725690206e-05, var of time: 1.01888828809972e-13
+2020-04-01 01:28:46,694 - ops_gpu - INFO - input shape: (24, 16, 16)
+2020-04-01 01:28:52,952 - ops_gpu - INFO - Op: MB3_5x5(24, 32, 1, False), params: 5.832 k, flops: 0.001538 GMac, mean of time: 8.023792877793314e-06, var of time: 1.4121571844753184e-14
+2020-04-01 01:28:56,700 - ops_gpu - INFO - Op: MB3_5x5(24, 32, 2, False), params: 5.832 k, flops: 0.00073 GMac, mean of time: 4.842456430196762e-06, var of time: 2.157110060944471e-14
+2020-04-01 01:29:08,352 - ops_gpu - INFO - Op: MB6_5x5(24, 32, 1, False), params: 11.664 k, flops: 0.003068 GMac, mean of time: 1.5125894298156101e-05, var of time: 2.4188549805101924e-15
+2020-04-01 01:29:15,415 - ops_gpu - INFO - Op: MB6_5x5(24, 32, 2, False), params: 11.664 k, flops: 0.001458 GMac, mean of time: 9.20199602842331e-06, var of time: 2.7756269548965678e-14
+2020-04-01 01:29:20,692 - ops_gpu - INFO - Op: MB3_3x3(24, 32, 1, False), params: 4.68 k, flops: 0.001243 GMac, mean of time: 6.8983839203914e-06, var of time: 1.7466298910282206e-14
+2020-04-01 01:29:24,062 - ops_gpu - INFO - Op: MB3_3x3(24, 32, 2, False), params: 4.68 k, flops: 0.000656 GMac, mean of time: 4.419649640719096e-06, var of time: 2.5117692604838182e-14
+2020-04-01 01:29:33,850 - ops_gpu - INFO - Op: MB6_3x3(24, 32, 1, False), params: 9.36 k, flops: 0.002478 GMac, mean of time: 1.269452211757501e-05, var of time: 1.4896910229298158e-14
+2020-04-01 01:29:40,260 - ops_gpu - INFO - Op: MB6_3x3(24, 32, 2, False), params: 9.36 k, flops: 0.001311 GMac, mean of time: 8.161809916297594e-06, var of time: 1.1143518083597991e-15
+2020-04-01 01:29:40,260 - ops_gpu - INFO - input shape: (32, 8, 8)
+2020-04-01 01:29:42,692 - ops_gpu - INFO - Op: MB3_5x5(32, 64, 1, False), params: 11.616 k, flops: 0.00076 GMac, mean of time: 3.0624028295278545e-06, var of time: 5.761297776583443e-14
+2020-04-01 01:29:44,481 - ops_gpu - INFO - Op: MB3_5x5(32, 64, 2, False), params: 11.616 k, flops: 0.000342 GMac, mean of time: 2.3087412118911745e-06, var of time: 6.476615794596492e-16
+2020-04-01 01:29:48,897 - ops_gpu - INFO - Op: MB6_5x5(32, 64, 1, False), params: 23.232 k, flops: 0.001516 GMac, mean of time: 5.742788314819336e-06, var of time: 3.2953540590741074e-16
+2020-04-01 01:29:51,760 - ops_gpu - INFO - Op: MB6_5x5(32, 64, 2, False), params: 23.232 k, flops: 0.000683 GMac, mean of time: 3.7693182627360026e-06, var of time: 1.714530465133121e-15
+2020-04-01 01:29:53,771 - ops_gpu - INFO - Op: MB3_3x3(32, 64, 1, False), params: 10.08 k, flops: 0.000662 GMac, mean of time: 2.6422031223773955e-06, var of time: 5.858136684078144e-16
+2020-04-01 01:29:55,572 - ops_gpu - INFO - Op: MB3_3x3(32, 64, 2, False), params: 10.08 k, flops: 0.000317 GMac, mean of time: 2.293276290098826e-06, var of time: 5.00345580553871e-16
+2020-04-01 01:29:59,279 - ops_gpu - INFO - Op: MB6_3x3(32, 64, 1, False), params: 20.16 k, flops: 0.001319 GMac, mean of time: 4.881767556071282e-06, var of time: 5.0187776434729194e-15
+2020-04-01 01:30:01,736 - ops_gpu - INFO - Op: MB6_3x3(32, 64, 2, False), params: 20.16 k, flops: 0.000634 GMac, mean of time: 3.263726830482483e-06, var of time: 1.7116894237649117e-14
+2020-04-01 01:30:01,737 - ops_gpu - INFO - input shape: (64, 4, 4)
+2020-04-01 01:30:03,611 - ops_gpu - INFO - Op: MB3_5x5(64, 96, 1, False), params: 35.52 k, flops: 0.000576 GMac, mean of time: 2.3530529191096624e-06, var of time: 1.3415214733833742e-15
+2020-04-01 01:30:05,426 - ops_gpu - INFO - Op: MB3_5x5(64, 96, 2, False), params: 35.52 k, flops: 0.000294 GMac, mean of time: 2.311587333679199e-06, var of time: 8.866472648675685e-16
+2020-04-01 01:30:08,443 - ops_gpu - INFO - Op: MB6_5x5(64, 96, 1, False), params: 71.04 k, flops: 0.00115 GMac, mean of time: 3.843465199073156e-06, var of time: 1.3001626378140834e-14
+2020-04-01 01:30:10,872 - ops_gpu - INFO - Op: MB6_5x5(64, 96, 2, False), params: 71.04 k, flops: 0.000587 GMac, mean of time: 3.1954608857631687e-06, var of time: 8.28653185190134e-15
+2020-04-01 01:30:12,606 - ops_gpu - INFO - Op: MB3_3x3(64, 96, 1, False), params: 32.448 k, flops: 0.000527 GMac, mean of time: 2.243978902697563e-06, var of time: 4.9118808557550544e-17
+2020-04-01 01:30:14,405 - ops_gpu - INFO - Op: MB3_3x3(64, 96, 2, False), params: 32.448 k, flops: 0.000281 GMac, mean of time: 2.3130606859922406e-06, var of time: 4.495246098967791e-15
+2020-04-01 01:30:16,876 - ops_gpu - INFO - Op: MB6_3x3(64, 96, 1, False), params: 64.896 k, flops: 0.001052 GMac, mean of time: 3.182602425416311e-06, var of time: 4.0462293093229036e-14
+2020-04-01 01:30:18,835 - ops_gpu - INFO - Op: MB6_3x3(64, 96, 2, False), params: 64.896 k, flops: 0.000563 GMac, mean of time: 2.435188740491867e-06, var of time: 1.3216302829910383e-14
+2020-04-01 01:30:18,835 - ops_gpu - INFO - input shape: (96, 4, 4)
+2020-04-01 01:30:21,347 - ops_gpu - INFO - Op: MB3_5x5(96, 160, 1, False), params: 80.928 k, flops: 0.001307 GMac, mean of time: 3.2219688097635905e-06, var of time: 5.1330575829967726e-14
+2020-04-01 01:30:23,477 - ops_gpu - INFO - Op: MB3_5x5(96, 160, 2, False), params: 80.928 k, flops: 0.000662 GMac, mean of time: 2.655435974399249e-06, var of time: 4.357774699734486e-15
+2020-04-01 01:30:28,337 - ops_gpu - INFO - Op: MB6_5x5(96, 160, 1, False), params: 161.856 k, flops: 0.002611 GMac, mean of time: 6.2911231070756916e-06, var of time: 6.553817037679966e-15
+2020-04-01 01:30:32,014 - ops_gpu - INFO - Op: MB6_5x5(96, 160, 2, False), params: 161.856 k, flops: 0.001323 GMac, mean of time: 4.693344856301943e-06, var of time: 2.2136773688039295e-14
+2020-04-01 01:30:34,081 - ops_gpu - INFO - Op: MB3_3x3(96, 160, 1, False), params: 76.32 k, flops: 0.001233 GMac, mean of time: 2.6395743091901144e-06, var of time: 2.2843558279540627e-15
+2020-04-01 01:30:35,838 - ops_gpu - INFO - Op: MB3_3x3(96, 160, 2, False), params: 76.32 k, flops: 0.000643 GMac, mean of time: 2.2533300022284192e-06, var of time: 5.566010923767994e-17
+2020-04-01 01:30:39,828 - ops_gpu - INFO - Op: MB6_3x3(96, 160, 1, False), params: 152.64 k, flops: 0.002463 GMac, mean of time: 5.185502891739209e-06, var of time: 5.1670446447728084e-15
+2020-04-01 01:30:42,650 - ops_gpu - INFO - Op: MB6_3x3(96, 160, 2, False), params: 152.64 k, flops: 0.001286 GMac, mean of time: 3.525251522660256e-06, var of time: 6.73860436640565e-14
+2020-04-01 01:30:42,650 - ops_gpu - INFO - input shape: (160, 2, 2)
+2020-04-01 01:30:45,116 - ops_gpu - INFO - Op: MB3_5x5(160, 320, 1, False), params: 242.4 k, flops: 0.000975 GMac, mean of time: 3.1447168439626694e-06, var of time: 3.4028297873911456e-14
+2020-04-01 01:30:47,390 - ops_gpu - INFO - Op: MB3_5x5(160, 320, 2, False), params: 242.4 k, flops: 0.000476 GMac, mean of time: 2.8629836936791734e-06, var of time: 6.855741563184386e-15
+2020-04-01 01:30:51,660 - ops_gpu - INFO - Op: MB6_5x5(160, 320, 1, False), params: 484.8 k, flops: 0.001948 GMac, mean of time: 5.465356012185415e-06, var of time: 5.699672315907729e-16
+2020-04-01 01:30:55,811 - ops_gpu - INFO - Op: MB6_5x5(160, 320, 2, False), params: 484.8 k, flops: 0.000951 GMac, mean of time: 5.426929642756779e-06, var of time: 4.156097318920432e-15
+2020-04-01 01:30:57,780 - ops_gpu - INFO - Op: MB3_3x3(160, 320, 1, False), params: 234.72 k, flops: 0.000944 GMac, mean of time: 2.57414144774278e-06, var of time: 8.39848345112688e-15
+2020-04-01 01:30:59,548 - ops_gpu - INFO - Op: MB3_3x3(160, 320, 2, False), params: 234.72 k, flops: 0.000468 GMac, mean of time: 2.2903699427843095e-06, var of time: 1.336984990311501e-16
+2020-04-01 01:31:02,688 - ops_gpu - INFO - Op: MB6_3x3(160, 320, 1, False), params: 469.44 k, flops: 0.001887 GMac, mean of time: 4.199671869476637e-06, var of time: 3.1056333052294075e-14
+2020-04-01 01:31:05,256 - ops_gpu - INFO - Op: MB6_3x3(160, 320, 2, False), params: 469.44 k, flops: 0.000935 GMac, mean of time: 3.265229985117912e-06, var of time: 2.85661425162657e-14
+2020-04-01 01:31:05,257 - ops_gpu - INFO - input shape: (320, 2, 2)
+2020-04-01 01:39:02,213 - ops_gpu - INFO - batch size: 128
+2020-04-01 01:39:02,213 - ops_gpu - INFO - platform: GPU
+2020-04-01 01:39:02,213 - ops_gpu - INFO - input shape: (3, 32, 32)
+2020-04-01 01:39:10,430 - ops_gpu - INFO - Op: MB3_5x5(3, 32, 1, False), params: 540 B, flops: 0.000604 GMac, mean of time: 4.987594361106555e-06, var of time: 7.511301146654075e-15
+2020-04-01 01:39:12,654 - ops_gpu - INFO - Op: MB3_5x5(3, 32, 2, False), params: 540 B, flops: 0.000179 GMac, mean of time: 2.853207290172577e-06, var of time: 1.347685749340338e-14
+2020-04-01 01:39:19,063 - ops_gpu - INFO - Op: MB6_5x5(3, 32, 1, False), params: 1.08 k, flops: 0.001176 GMac, mean of time: 8.349317436416944e-06, var of time: 4.500963940754243e-14
+2020-04-01 01:39:22,427 - ops_gpu - INFO - Op: MB6_5x5(3, 32, 2, False), params: 1.08 k, flops: 0.000349 GMac, mean of time: 4.308337345719338e-06, var of time: 1.5759927390889559e-16
+2020-04-01 01:39:25,797 - ops_gpu - INFO - Op: MB3_3x3(3, 32, 1, False), params: 396 B, flops: 0.000457 GMac, mean of time: 4.388460889458656e-06, var of time: 9.227801321676263e-15
+2020-04-01 01:39:27,878 - ops_gpu - INFO - Op: MB3_3x3(3, 32, 2, False), params: 396 B, flops: 0.000142 GMac, mean of time: 2.564400434494018e-06, var of time: 6.094452298608753e-14
+2020-04-01 01:39:33,489 - ops_gpu - INFO - Op: MB6_3x3(3, 32, 1, False), params: 792 B, flops: 0.000881 GMac, mean of time: 7.185688863197963e-06, var of time: 1.0602659503453391e-14
+2020-04-01 01:39:36,682 - ops_gpu - INFO - Op: MB6_3x3(3, 32, 2, False), params: 792 B, flops: 0.000275 GMac, mean of time: 4.094190895557403e-06, var of time: 1.3284518293280934e-14
+2020-04-01 01:39:36,683 - ops_gpu - INFO - input shape: (32, 32, 32)
+2020-04-01 01:40:05,095 - ops_gpu - INFO - Op: MB3_5x5(32, 16, 1, False), params: 7.008 k, flops: 0.007389 GMac, mean of time: 3.699295843640963e-05, var of time: 2.8850377973966056e-15
+2020-04-01 01:40:21,791 - ops_gpu - INFO - Op: MB3_5x5(32, 16, 2, False), params: 7.008 k, flops: 0.00428 GMac, mean of time: 2.157876640558243e-05, var of time: 2.984409491988809e-14
+2020-04-01 01:41:17,107 - ops_gpu - INFO - Op: MB6_5x5(32, 16, 1, False), params: 14.016 k, flops: 0.014762 GMac, mean of time: 7.192061593135199e-05, var of time: 4.5467048562075924e-14
+2020-04-01 01:41:49,594 - ops_gpu - INFO - Op: MB6_5x5(32, 16, 2, False), params: 14.016 k, flops: 0.008557 GMac, mean of time: 4.24165315926075e-05, var of time: 3.835226657089574e-15
+2020-04-01 01:42:13,736 - ops_gpu - INFO - Op: MB3_3x3(32, 16, 1, False), params: 5.472 k, flops: 0.005816 GMac, mean of time: 3.139982310434183e-05, var of time: 2.5162449805099558e-14
+2020-04-01 01:42:29,336 - ops_gpu - INFO - Op: MB3_3x3(32, 16, 2, False), params: 5.472 k, flops: 0.003887 GMac, mean of time: 2.0334411412477493e-05, var of time: 4.475671661989078e-16
+2020-04-01 01:43:16,263 - ops_gpu - INFO - Op: MB6_3x3(32, 16, 1, False), params: 10.944 k, flops: 0.011616 GMac, mean of time: 6.107623999317488e-05, var of time: 3.340253954064409e-14
+2020-04-01 01:43:46,934 - ops_gpu - INFO - Op: MB6_3x3(32, 16, 2, False), params: 10.944 k, flops: 0.00777 GMac, mean of time: 4.000197785596053e-05, var of time: 1.221919098365645e-13
+2020-04-01 01:43:46,934 - ops_gpu - INFO - input shape: (16, 32, 32)
+2020-04-01 01:44:01,737 - ops_gpu - INFO - Op: MB3_5x5(16, 24, 1, False), params: 3.12 k, flops: 0.003318 GMac, mean of time: 1.918118509153525e-05, var of time: 7.917279108550322e-14
+2020-04-01 01:44:10,091 - ops_gpu - INFO - Op: MB3_5x5(16, 24, 2, False), params: 3.12 k, flops: 0.001456 GMac, mean of time: 1.0857277239362397e-05, var of time: 5.3872126899106455e-14
+2020-04-01 01:44:38,569 - ops_gpu - INFO - Op: MB6_5x5(16, 24, 1, False), params: 6.24 k, flops: 0.006611 GMac, mean of time: 3.707713757952055e-05, var of time: 1.0262556680234352e-14
+2020-04-01 01:44:55,151 - ops_gpu - INFO - Op: MB6_5x5(16, 24, 2, False), params: 6.24 k, flops: 0.002906 GMac, mean of time: 2.1544391910235085e-05, var of time: 3.807853431489659e-15
+2020-04-01 01:45:07,753 - ops_gpu - INFO - Op: MB3_3x3(16, 24, 1, False), params: 2.352 k, flops: 0.002531 GMac, mean of time: 1.635793410241604e-05, var of time: 1.5743380418764767e-15
+2020-04-01 01:45:15,653 - ops_gpu - INFO - Op: MB3_3x3(16, 24, 2, False), params: 2.352 k, flops: 0.00126 GMac, mean of time: 1.0226008171836537e-05, var of time: 3.09165175250828e-15
+2020-04-01 01:45:39,715 - ops_gpu - INFO - Op: MB6_3x3(16, 24, 1, False), params: 4.704 k, flops: 0.005038 GMac, mean of time: 3.120660906036695e-05, var of time: 7.154974356820893e-15
+2020-04-01 01:45:55,317 - ops_gpu - INFO - Op: MB6_3x3(16, 24, 2, False), params: 4.704 k, flops: 0.002513 GMac, mean of time: 2.0322435225049654e-05, var of time: 1.3326284622873246e-14
+2020-04-01 01:45:55,317 - ops_gpu - INFO - input shape: (24, 16, 16)
+2020-04-01 01:46:01,483 - ops_gpu - INFO - Op: MB3_5x5(24, 32, 1, False), params: 5.832 k, flops: 0.001538 GMac, mean of time: 8.05043677488963e-06, var of time: 4.413178772267913e-15
+2020-04-01 01:46:05,129 - ops_gpu - INFO - Op: MB3_5x5(24, 32, 2, False), params: 5.832 k, flops: 0.00073 GMac, mean of time: 4.744112491607666e-06, var of time: 7.568759898685114e-14
+2020-04-01 01:46:16,648 - ops_gpu - INFO - Op: MB6_5x5(24, 32, 1, False), params: 11.664 k, flops: 0.003068 GMac, mean of time: 1.4911000927289326e-05, var of time: 6.218994758364345e-14
+2020-04-01 01:46:23,687 - ops_gpu - INFO - Op: MB6_5x5(24, 32, 2, False), params: 11.664 k, flops: 0.001458 GMac, mean of time: 9.070402632157007e-06, var of time: 2.719458184644341e-14
+2020-04-01 01:46:28,873 - ops_gpu - INFO - Op: MB3_3x3(24, 32, 1, False), params: 4.68 k, flops: 0.001243 GMac, mean of time: 6.732529650131861e-06, var of time: 6.3054563568932894e-15
+2020-04-01 01:46:32,151 - ops_gpu - INFO - Op: MB3_3x3(24, 32, 2, False), params: 4.68 k, flops: 0.000656 GMac, mean of time: 4.239082957307498e-06, var of time: 7.134383920751358e-14
+2020-04-01 01:46:41,748 - ops_gpu - INFO - Op: MB6_3x3(24, 32, 1, False), params: 9.36 k, flops: 0.002478 GMac, mean of time: 1.2382810935378075e-05, var of time: 7.043262993666756e-15
+2020-04-01 01:46:48,023 - ops_gpu - INFO - Op: MB6_3x3(24, 32, 2, False), params: 9.36 k, flops: 0.001311 GMac, mean of time: 8.119308700164159e-06, var of time: 3.978826456579195e-15
+2020-04-01 01:46:48,023 - ops_gpu - INFO - input shape: (32, 8, 8)
+2020-04-01 01:46:50,312 - ops_gpu - INFO - Op: MB3_5x5(32, 64, 1, False), params: 11.616 k, flops: 0.00076 GMac, mean of time: 2.7517707397540413e-06, var of time: 3.6258137650470206e-14
+2020-04-01 01:46:52,175 - ops_gpu - INFO - Op: MB3_5x5(32, 64, 2, False), params: 11.616 k, flops: 0.000342 GMac, mean of time: 2.3939721286296843e-06, var of time: 3.534747059867137e-15
+2020-04-01 01:46:56,605 - ops_gpu - INFO - Op: MB6_5x5(32, 64, 1, False), params: 23.232 k, flops: 0.001516 GMac, mean of time: 5.728282655278842e-06, var of time: 1.335551571495726e-14
+2020-04-01 01:46:59,492 - ops_gpu - INFO - Op: MB6_5x5(32, 64, 2, False), params: 23.232 k, flops: 0.000683 GMac, mean of time: 3.7158355116844177e-06, var of time: 8.05266909635154e-15
+2020-04-01 01:47:01,536 - ops_gpu - INFO - Op: MB3_3x3(32, 64, 1, False), params: 10.08 k, flops: 0.000662 GMac, mean of time: 2.6945589731136957e-06, var of time: 3.873414460086535e-14
+2020-04-01 01:47:03,301 - ops_gpu - INFO - Op: MB3_3x3(32, 64, 2, False), params: 10.08 k, flops: 0.000317 GMac, mean of time: 2.2552938510974254e-06, var of time: 4.932582220759927e-16
+2020-04-01 01:47:06,813 - ops_gpu - INFO - Op: MB6_3x3(32, 64, 1, False), params: 20.16 k, flops: 0.001319 GMac, mean of time: 4.483706007401149e-06, var of time: 1.5545973365868926e-14
+2020-04-01 01:47:09,297 - ops_gpu - INFO - Op: MB6_3x3(32, 64, 2, False), params: 20.16 k, flops: 0.000634 GMac, mean of time: 3.186254451672236e-06, var of time: 2.740175006883515e-14
+2020-04-01 01:47:09,297 - ops_gpu - INFO - input shape: (64, 4, 4)
+2020-04-01 01:47:11,126 - ops_gpu - INFO - Op: MB3_5x5(64, 96, 1, False), params: 35.52 k, flops: 0.000576 GMac, mean of time: 2.3069195449352265e-06, var of time: 1.5844383050948419e-15
+2020-04-01 01:47:12,858 - ops_gpu - INFO - Op: MB3_5x5(64, 96, 2, False), params: 35.52 k, flops: 0.000294 GMac, mean of time: 2.19629518687725e-06, var of time: 3.634483917528683e-18
+2020-04-01 01:47:15,845 - ops_gpu - INFO - Op: MB6_5x5(64, 96, 1, False), params: 71.04 k, flops: 0.00115 GMac, mean of time: 3.789267192284266e-06, var of time: 3.3193371600730802e-15
+2020-04-01 01:47:18,201 - ops_gpu - INFO - Op: MB6_5x5(64, 96, 2, False), params: 71.04 k, flops: 0.000587 GMac, mean of time: 2.94283094505469e-06, var of time: 9.17715430970609e-14
+2020-04-01 01:47:19,964 - ops_gpu - INFO - Op: MB3_3x3(64, 96, 1, False), params: 32.448 k, flops: 0.000527 GMac, mean of time: 2.2659096866846084e-06, var of time: 3.0717772769861827e-16
+2020-04-01 01:47:21,741 - ops_gpu - INFO - Op: MB3_3x3(64, 96, 2, False), params: 32.448 k, flops: 0.000281 GMac, mean of time: 2.2535336514314014e-06, var of time: 3.734114021078728e-17
+2020-04-01 01:47:24,081 - ops_gpu - INFO - Op: MB6_3x3(64, 96, 1, False), params: 64.896 k, flops: 0.001052 GMac, mean of time: 2.8618530680735903e-06, var of time: 1.414884020878613e-13
+2020-04-01 01:47:26,031 - ops_gpu - INFO - Op: MB6_3x3(64, 96, 2, False), params: 64.896 k, flops: 0.000563 GMac, mean of time: 2.4736008296410242e-06, var of time: 2.222560350191429e-14
+2020-04-01 01:47:26,031 - ops_gpu - INFO - input shape: (96, 4, 4)
+2020-04-01 01:47:28,508 - ops_gpu - INFO - Op: MB3_5x5(96, 160, 1, False), params: 80.928 k, flops: 0.001307 GMac, mean of time: 3.1087845563888547e-06, var of time: 1.675148663069874e-14
+2020-04-01 01:47:30,658 - ops_gpu - INFO - Op: MB3_5x5(96, 160, 2, False), params: 80.928 k, flops: 0.000662 GMac, mean of time: 2.811405807733536e-06, var of time: 4.6268795769281305e-14
+2020-04-01 01:47:35,364 - ops_gpu - INFO - Op: MB6_5x5(96, 160, 1, False), params: 161.856 k, flops: 0.002611 GMac, mean of time: 6.131282697121302e-06, var of time: 4.6968959886551935e-15
+2020-04-01 01:47:38,958 - ops_gpu - INFO - Op: MB6_5x5(96, 160, 2, False), params: 161.856 k, flops: 0.001323 GMac, mean of time: 4.727705071369807e-06, var of time: 3.177286649135798e-14
+2020-04-01 01:47:41,081 - ops_gpu - INFO - Op: MB3_3x3(96, 160, 1, False), params: 76.32 k, flops: 0.001233 GMac, mean of time: 2.7066655457019804e-06, var of time: 5.801410964354861e-14
+2020-04-01 01:47:42,844 - ops_gpu - INFO - Op: MB3_3x3(96, 160, 2, False), params: 76.32 k, flops: 0.000643 GMac, mean of time: 2.267201741536458e-06, var of time: 3.0401347257525644e-16
+2020-04-01 01:47:46,768 - ops_gpu - INFO - Op: MB6_3x3(96, 160, 1, False), params: 152.64 k, flops: 0.002463 GMac, mean of time: 5.063360556960106e-06, var of time: 1.6465954481847974e-14
+2020-04-01 01:47:49,539 - ops_gpu - INFO - Op: MB6_3x3(96, 160, 2, False), params: 152.64 k, flops: 0.001286 GMac, mean of time: 3.6245795587698616e-06, var of time: 2.7360766021660664e-15
+2020-04-01 01:47:49,539 - ops_gpu - INFO - input shape: (160, 2, 2)
+2020-04-01 01:47:51,960 - ops_gpu - INFO - Op: MB3_5x5(160, 320, 1, False), params: 242.4 k, flops: 0.000975 GMac, mean of time: 3.1858757138252262e-06, var of time: 3.2465674405790494e-14
+2020-04-01 01:47:54,185 - ops_gpu - INFO - Op: MB3_5x5(160, 320, 2, False), params: 242.4 k, flops: 0.000476 GMac, mean of time: 2.9739799598852795e-06, var of time: 8.052527366282494e-14
+2020-04-01 01:47:58,221 - ops_gpu - INFO - Op: MB6_5x5(160, 320, 1, False), params: 484.8 k, flops: 0.001948 GMac, mean of time: 5.265806491176287e-06, var of time: 3.443756120624031e-14
+2020-04-01 01:48:02,325 - ops_gpu - INFO - Op: MB6_5x5(160, 320, 2, False), params: 484.8 k, flops: 0.000951 GMac, mean of time: 5.2516249318917586e-06, var of time: 2.475932797520023e-15
+2020-04-01 01:48:04,292 - ops_gpu - INFO - Op: MB3_3x3(160, 320, 1, False), params: 234.72 k, flops: 0.000944 GMac, mean of time: 2.4853826810916262e-06, var of time: 2.8873551784060073e-14
+2020-04-01 01:48:06,147 - ops_gpu - INFO - Op: MB3_3x3(160, 320, 2, False), params: 234.72 k, flops: 0.000468 GMac, mean of time: 2.3696546753247575e-06, var of time: 5.938536984692894e-16
+2020-04-01 01:48:09,267 - ops_gpu - INFO - Op: MB6_3x3(160, 320, 1, False), params: 469.44 k, flops: 0.001887 GMac, mean of time: 4.0723153700431195e-06, var of time: 1.4914912320088444e-13
+2020-04-01 01:48:11,662 - ops_gpu - INFO - Op: MB6_3x3(160, 320, 2, False), params: 469.44 k, flops: 0.000935 GMac, mean of time: 3.115864470601082e-06, var of time: 8.865033889841422e-15
+2020-04-01 01:48:11,662 - ops_gpu - INFO - input shape: (320, 2, 2)
+2020-04-01 01:48:17,367 - ops_gpu - INFO - Op: MB3_5x5(320, 1280, 1, False), params: 1.56 M, flops: 0.006253 GMac, mean of time: 7.182446618874868e-06, var of time: 3.255710715682152e-15
+2020-04-01 01:48:22,635 - ops_gpu - INFO - Op: MB3_5x5(320, 1280, 2, False), params: 1.56 M, flops: 0.002488 GMac, mean of time: 6.770007312297822e-06, var of time: 3.475442107714324e-15
+2020-04-01 01:48:33,343 - ops_gpu - INFO - Op: MB6_5x5(320, 1280, 1, False), params: 3.12 M, flops: 0.0125 GMac, mean of time: 1.3858327021201453e-05, var of time: 7.80863201028782e-15
+2020-04-01 01:48:42,792 - ops_gpu - INFO - Op: MB6_5x5(320, 1280, 2, False), params: 3.12 M, flops: 0.004974 GMac, mean of time: 1.2308130661646524e-05, var of time: 6.795410545225162e-15
+2020-04-01 01:48:47,459 - ops_gpu - INFO - Op: MB3_3x3(320, 1280, 1, False), params: 1.5446 M, flops: 0.006191 GMac, mean of time: 6.040639554460843e-06, var of time: 3.6064884026718326e-16
+2020-04-01 01:48:51,109 - ops_gpu - INFO - Op: MB3_3x3(320, 1280, 2, False), params: 1.5446 M, flops: 0.002472 GMac, mean of time: 4.596564918756485e-06, var of time: 4.206371149543616e-15
+2020-04-01 01:49:00,087 - ops_gpu - INFO - Op: MB6_3x3(320, 1280, 1, False), params: 3.0893 M, flops: 0.012378 GMac, mean of time: 1.1717229460676512e-05, var of time: 8.359174746687297e-15
+2020-04-01 01:49:06,502 - ops_gpu - INFO - Op: MB6_3x3(320, 1280, 2, False), params: 3.0893 M, flops: 0.004943 GMac, mean of time: 8.423742527763048e-06, var of time: 5.608162203457013e-14
