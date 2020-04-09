@@ -44,6 +44,17 @@ def weights_init_normal(m):
     elif classname.find("BatchNorm2d") != -1:
         torch.nn.init.normal_(m.weight.data, 1.0, 0.02)
         torch.nn.init.constant_(m.bias.data, 0.0)
+from .operations import ManualConv2d
+class SuperGenerator(nn.Module):
+    def __init__(self):
+        super(SuperGenerator, self).__init__()
+        self.init_size = opt.img_size // 4
+        self.l1 = nn.Sequential(nn.Linear(opt.latent_dim, 128 * self.init_size ** 2))
+        self.conv_blocks = nn.Sequential(
+            nn.BatchNorm2d(128),
+            nn.Upsample()
+        )
+
 
 
 class Generator(nn.Module):
@@ -139,7 +150,7 @@ discriminator.apply(weights_init_normal)
 """ GAN data loader """
 from gan.dataloader import LFWDataset
 from torch.utils.data import DataLoader
-dataset = LFWDataset(root_dir='/media/dm/d/Projects/dmmo/gan/data/your-dataset/aligned/lfw', transforms=transforms.ToTensor())
+dataset = LFWDataset(root_dir='/media/dm/d/Projects/Brandom_Amos/data/dcgan-completion.tensorflow/data/your-dataset/celeba_aligned/img_align_celeba', transforms=transforms.ToTensor())
 dataloader = DataLoader(dataset, batch_size=opt.batch_size, shuffle=True)
 
 # Optimizers

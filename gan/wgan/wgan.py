@@ -20,7 +20,7 @@ os.makedirs("images", exist_ok=True)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n_epochs", type=int, default=200, help="number of epochs of training")
-parser.add_argument("--batch_size", type=int, default=64, help="size of the batches")
+parser.add_argument("--batch_size", type=int, default=128, help="size of the batches")
 parser.add_argument("--lr", type=float, default=0.00005, help="learning rate")
 parser.add_argument("--n_cpu", type=int, default=8, help="number of cpu threads to use during batch generation")
 parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
@@ -35,6 +35,78 @@ print(opt)
 img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
+from generator.operations import ManualConv2d, ManualLinear, ManualBN1d
+
+class manual_block(nn.Module):
+    def __init__(self, max_inc, max_outc, normalize=True):
+        super(manual_block, self).__init__()
+        self._linear = ManualLinear(max_in_channels=max_inc, max_out_channels=max_outc)
+        self._norm = normalize
+        if self._norm:
+            self._bn = ManualBN1d(max_outc, 0.8)
+        self._acti = nn.LeakyReLU(0.2, inplace=True)
+
+    def forward(self, x, inc=None, outc=None):
+        # print(inc, outc)
+        x = self._linear(x, inc, outc)
+        if self._norm:
+            x = self._bn(x, outc)
+        x = self._acti(x)
+        return x
+
+
+
+class SuperGen(nn.Module):
+    def __init__(self, width=1.0):
+        super(SuperGen, self).__init__()
+        self.cfg = [128, 256, 512, 1024]
+        if width>1:
+            self.cfg = self.expand_cfg(width)
+
+        self.model = nn.ModuleList()
+
+        max_inc = opt.latent_dim
+        for i, max_outc in enumerate(self.cfg):
+            if i == 0:
+                self.model.append(manual_block(max_inc, max_outc, normalize=False))
+            else:
+                self.model.append(manual_block(max_inc, max_outc))
+            max_inc = max_outc
+
+        last_max_channel = self.cfg[-1]
+        self.linear = ManualLinear(last_max_channel, int(np.prod(img_shape)))
+        self.tanh = nn.Tanh()
+
+    def forward(self, x, mode='part', nums=2):
+        if mode == 'part':
+            c_encoding = self.produce_encoding(nums) # or using some convert function
+        else:
+            c_encoding = self.cfg
+        inc = opt.latent_dim
+        for block, outc in zip(self.model, c_encoding):
+            x = block(x, int(inc), int(outc))
+            inc = outc
+
+        last_channel = int(c_encoding[-1])
+        x = self.linear(x, in_channels=last_channel)
+        x = self.tanh(x)
+        x = x.view(x.shape[0], *img_shape)
+        return x
+
+    def expand_cfg(self, factor=1):
+        new_cfg = []
+        for chs in self.cfg:
+            new_cfg.append(chs*factor)
+        return new_cfg
+
+    def produce_encoding(self, nums=2):
+        lens = len(self.cfg)
+        ori_enc = np.random.randint(1, nums+1, size=lens)
+        forword_cfg = []
+        for chs, multi in zip(self.cfg, ori_enc):
+            chs = chs * multi / nums
+            forword_cfg.append(chs)
+        return forword_cfg
 
 
 class Generator(nn.Module):
@@ -83,7 +155,9 @@ class Discriminator(nn.Module):
 
 # Initialize generator and discriminator
 generator = Generator()
+# generator = SuperGen()
 discriminator = Discriminator()
+
 
 if cuda:
     generator.cuda()
@@ -102,13 +176,13 @@ if cuda:
 #     shuffle=True,
 # )
 """load asian celeba """
-mean = np.array([0.485, 0.456, 0.406])
-std = np.array([0.229, 0.224, 0.225])
-data_dir = './'
-import torchvision
-dataset = datasets.ImageFolder(data_dir,
-                               transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean, std)]),
-                               )
+#mean = np.array([0.485, 0.456, 0.406])
+#std = np.array([0.229, 0.224, 0.225])
+#data_dir = './'
+#import torchvision
+#dataset = datasets.ImageFolder(data_dir,
+#                               transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean, std)]),
+#                               )
 
 
 """load lfw"""
@@ -146,6 +220,8 @@ for epoch in range(opt.n_epochs):
         z = Variable(Tensor(np.random.normal(0, 1, (imgs.shape[0], opt.latent_dim))))
 
         # Generate a batch of images
+        # print(type(generator))
+        # print(generator(z))
         fake_imgs = generator(z).detach()
         # Adversarial loss
         loss_D = -torch.mean(discriminator(real_imgs)) + torch.mean(discriminator(fake_imgs))
@@ -180,5 +256,5 @@ for epoch in range(opt.n_epochs):
             )
 
         if batches_done % opt.sample_interval == 0:
-            save_image(gen_imgs.data[:25], "./gan/wgan/images-{}/{}.png".format(1,batches_done), nrow=5, normalize=True)
+            save_image(gen_imgs.data[:25], "./gan/wgan/images-{}/{}.png".format(2,batches_done), nrow=5, normalize=True)
         batches_done += 1

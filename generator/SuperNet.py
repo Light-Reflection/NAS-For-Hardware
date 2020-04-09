@@ -7,7 +7,7 @@ from .utils import produce_channel_encoding, produce_resolution_encoding, produc
 # able to changes layers
 # able to changes search direction/ set diff encoding
 
-PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25']
+PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25', 'MB3_3x3_se0.25', 'MB3_5x5_se0.25']
 
 class  MixOPs(nn.Module):
     """docstring for  MixOPs"""

@@ -22,8 +22,8 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type=act_type),
     'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish'),
-    'Conv1x1_BN_Act': lambda max_in_channels, max_out_channels, stride, affine, act_type: \
-    ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, bias=BIAS, affine=affine, act_type=act_type),
+    #'Conv1x1_BN_Act': lambda max_in_channels, max_out_channels, stride, affine, act_type: \
+    #ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=1, stride=stride, bias=BIAS, affine=affine, act_type=act_type),
     'MB6_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
     'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
@@ -34,7 +34,9 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     SepConv_NoMidReLU(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
     'Sep_3x3': lambda max_in_channels, max_out_channels, stride, affine:\
     SepConv(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
-}
+    'Sep_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
+    SepConv(max_in_channels, max_out_channels, 5, stride, bias=BIAS, affine=affine, act_type='relu'),
+    }
 
 ####################################################################
 ############## Design Your Basic Operations ########################

@@ -40,13 +40,17 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
         inputs = inputs.cuda()
 
     op.eval()
+    t_mean, t_var = get_mean_lat(op, inputs)
+    return flops, params, t_mean, t_var
 
+def get_mean_lat(op, inputs, nums_data=1000):
     warm_up(op, inputs)
     all_t = []
+
     for _ in range(TEST_TIMES):
-        all_t.append(get_latency(op, inputs)/batch_size)
+        all_t.append(get_latency(op, inputs)/inputs.shape[0])
     t_mean, t_var = cal_mean_var(all_t)
-    return flops, params, t_mean, t_var
+    return t_mean, t_var
 
 def cal_mean_var(alist):
     # remove the min and max return the remaining eles in array
@@ -79,6 +83,18 @@ def get_ops(in_channel, out_channel):
         ops[op+'({}, {}, 2, False)'.format(in_channel, out_channel)] = op_2
     return ops
 
+def get_model(cfg):
+    # cfg : dict
+    try:
+        if cfg['model_name'] == 'mbv2':
+            from model_mobilenet_v2 import MobileNetV2
+            # from mbv2_supernet import MobileNetV2
+            model = MobileNetV2(10)
+    except KeyError:
+        print ("model name is not assigned ")
+        exit(1)
+    return model
+
 def set_logger(path, type, level=logging.DEBUG):
     """ Set training logger
 
@@ -103,9 +119,65 @@ def set_logger(path, type, level=logging.DEBUG):
     logger.addHandler(ch)
 
     return logger
-    
 
-if __name__ == '__main__':
+
+def get_model_parameters_number(model):
+    params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    return params_num
+
+def test_model(name):
+    import logging
+    logger = set_logger(path='./', type=name)
+    bs = 128
+    platform = 'CPU'
+    logger.info("batch size: "+ str(bs))
+    logger.info("platform: "+str(platform))
+    cfg = {'model_name': 'mbv2'}
+    model = get_model(cfg)
+    shape = (3,32,32)
+    flops, params, tm, tv = get_op_info(model, input_shape=shape, batch_size=bs, platform=platform)
+    logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
+    
+    
+def test_ts():
+    import logging
+    logger = set_logger(path='./', type='ts')
+    # len
+
+    # in_channels = [32,16,24,24,32,32,32,64,64,64,96,96,96,160,160,160,320,1280]
+
+    bs = 128
+    platform = 'CPU'
+    logger.info("batch size: "+ str(bs))
+    logger.info("platform: "+str(platform))
+
+   # from mbv2_supernet import conv_bn, conv_1x1_bn
+   # stem1 = conv_bn(3, 32,1)
+   # flops, params, tm, tv = get_op_info(stem1, input_shape=(3,32,32), batch_size=bs, platform=platform)
+   # logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format('3->32 stride=1', params, flops, tm, tv))
+
+    stem2 = OPS['MB1_3x3'](32,16,1,False)
+    flops, params, tm, tv = get_op_info(stem2, input_shape=(32,32,32), batch_size=bs, platform=platform)
+    logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format('32->16 stride=1', params, flops, tm, tv))
+
+
+
+    # stern1 = conv_1x1_bn(320, 1280)
+    # flops, params, tm, tv = get_op_info(stern1, input_shape=(320,2,2), batch_size=bs, platform=platform)
+    # logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format('320->1280 1x1', params, flops, tm, tv))
+    #
+    # stern2 = nn.Sequential(
+    #     nn.Dropout(0.2),
+    #     nn.Linear(1280, 10)
+    # )
+    # lat = get_mean_lat(stern2, inputs=torch.randn(bs,1280))
+    # params = get_model_parameters_number(stern2)
+    #
+    # # flops, params, tm, tv = get_op_info(stern2, input_shape=(1280), batch_size=bs, platform=platform)
+    # logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format('1280->10 cls', params, 'None', lat, 'None'))
+
+
+def test_op():
     import logging
     logger = set_logger(path='./', type='ops_cpu')
     # len
@@ -129,6 +201,10 @@ if __name__ == '__main__':
         for name, op in ops.items():
             flops, params, tm, tv = get_op_info(op, input_shape=shape, batch_size=bs, platform=platform)
             logger.info("Op: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
+
+if __name__ == '__main__':
+    test_ts()
+    
     # bs = 1
     # platform = 'CPU'
     # conv1 = nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=1, bias=False)

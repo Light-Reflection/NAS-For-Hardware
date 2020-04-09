@@ -28,6 +28,11 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
     'MB6_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
+    'MB3_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
+    'MB3_5x5_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
+
     'MB1_3x3_se0.25': lambda max_in_channels, max_out_channels, stride, affine: \
     MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=1, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish', se=0.25),
     'Sep_3x3_N': lambda max_in_channels, max_out_channels, stride, affine:\
@@ -112,12 +117,13 @@ class ManualConv2dPad(nn.Conv2d):
         return F.conv2d(x, self.weight[:out_channels, :in_channels, lbound:rbound, lbound:rbound],
             self.bias[:out_channels] if self._has_bias else None, self.stride, self.padding, self.dilation, int(groups) if groups else self.groups)
 
-class ManualBN2d(nn.BatchNorm2d):
+class ManualBN(nn.BatchNorm2d):
     # effi eps=0.001 / momentum=0.01
     def __init__(self, max_num_features, eps=BN_EPS, momentum=BN_MOMENTUM, affine=True, tracking_running_stats=True):
-        super(ManualBN2d, self).__init__(max_num_features, eps, momentum, affine, tracking_running_stats)
+        super(ManualBN, self).__init__(max_num_features, eps, momentum, affine, tracking_running_stats)
         # self._max_nf = max_num_features
     def forward(self, x, num_features=None):
+        self._check_input_dim(x)
         # original define in BatchNorm2d
         if self.momentum is None:
             exponential_average_factor = 0.0
@@ -135,6 +141,19 @@ class ManualBN2d(nn.BatchNorm2d):
         return F.batch_norm(x, self.running_mean[:num_features], self.running_var[:num_features], \
             self.weight[:num_features] if self.affine else self.weight, self.bias[:num_features] if self.affine else self.bias, \
             self.training or not self.track_running_stats, exponential_average_factor, self.eps)
+
+class ManualBN1d(ManualBN):
+    def _check_input_dim(self, x):
+        if x.dim()!=2 and x.dim() !=3 :
+            raise ValueError("expected 2D or 3D input (got {}D input)".format(x.dim()))
+
+class ManualBN2d(ManualBN):
+    def _check_input_dim(self, x):
+        if x.dim() != 4:
+            raise ValueError('expected 4D input (got {}D input)'.format(x.dim()))
+
+
+
 
 class ManualLinear(nn.Linear):
     """docstring for ManualLinear"""
@@ -161,7 +180,7 @@ class ConvBNActi(nn.Module):
     def __init__(self, max_in_channels, max_out_channels, max_kernel_size, stride, bias, affine, act_type):
         super(ConvBNActi, self).__init__()
         self._conv = ManualConv2d(max_in_channels, max_out_channels, max_kernel_size, stride=stride, bias=bias)
-        self._bn = ManualBN2d(max_out_channels, affine=affine)
+        self._bn = ManualBN(max_out_channels, affine=affine)
         self._acti = activation(act_type)
         self._max_outc = max_out_channels
         self._affine = affine
@@ -184,7 +203,7 @@ class DwConvBNActi(nn.Module):
         super(DwConvBNActi, self).__init__()
         assert max_in_channels==max_out_channels
         self._dwconv = ManualConv2d(max_in_channels, max_in_channels, max_kernel_size, stride=stride, groups=max_in_channels, bias=bias)
-        self._bn = ManualBN2d(max_in_channels, affine=affine)
+        self._bn = ManualBN(max_in_channels, affine=affine)
         self._acti = activation(act_type)
         self._affine = affine
         self._max_outc = max_out_channels
@@ -201,7 +220,7 @@ class PwConvBNActi(nn.Module):
     def __init__(self, max_in_channels, max_out_channels, bias, affine, act_type):
         super(PwConvBNActi, self).__init__()
         self._pwconv = ManualConv2d(max_in_channels, max_out_channels, 1, bias=bias)
-        self._bn = ManualBN2d(max_out_channels, affine=affine)
+        self._bn = ManualBN(max_out_channels, affine=affine)
         self._acti = activation(act_type)
         self._affine = affine
         self._max_outc = max_out_channels
