@@ -32,6 +32,10 @@ def set_logger_writer(save_path):
     logger.info('Create logger and wirter in the path: %s ' % save_path)
     return logger, writer
 
+def get_model_parameters_number(model):
+    params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    return params_num
+
 class Trainer(object):
     """docstring for Trainer"""
     def __init__(self, model, train_queue, valid_queue, epoch, optimizer, \
@@ -39,7 +43,7 @@ class Trainer(object):
         super(Trainer, self).__init__()
         self._model = model
         self._optimizer = optimizer(model.parameters(), \
-        lr= 0.1, momentum=0.9, weight_decay=0.0005) # set optim **kw later
+        lr= 0.04, momentum=0.9, weight_decay=0.0005) # set optim **kw later
         self._scheduler = scheduler(self._optimizer, [60,120,200,250]) # set scheduler **kw later
         self._criterion = criterion
         self._logger = logger 
@@ -192,7 +196,7 @@ def train_smodel(rank, world_size):
     if rank == 0:
         print("into main .......")
     reproducibility(cudnn_mode='deterministic', seed=0)
-    train_queue, valid_queue = load_data(data_root='/media/dm/d/data/CIFAR', batch_size=128, num_workers=4)
+    train_queue, valid_queue = load_data(data_root='/data/CIFAR', batch_size=256, num_workers=4)
     epoch = 300
     optimizer = torch.optim.SGD
     scheduler = torch.optim.lr_scheduler.MultiStepLR
@@ -208,27 +212,27 @@ def train_smodel(rank, world_size):
         logger.info('|| torch.backends.cudnn.deterministic = %s' % cudnn.deterministic)
         logger.info('|| torch.cuda.initial_seed = %d' % torch.cuda.initial_seed())
 
-    ren = [2, 5, 4, 1, 2]
+    ren = [2, 3, 4, 3, 3]
     # cen = [1, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 1, 1, 2, 2]
-    cen = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
-    oen = [1, 3, 3, 1, 3, 1, 2, 2, 0, 3, 1, 3, 2, 3] 
-    model = dmmo.supernet(channels = [(32,2), (16,1), [(24,2),(40,2),(80,1),(112,1),(192,2)], (320,1), (1280,1)],
-                        layers = 19,num_of_classes = 10,name = 'testing', division=2,
+    cen = [2]*19
+    oen = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
+    model = dmmo.supernet(channels = [(32,1), (16,1), [(24,2),(32,2),(64,2),(96,1),(160,2)], (320,1), (1280,1)],
+                        layers = 20,num_of_classes = 10,name = 'testing', division=2,
                         search_direction = [True,True,True,False],
                         constrain = 1000000000,
                        ).cuda()
     model = model.dispatch(ren, cen, oen)
-    print(model)
-    # model = torchvision.models.MobileNetV2(10).cuda()
-    # if world_size > 1:
-    #     distribute_set_up(rank, world_size)
-    #     n = torch.cuda.device_count()//world_size # default run all GPUs
-    #     device_ids = list(range(rank * n, (rank + 1)*n)) # split GPUs 
-    #     # import your model in this command
-    #     # model = model.to(device_ids[0]) or set_device(rank)
-    #     model = DDP(model, device_ids = device_ids)
-    # trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size, stats=stats) # init trainer
-    # trainer.run() # run trainer
+    print("model size:")
+    print(get_model_parameters_number(model))
+    if world_size > 1:
+        distribute_set_up(rank, world_size)
+        n = torch.cuda.device_count()//world_size # default run all GPUs
+        device_ids = list(range(rank * n, (rank + 1)*n)) # split GPUs 
+        # import your model in this command
+        # model = model.to(device_ids[0]) or set_device(rank)
+        model = DDP(model, device_ids = device_ids)
+    trainer = Trainer(model, train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size, stats=stats) # init trainer
+    trainer.run() # run trainer
 
 
 def run_main(fn, world_size):
@@ -272,5 +276,7 @@ def test(rank, world_size,model):
 #     must need __main__ func
    
 #     test(0,1,model = model)
+
+# >> 2334986 baseline
 
 

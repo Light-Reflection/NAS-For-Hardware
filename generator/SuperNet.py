@@ -303,8 +303,8 @@ class supernet(nn.Module,AutoModel):
         self._ksize_cfg = [None]*self._layers
         self._channel_cfg = [None]*self._layers
 
-        # print_dict(kwargs)
-        # print("="*24, "End", "="*24)
+        print_dict(kwargs)
+        print("="*24, "End", "="*24)
 
     
     def produce_resolution_encoding(self):
@@ -358,7 +358,7 @@ class supernet(nn.Module,AutoModel):
 
 
     def convert_channel_encoding_to_channel_cfg(self, channel_encoding, division, basic_channel_cfg):
-        assert max(channel_encoding) <= division and len(channel_encoding) == len(basic_channel_cfg)
+        assert max(channel_encoding) <= division and len(channel_encoding) == len(basic_channel_cfg), 'cfg conflicts, ' + str(max(channel_encoding)) + 'vs'+ str(division) + '\n' +  str(len(channel_encoding)) + 'vs' + str(len(basic_channel_cfg))
         channel_cfg = []
         for i,encoding in enumerate(channel_encoding):
             channel_cfg.append(encoding * basic_channel_cfg[i]//division)

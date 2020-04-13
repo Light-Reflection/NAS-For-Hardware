@@ -89,7 +89,7 @@ class AutoModel(object):
             op_encoding = diction['op_encoding']
             model.dispatch(resolution_encoding,channel_encoding, op_encoding)
         for j in range(len(self.subnets)):
-            train_queue, valid_queue = load_data(data_root, batch_size=128, num_workers=4)
+            train_queue, valid_queue = load_data(data_root, batch_size=batch_size, num_workers=4)
             self._trainer = Trainer(self.subnets[j], train_queue, valid_queue, epoch, optimizer, scheduler, criterion, logger, writer, rank, world_size, stats='D'+str(j))
             # Train DispatchNet 
             self.submodelname = 'submodel-number-{}-checkpoints'.format(j)
