@@ -18,7 +18,7 @@ class AutoModel(object):
 
 
     def fit(self,
-            epoch = 350,
+            epoch = 300,
             optimizer = torch.optim.SGD,
             scheduler = torch.optim.lr_scheduler.MultiStepLR,
             criterion = torch.nn.CrossEntropyLoss(),

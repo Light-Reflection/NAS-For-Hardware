@@ -7,7 +7,8 @@ from .utils import produce_channel_encoding, produce_resolution_encoding, produc
 # able to changes layers
 # able to changes search direction/ set diff encoding
 
-PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25', 'MB3_3x3_se0.25', 'MB3_5x5_se0.25']
+# PRIMITIVES = ['MB6_3x3_se0.25', 'MB6_5x5_se0.25', 'MB3_3x3_se0.25', 'MB3_5x5_se0.25']
+PRIMITIVES = ['MB6_3x3', 'MB6_5x5', 'MB3_3x3', 'MB3_5x5']
 
 class  MixOPs(nn.Module):
     """docstring for  MixOPs"""
@@ -88,10 +89,10 @@ class supernet(nn.Module,AutoModel):
         self.subnets = []
         stem_inc = 3
         stem_outc = self._channel_init_cfg[0] if to_dispatch else self._stem_cfg[0][0]
-        self._stem.append(OPS['Conv3x3_BN_Act'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine, act_type='swish'))
+        self._stem.append(OPS['Conv3x3_BN_Act'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[0][1], affine=self._affine, act_type='relu6'))
         stem_inc = stem_outc
         stem_outc = self._channel_init_cfg[1] if to_dispatch else self._stem_cfg[1][0]
-        self._stem.append(OPS['MB1_3x3_se0.25'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[1][1], affine=self._affine))
+        self._stem.append(OPS['MB1_3x3'](max_in_channels=stem_inc, max_out_channels=stem_outc, stride=self._stem_cfg[1][1], affine=self._affine))
 
         init_super_cells = self._cells_layers - (len(self._cells_cfg) - 1)  # not include cell 0
         init_cell_inc = stem_outc
@@ -118,10 +119,10 @@ class supernet(nn.Module,AutoModel):
 
         stern_inc = init_cell_outc[-1] if to_dispatch else init_cell_outc
         stern_outc = self._channel_init_cfg[-2] if to_dispatch else self._stern_cfg[0][0]
-        self._stern.append(OPS['MB6_3x3_se0.25'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[0][1], affine=self._affine))
+        self._stern.append(OPS['MB6_3x3'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[0][1], affine=self._affine))
         stern_inc = stern_outc
         stern_outc = self._channel_init_cfg[-1] if to_dispatch else self._stern_cfg[1][0]
-        self._stern.append(OPS['Conv1x1_BN_Act'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine, act_type='swish'))
+        self._stern.append(OPS['Conv1x1_BN_Act'](max_in_channels=stern_inc, max_out_channels=stern_outc, stride=self._stern_cfg[1][1], affine=self._affine, act_type='relu6'))
 
         self._linear = ManualLinear(max_in_channels=stern_outc, max_out_channels=self._num_classes)
 
@@ -254,7 +255,9 @@ class supernet(nn.Module,AutoModel):
         to_dispatch = True
         # assert to_dispatch == True
         kwargs = self.config
-        self.subnets.append(supernet(to_dispatch, resolution_encoding, channel_encoding, op_encoding, ksize_encoding,diction = kwargs).cuda())
+        model = supernet(to_dispatch, resolution_encoding, channel_encoding, op_encoding, ksize_encoding,diction = kwargs)
+        self.subnets.append(model.cuda())
+        return model
         
     def dispatch_eval(self,resolution_encoding=[2,2,3,3,4], \
          channel_encoding=None, op_encoding=None, ksize_encoding=None):
@@ -272,7 +275,7 @@ class supernet(nn.Module,AutoModel):
             print("="*20, "Start building supernet", "="*20)
         kwargs.setdefault('layers', 19)
         kwargs.setdefault('affine', True)
-        kwargs.setdefault('num_of_ops', 2)
+        kwargs.setdefault('num_of_ops', 4)
         kwargs.setdefault('division', 1)
         kwargs.setdefault('search_direction', [True, True, True, False]) # resolution/channel/op/ksize
         kwargs.setdefault('channels', [(32,2), (16,1), [(24,2),(40,2),(80,2),(112,1),(192,2)], (320,1), (1280,1)]) #[stem, [cells], stern] , (outc, stride)
