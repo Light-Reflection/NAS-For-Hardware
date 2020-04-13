@@ -29,13 +29,19 @@ parser.add_argument("--channels", type=int, default=3, help="number of image cha
 parser.add_argument("--n_critic", type=int, default=5, help="number of training steps for discriminator per iter")
 parser.add_argument("--clip_value", type=float, default=0.01, help="lower and upper clip value for disc. weights")
 parser.add_argument("--sample_interval", type=int, default=200, help="interval betwen image samples")
+parser.add_argument("--save_interval", type=int, default=20, help='interval save model')
+parser.add_argument("--save_path", type=str, default='./logs', help='interval save model')
+
 opt = parser.parse_args()
 print(opt)
+if not os.path.exists(opt.save_path ):
 
 img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 from generator.operations import ManualConv2d, ManualLinear, ManualBN1d
+
+
 
 class manual_block(nn.Module):
     def __init__(self, max_inc, max_outc, normalize=True):
@@ -254,6 +260,10 @@ for epoch in range(opt.n_epochs):
                 "[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]"
                 % (epoch, opt.n_epochs, batches_done % len(dataloader), len(dataloader), loss_D.item(), loss_G.item())
             )
+        if batches_done % opt.save_interval == 0:
+            torch.save({'generator': generator.state_dict(),
+                'discriminator': discriminator.state_dict()
+                }, )
 
         if batches_done % opt.sample_interval == 0:
             save_image(gen_imgs.data[:25], "./gan/wgan/images-{}/{}.png".format(2,batches_done), nrow=5, normalize=True)
