@@ -11,13 +11,13 @@ BN_MOMENTUM = 0.01  # -> A:0.01 / B:0.1
 BN_EPS = 0.001 # -> A:0.001 / B1e-5
 
 OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish'),
     'MB6_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=6, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='swish'),
     'MB3_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='relu6'),
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type='swish'),
     'MB3_5x5': lambda max_in_channels, max_out_channels, stride, affine: \
-    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='relu6'),    
+    MBConv(max_in_channels=max_in_channels, max_out_channels=max_out_channels, expand_ratio=3, max_kernel_size=5, stride=stride, bias=BIAS, affine=affine, act_type='swish'),    
     'Conv3x3_BN_Act': lambda max_in_channels, max_out_channels, stride, affine, act_type: \
     ConvBNActi(max_in_channels=max_in_channels, max_out_channels=max_out_channels, max_kernel_size=3, stride=stride, bias=BIAS, affine=affine, act_type=act_type),
     'MB1_3x3': lambda max_in_channels, max_out_channels, stride, affine: \

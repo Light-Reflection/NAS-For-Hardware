@@ -83,9 +83,11 @@ class SuperGen(nn.Module):
         self.linear = ManualLinear(last_max_channel, int(np.prod(img_shape)))
         self.tanh = nn.Tanh()
 
-    def forward(self, x, mode='part', nums=2):
+    def forward(self, x, mode='part', nums=2, encoding=None):
         if mode == 'part':
             c_encoding = self.produce_encoding(nums) # or using some convert function
+        elif mode == 'val':
+            c_encoding = encoding
         else:
             c_encoding = self.cfg
         inc = opt.latent_dim
@@ -160,8 +162,8 @@ class Discriminator(nn.Module):
 
 
 # Initialize generator and discriminator
-generator = Generator()
-# generator = SuperGen()
+# generator = Generator()
+generator = SuperGen()
 discriminator = Discriminator()
 
 
@@ -260,11 +262,13 @@ for epoch in range(opt.n_epochs):
                 "[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]"
                 % (epoch, opt.n_epochs, batches_done % len(dataloader), len(dataloader), loss_D.item(), loss_G.item())
             )
-        if batches_done % opt.save_interval == 0:
-            torch.save({'generator': generator.state_dict(),
-                'discriminator': discriminator.state_dict()
-                }, )
+
 
         if batches_done % opt.sample_interval == 0:
             save_image(gen_imgs.data[:25], "./gan/wgan/images-{}/{}.png".format(2,batches_done), nrow=5, normalize=True)
         batches_done += 1
+        
+    if epoch % opt.save_interval == 0:
+        torch.save({'generator': generator.state_dict(),
+            'discriminator': discriminator.state_dict()
+            }, )
