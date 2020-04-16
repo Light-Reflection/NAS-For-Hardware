@@ -1,0 +1,61 @@
+
+import re
+import csv
+import pandas as pd
+import seaborn as sbn
+import matplotlib.pyplot as plt
+def parse_log(path):
+    pat = r'mean of time: *.*,'
+    strings = []
+    i = 0
+    with open(path, 'r') as f:
+        for line in f.readlines():
+            res = re.search(pat, line)
+            if res:
+                nums = res.group(0).split(":")[-1].split(',')[0].strip()
+                # print(nums)
+                strings.append(nums)
+    return strings
+
+# def to_csv(path):
+#     with open(path, 'w', newline='') as csvfile:
+#         writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#         writer
+
+
+if __name__ == '__main__':
+    model_b = parse_log('/media/dm/d/Projects/modelb-gpu.log')
+    model_a = parse_log('/media/dm/d/Projects/modela-gpu.log')
+    model_d = parse_log('/media/dm/d/Projects/modeld-gpu.log')
+    model_c = parse_log('/media/dm/d/Projects/modelc-gpu.log')
+    model_a.sort()
+    model_b.sort()
+    model_d.sort()
+    model_c.sort()
+    t = 30
+
+    with open('./model.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(["Model", "Cost Time /s"])
+        for num in model_a[:t]:
+            print(num)
+            writer.writerow(["A", num])
+        for num in model_b[:t]:
+            writer.writerow(["B", num])
+        for num in model_c[:t]:
+            writer.writerow(["C", num])
+
+        for num in model_d[:t]:
+            writer.writerow(["D", num])
+    df = pd.read_csv("./model.csv")
+
+    sbn.boxplot(x=df['Model'], y=df['Cost Time'],  palette="pastel")
+    sbn.swarmplot(x=df['Model'], y=df['Cost Time'], color='.1', size=1)
+    plt.show()
+    # model_e = 
+
+
+
+
+
+

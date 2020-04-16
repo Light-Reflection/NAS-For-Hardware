@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import math
 
 # global params
+# this version ops using swish as activations
 
 BIAS = False 
 IMAGE_SIZE = 32

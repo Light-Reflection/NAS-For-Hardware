@@ -1,0 +1,52 @@
+2020-04-05 17:30:52,929 - ts - INFO - batch size: 128
+2020-04-05 17:30:52,929 - ts - INFO - platform: CPU
+2020-04-05 17:32:02,272 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.633684925734996e-05, var of time: 1.2576632003595521e-11
+2020-04-05 17:32:18,655 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.0794574171304704e-05, var of time: 9.06103290484552e-13
+2020-04-05 17:48:10,929 - ts - INFO - batch size: 128
+2020-04-05 17:48:10,929 - ts - INFO - platform: CPU
+2020-04-05 17:49:18,506 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.113774160544079e-05, var of time: 1.0343655827793972e-12
+2020-04-05 17:49:35,642 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.228418303032716e-05, var of time: 1.3028647712384999e-14
+2020-04-05 17:57:13,967 - ts - INFO - batch size: 128
+2020-04-05 17:57:13,968 - ts - INFO - platform: CPU
+2020-04-05 17:58:24,330 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.713996907075247e-05, var of time: 6.43192255105372e-13
+2020-04-05 17:58:41,252 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.2095291564861933e-05, var of time: 1.8391402269014668e-13
+2020-04-05 18:35:11,454 - ts - INFO - batch size: 128
+2020-04-05 18:35:11,454 - ts - INFO - platform: CPU
+2020-04-05 18:35:36,885 - ts - INFO - batch size: 128
+2020-04-05 18:35:36,885 - ts - INFO - platform: CPU
+2020-04-05 18:36:43,442 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.062585008641085e-05, var of time: 1.7123315090210142e-12
+2020-04-05 18:37:01,008 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.2821682194868725e-05, var of time: 1.2001023513687317e-14
+2020-04-05 20:48:36,713 - ts - INFO - batch size: 128
+2020-04-05 20:48:36,713 - ts - INFO - platform: CPU
+2020-04-05 20:49:05,228 - ts - INFO - batch size: 128
+2020-04-05 20:49:05,228 - ts - INFO - platform: CPU
+2020-04-05 20:50:48,032 - ts - INFO - batch size: 128
+2020-04-05 20:50:48,058 - ts - INFO - platform: CPU
+2020-04-05 20:51:55,125 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.249122463166713e-05, var of time: 9.171165290602977e-13
+2020-04-05 20:52:12,805 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.319242370625337e-05, var of time: 1.2626405297083013e-14
+2020-04-05 21:18:58,181 - ts - INFO - batch size: 128
+2020-04-05 21:18:58,181 - ts - INFO - platform: CPU
+2020-04-05 21:20:08,366 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.527271697918576e-05, var of time: 2.027940595768071e-12
+2020-04-05 21:20:25,816 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.2971797113617257e-05, var of time: 2.9117265627148313e-14
+2020-04-05 21:41:20,038 - ts - INFO - batch size: 128
+2020-04-05 21:41:20,038 - ts - INFO - platform: CPU
+2020-04-05 21:42:26,533 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.051225977639357e-05, var of time: 4.1957752195383454e-13
+2020-04-05 21:42:43,278 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.1361692498127622e-05, var of time: 1.8881380226990293e-13
+2020-04-05 21:42:44,036 - ts - INFO - model: 1280->10 cls, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.1361692498127622e-05, var of time: 1.8881380226990293e-13
+2020-04-05 21:55:28,423 - ts - INFO - batch size: 128
+2020-04-05 21:55:28,423 - ts - INFO - platform: CPU
+2020-04-05 21:56:41,054 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.267765243848164e-05, var of time: 1.1217085003142748e-11
+2020-04-05 21:56:58,245 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.244698069989681e-05, var of time: 5.813896373589095e-15
+2020-04-05 22:33:07,946 - ts - INFO - batch size: 128
+2020-04-05 22:33:07,946 - ts - INFO - platform: CPU
+2020-04-05 22:34:22,225 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.407757803797723e-05, var of time: 4.698191804648261e-13
+2020-04-05 22:34:38,233 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.094153935710589e-05, var of time: 4.966936439304007e-15
+2020-04-05 22:34:40,000 - ts - INFO - model: 1280->10 cls, params: 12810, flops: None, mean of time: 2.094153935710589e-05, var of time: 4.966936439304007e-15
+2020-04-05 23:36:58,859 - ts - INFO - batch size: 128
+2020-04-05 23:36:58,859 - ts - INFO - platform: CPU
+2020-04-05 23:38:12,030 - ts - INFO - model: 3->32 stride=1, params: 928 B, flops: 0.000983 GMac, mean of time: 8.422428369522095e-05, var of time: 1.1111233362027582e-12
+2020-04-05 23:38:28,603 - ts - INFO - model: 320->1280 1x1, params: 412.16 k, flops: 0.001654 GMac, mean of time: 2.1020698671539624e-05, var of time: 4.812716240377837e-13
+2020-04-05 23:38:29,559 - ts - INFO - model: 1280->10 cls, params: 12810, flops: None, mean of time: (9.213729451100031e-07, 2.9589750402989093e-17), var of time: None
+2020-04-06 16:19:15,520 - ts - INFO - batch size: 128
+2020-04-06 16:19:15,551 - ts - INFO - platform: CPU
+2020-04-06 16:21:42,984 - ts - INFO - model: 32->16 stride=1, params: 800 B, flops: 0.000868 GMac, mean of time: 0.00017808473048110801, var of time: 1.391853412423563e-12

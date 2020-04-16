@@ -1,0 +1,167 @@
+2020-04-16 10:33:12,375 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:33:12,375 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:33:39,849 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:33:39,850 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:33:48,695 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:33:48,695 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:34:04,079 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:34:04,079 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:34:21,737 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:34:21,737 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:34:32,548 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2780443628629046e-05, var of time: 1.1144451873680324e-13
+2020-04-16 10:35:18,071 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:35:18,071 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:35:20,899 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.337872525056203e-05, var of time: 1.0049427339669533e-13
+2020-04-16 10:35:57,766 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:35:57,766 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:00,545 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.272996594508489e-05, var of time: 1.750958251846147e-13
+2020-04-16 10:36:01,279 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:01,279 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:04,068 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.546954443057378e-05, var of time: 2.9259091754379444e-12
+2020-04-16 10:36:04,799 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:04,799 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:07,583 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.28413521250089e-05, var of time: 9.589237582997636e-14
+2020-04-16 10:36:08,317 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:08,318 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:11,095 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.389399498701096e-05, var of time: 1.6602018371170234e-13
+2020-04-16 10:36:11,859 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:11,859 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:14,622 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.310404717922211e-05, var of time: 2.1186624214279275e-13
+2020-04-16 10:36:15,384 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:15,385 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:18,131 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2899094124635066e-05, var of time: 2.6214290768963954e-13
+2020-04-16 10:36:18,915 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:18,915 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:21,697 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2842283447583515e-05, var of time: 6.331052194842429e-14
+2020-04-16 10:36:22,448 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:22,448 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:25,305 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.297664225101471e-05, var of time: 1.0515764185351913e-13
+2020-04-16 10:36:26,055 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:26,056 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:28,878 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.5538276036580405e-05, var of time: 7.138636680238512e-12
+2020-04-16 10:36:29,625 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:29,625 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:32,394 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.313676764567693e-05, var of time: 1.9575464706002308e-13
+2020-04-16 10:36:33,154 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:33,154 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:35,978 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.5719573497772215e-05, var of time: 8.834025871928814e-13
+2020-04-16 10:36:36,724 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:36,724 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:39,502 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.4269504249095915e-05, var of time: 8.639547410815734e-15
+2020-04-16 10:36:40,285 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:40,285 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:43,070 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.292957941691081e-05, var of time: 1.5792391314415192e-13
+2020-04-16 10:36:43,849 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:43,849 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:46,672 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.319730361302694e-05, var of time: 6.800037924723252e-13
+2020-04-16 10:36:47,418 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:47,419 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:50,205 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.602591653664907e-05, var of time: 3.896949090580959e-12
+2020-04-16 10:36:50,948 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:50,948 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:53,740 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2877177000045775e-05, var of time: 1.3904643640187302e-13
+2020-04-16 10:36:54,465 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:54,465 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:36:57,368 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.288338581720988e-05, var of time: 1.1210348236121081e-13
+2020-04-16 10:36:58,116 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:36:58,116 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:00,937 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.443801154692968e-05, var of time: 3.738923854166046e-12
+2020-04-16 10:37:01,666 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:01,666 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:04,440 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.3548598488171895e-05, var of time: 3.2795810820139164e-14
+2020-04-16 10:37:05,104 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:05,104 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:07,928 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.549599399169286e-05, var of time: 1.9041177508184577e-12
+2020-04-16 10:37:08,706 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:08,706 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:11,510 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.304711232582728e-05, var of time: 9.245184093595596e-14
+2020-04-16 10:37:12,255 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:12,255 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:15,042 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.434251993894577e-05, var of time: 3.0928845595745734e-12
+2020-04-16 10:37:15,796 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:15,797 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:18,565 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.327031930287679e-05, var of time: 1.060079416223866e-13
+2020-04-16 10:37:19,343 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:19,343 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:22,145 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.293740252653758e-05, var of time: 2.638262139617891e-13
+2020-04-16 10:37:22,894 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:22,894 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:25,680 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.624005864063899e-05, var of time: 7.86225532209725e-12
+2020-04-16 10:37:26,436 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:26,436 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:29,346 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.448991725842158e-05, var of time: 4.0242752725862066e-12
+2020-04-16 10:37:30,096 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:30,096 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:32,881 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.345621128877004e-05, var of time: 6.503782080792417e-14
+2020-04-16 10:37:33,643 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:33,643 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:36,457 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2891333103179934e-05, var of time: 9.484484956671461e-14
+2020-04-16 10:37:37,237 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:37,237 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:40,024 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.454859058062236e-05, var of time: 4.2467031126215506e-12
+2020-04-16 10:37:40,783 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:40,783 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:43,589 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.4530895451704664e-05, var of time: 1.9089665111006322e-12
+2020-04-16 10:37:44,328 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:44,328 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:47,113 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.293553988138834e-05, var of time: 2.1810019839523916e-13
+2020-04-16 10:37:47,888 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:47,888 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:50,698 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.4544741113980616e-05, var of time: 4.640901883469347e-12
+2020-04-16 10:37:51,425 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:51,425 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:54,185 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.2897790273030596e-05, var of time: 9.020678494299398e-14
+2020-04-16 10:37:54,937 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:54,937 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:37:57,776 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.3322349190711974e-05, var of time: 4.863930323321472e-13
+2020-04-16 10:37:58,435 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:37:58,435 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:01,183 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.4026429057121276e-05, var of time: 1.7403585054568824e-12
+2020-04-16 10:38:01,922 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:01,922 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:04,704 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.35032120347023e-05, var of time: 3.544882674437023e-13
+2020-04-16 10:38:05,491 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:05,491 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:08,277 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.327180941899618e-05, var of time: 8.397193434422189e-14
+2020-04-16 10:38:09,046 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:09,046 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:11,831 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.5087143381436665e-05, var of time: 6.70081558141868e-12
+2020-04-16 10:38:12,608 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:12,608 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:15,409 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.443347911039988e-05, var of time: 1.1971848589636328e-12
+2020-04-16 10:38:16,156 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:16,156 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:18,926 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.347694873809814e-05, var of time: 2.6786094176056653e-13
+2020-04-16 10:38:19,683 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:19,683 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:22,589 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.39674452940623e-05, var of time: 1.6788184345781503e-12
+2020-04-16 10:38:23,359 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:23,360 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:26,193 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.3307510117689766e-05, var of time: 9.599363742168193e-14
+2020-04-16 10:38:26,951 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:26,951 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:29,778 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.467816859483719e-05, var of time: 2.447778947127036e-12
+2020-04-16 10:38:30,519 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:30,519 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:33,293 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.314173469940822e-05, var of time: 1.4167339369554227e-13
+2020-04-16 10:38:34,044 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:34,044 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:36,830 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.424764921267827e-05, var of time: 2.7411126686373176e-12
+2020-04-16 10:38:37,578 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:37,578 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:40,311 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.296428670485815e-05, var of time: 1.8948475504703767e-13
+2020-04-16 10:38:41,060 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:41,060 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:43,851 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.581084311008453e-05, var of time: 6.642690934347928e-12
+2020-04-16 10:38:44,582 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:44,582 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:47,352 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.303072104851405e-05, var of time: 2.409702375910035e-13
+2020-04-16 10:38:48,080 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:48,080 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:50,890 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.626073400179545e-05, var of time: 6.083432422933195e-12
+2020-04-16 10:38:51,619 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:51,619 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:54,406 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.376721094051997e-05, var of time: 7.328306094672136e-13
+2020-04-16 10:38:55,055 - C-MBV2 - INFO - batch size: 128
+2020-04-16 10:38:55,055 - C-MBV2 - INFO - platform: GPU
+2020-04-16 10:38:57,909 - C-MBV2 - INFO - model: C-MBV2, params: 3.2172 M, flops: 0.047178 GMac, mean of time: 3.456336756547292e-05, var of time: 2.948145508583109e-13

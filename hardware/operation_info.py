@@ -11,6 +11,7 @@ import numpy as np
 from operations import OPS
 import os
 import logging
+# from generator.SuperNet import supernet
 TEST_TIMES = 5
 PRIM =  ['MB3_5x5', 'MB6_5x5', 'MB3_3x3', 'MB6_3x3']
 def get_flops_params(model, input_shape, stat):
@@ -23,7 +24,7 @@ def set_torch(seed):
     torch.backends.cudnn.enable = True
     torch.backends.cudnn.benchmark = True
 
-def warm_up(op, inputs, warms_times=1000):
+def warm_up(op, inputs, warms_times=10):
     "warmup hardware to reduce error"
     with torch.no_grad():
         for _ in range(warms_times):
@@ -36,6 +37,7 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
     inputs.insert(0, batch_size)
     inputs = torch.randn(inputs)
     if platform == 'GPU':
+        print("GGGGPPPUUUU")
         op.cuda()
         inputs = inputs.cuda()
 
@@ -43,7 +45,7 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
     t_mean, t_var = get_mean_lat(op, inputs)
     return flops, params, t_mean, t_var
 
-def get_mean_lat(op, inputs, nums_data=1000):
+def get_mean_lat(op, inputs, nums_data=100):
     warm_up(op, inputs)
     all_t = []
 
@@ -60,7 +62,7 @@ def cal_mean_var(alist):
     var = np.var(cal_arrary)
     return mean, var
 
-def get_latency(op, inputs, nums_data=1000):
+def get_latency(op, inputs, nums_data=10):
     # return the cost time of processing one bacth data
     with torch.no_grad():
         torch.cuda.synchronize()
@@ -89,7 +91,11 @@ def get_model(cfg):
         if cfg['model_name'] == 'mbv2':
             from model_mobilenet_v2 import MobileNetV2
             # from mbv2_supernet import MobileNetV2
-            model = MobileNetV2(10)
+            model = MobileNetV2(10)        
+        if cfg['model_name'] == 'mbv1':
+            from mobilenet import MobileNet
+            # from mbv2_supernet import MobileNetV2
+            model = MobileNet(10)
     except KeyError:
         print ("model name is not assigned ")
         exit(1)
@@ -125,11 +131,10 @@ def get_model_parameters_number(model):
     params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
     return params_num
 
-def test_model(name):
+def test_model(name, model=None, platform ='CPU'):
     import logging
     logger = set_logger(path='./', type=name)
     bs = 128
-    platform = 'CPU'
     logger.info("batch size: "+ str(bs))
     logger.info("platform: "+str(platform))
     cfg = {'model_name': 'mbv2'}
@@ -188,7 +193,7 @@ def test_op():
     platform = 'CPU'
     logger.info("batch size: "+ str(bs))
     logger.info("platform: "+str(platform))
-    input_shape = [(3,32, 32),(32,32,32),(16,32,32),(24,16,16),(32,8,8),(64,4,4),(96,4,4),(160,2,2),(320,2,2)]  # channel first
+    input_shape = [(16,16, 16),(32,32,32),(16,32,32),(24,16,16),(32,8,8),(64,4,4),(96,4,4),(160,2,2),(320,2,2)]  # channel first
     for i,shape in enumerate(input_shape):
         logger.info("input shape: " + str(shape))
         in_channel = shape[0]
@@ -203,7 +208,7 @@ def test_op():
             logger.info("Op: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
 
 if __name__ == '__main__':
-    test_ts()
+    test_model('C-MBV2-CPU')
     
     # bs = 1
     # platform = 'CPU'
