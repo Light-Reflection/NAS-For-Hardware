@@ -39,6 +39,8 @@ OPS = {'MB6_3x3': lambda max_in_channels, max_out_channels, stride, affine: \
     SepConv_NoMidReLU(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
     'Sep_3x3': lambda max_in_channels, max_out_channels, stride, affine:\
     SepConv(max_in_channels, max_out_channels, 3, stride, bias=BIAS, affine=affine, act_type='relu'),
+    'Sep_5x5': lambda max_in_channels, max_out_channels, stride, affine:\
+    SepConv(max_in_channels, max_out_channels, 5, stride, bias=BIAS, affine=affine, act_type='relu'),
 }
 
 ####################################################################
