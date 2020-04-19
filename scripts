@@ -1,0 +1,207 @@
+2020-04-14 21:54:41,735 - mbv2-cpu - INFO - batch size: 128
+2020-04-14 21:54:41,735 - mbv2-cpu - INFO - platform: CPU
+2020-04-14 22:15:20,889 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.019007 GMac, mean of time: 0.0018851758303741614, var of time: 7.910746762106163e-12
+2020-04-14 23:52:09,131 - mbv2-cpu - INFO - batch size: 128
+2020-04-14 23:52:09,131 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 00:31:29,713 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.003578321020429333, var of time: 3.583970666753722e-09
+2020-04-15 09:43:09,820 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 09:43:09,820 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 09:43:44,180 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0044225533803304035, var of time: 2.6174131527293557e-11
+2020-04-15 09:43:58,017 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 09:43:58,017 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 09:44:27,412 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0039044033115108808, var of time: 1.6151892317125033e-07
+2020-04-15 10:22:30,976 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 10:22:30,977 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 10:23:03,567 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004188272977868716, var of time: 6.651569177241884e-10
+2020-04-15 10:27:16,600 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 10:27:16,600 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 10:27:49,911 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.00430850430081288, var of time: 4.000895402786713e-11
+2020-04-15 10:27:57,640 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 10:27:57,640 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 10:28:29,849 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004200179316103459, var of time: 4.5330331328863327e-10
+2020-04-15 10:28:38,172 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 10:28:38,172 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 10:29:11,083 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0042520484576622644, var of time: 6.23673794329496e-10
+2020-04-15 11:00:49,762 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:00:49,762 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:01:22,928 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004293332124749819, var of time: 8.456514411256739e-10
+2020-04-15 11:01:30,299 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:01:30,299 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:02:01,815 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004115106041232745, var of time: 1.0989979263745434e-09
+2020-04-15 11:05:58,035 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:05:58,035 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:06:31,134 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004275370948016644, var of time: 3.0361599223187144e-10
+2020-04-15 11:28:55,184 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:28:55,213 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:29:28,284 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.00427847746759653, var of time: 2.096099785617331e-09
+2020-04-15 11:32:07,447 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:32:07,447 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:32:40,363 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004289904174705347, var of time: 7.214157157378847e-10
+2020-04-15 11:36:13,162 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:36:13,163 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:36:46,953 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004368102550506591, var of time: 2.0438273823364253e-10
+2020-04-15 11:40:53,872 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:40:53,872 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:41:25,681 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004161800257861614, var of time: 1.6031556089128266e-09
+2020-04-15 11:44:06,950 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:44:06,950 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:44:39,649 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004221922904253006, var of time: 4.88103986488272e-10
+2020-04-15 11:49:32,540 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:49:32,540 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:50:06,056 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.00433522363503774, var of time: 2.0827728674448765e-10
+2020-04-15 11:52:15,987 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 11:52:15,987 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 11:52:48,900 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004276528892417749, var of time: 2.944219200461869e-10
+2020-04-15 12:27:00,093 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:27:00,093 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:27:32,209 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.00415029680977265, var of time: 5.76742405276725e-10
+2020-04-15 12:27:37,086 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:27:37,087 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:28:09,849 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004261570796370506, var of time: 1.586240375994751e-09
+2020-04-15 12:28:14,798 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:28:14,798 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:28:46,384 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004143183926741283, var of time: 1.065318837643724e-09
+2020-04-15 12:28:51,409 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:28:51,409 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:29:23,697 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0041964093844095865, var of time: 9.102311918856922e-11
+2020-04-15 12:29:28,688 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:29:28,688 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:29:59,114 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.00401075171927611, var of time: 1.558800324727286e-08
+2020-04-15 12:30:04,024 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:30:04,024 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:30:36,605 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0042138769601782165, var of time: 2.3082198579885316e-09
+2020-04-15 12:30:41,488 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:30:41,488 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:31:12,108 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0040687570969263715, var of time: 1.789691244610663e-08
+2020-04-15 12:31:17,062 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:31:17,062 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:31:50,064 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004293151882787546, var of time: 3.999446923949883e-10
+2020-04-15 12:31:55,005 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:31:55,005 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:32:25,654 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.003990269017716249, var of time: 6.618159101982254e-08
+2020-04-15 12:32:30,623 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:32:30,623 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:33:04,067 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004363123203317324, var of time: 1.6080414117476637e-09
+2020-04-15 12:33:09,039 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:33:09,039 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:33:39,209 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.003924125619232654, var of time: 1.5464566490273433e-07
+2020-04-15 12:33:44,151 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:33:44,152 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:34:16,522 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004177471560736497, var of time: 1.8090144321029024e-09
+2020-04-15 12:34:21,437 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:34:21,437 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:34:52,980 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0041283131887515385, var of time: 1.0669253613256357e-07
+2020-04-15 12:34:57,959 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:34:57,960 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:35:30,110 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004202937707304955, var of time: 5.979482103207744e-10
+2020-04-15 12:35:35,064 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:35:35,065 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:36:05,718 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004102233611047268, var of time: 1.6596777960287217e-09
+2020-04-15 12:36:10,666 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:36:10,666 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:36:43,808 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004320589701334636, var of time: 3.2982608901077016e-09
+2020-04-15 12:36:48,718 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 12:36:48,718 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 12:37:19,911 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004053044132888317, var of time: 9.56563847440371e-08
+2020-04-15 14:14:02,548 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:14:02,548 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:14:34,917 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004241037679215273, var of time: 4.044864421189826e-09
+2020-04-15 14:14:40,184 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:14:40,184 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:15:13,252 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0042417372887333235, var of time: 4.709418056759778e-10
+2020-04-15 14:15:18,272 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:15:18,272 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:15:49,859 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004093854750196139, var of time: 5.377547764252241e-08
+2020-04-15 14:15:55,141 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:15:55,141 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:16:28,098 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004272408907612164, var of time: 2.0386915036542637e-10
+2020-04-15 14:16:33,132 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:16:33,133 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:17:04,295 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004085888837774595, var of time: 4.085368795764119e-08
+2020-04-15 14:17:09,277 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:17:09,277 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:17:41,979 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004237220684687296, var of time: 3.030780270347881e-10
+2020-04-15 14:17:46,987 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:17:46,987 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:18:17,822 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004005171979467074, var of time: 1.9471708591861982e-08
+2020-04-15 14:18:22,831 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:18:22,831 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:18:55,456 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004175397070745627, var of time: 1.772056210642859e-10
+2020-04-15 14:19:00,383 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:19:00,383 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:19:31,301 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004037305836876234, var of time: 5.1771344471159825e-08
+2020-04-15 14:19:36,328 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:19:36,329 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:20:09,833 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004358349305888016, var of time: 2.323118813831034e-11
+2020-04-15 14:20:15,024 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:20:15,024 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:20:47,433 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004214526154100896, var of time: 5.007450070496088e-09
+2020-04-15 14:20:52,602 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:20:52,602 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:21:25,553 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004322412920494874, var of time: 2.417853862802949e-10
+2020-04-15 14:21:30,591 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:21:30,591 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:22:00,613 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0038805186127622918, var of time: 4.7289210580363015e-08
+2020-04-15 14:22:08,533 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:22:08,533 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:22:41,319 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004282907831172148, var of time: 2.2500983075223484e-11
+2020-04-15 14:22:46,263 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:22:46,264 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:23:18,050 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0041555547465880706, var of time: 1.0132691355952929e-09
+2020-04-15 14:23:23,034 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:23:23,034 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:23:55,306 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004213454636434714, var of time: 2.0321359709171977e-10
+2020-04-15 14:24:00,223 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 14:24:00,223 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 14:24:30,867 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004079168476164341, var of time: 9.30370733629825e-09
+2020-04-15 15:00:43,217 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:00:43,235 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:01:15,367 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004153341862062613, var of time: 1.2170829439697103e-08
+2020-04-15 15:01:20,790 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:01:20,790 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:01:51,428 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.003933970381816229, var of time: 1.3556027713073548e-08
+2020-04-15 15:01:59,153 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:01:59,153 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:02:32,803 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004353902613123258, var of time: 1.7326929249100053e-09
+2020-04-15 15:02:37,988 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:02:37,988 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:03:09,641 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004153987330694994, var of time: 2.829907164858377e-08
+2020-04-15 15:03:14,647 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:03:14,647 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:03:48,256 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0043474882220228515, var of time: 2.5438659790537984e-10
+2020-04-15 15:03:53,298 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:03:53,298 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:04:25,067 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004149929309884707, var of time: 5.389834933728565e-08
+2020-04-15 15:04:30,190 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:04:30,190 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:05:03,499 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004330931293467681, var of time: 9.4214645537321e-11
+2020-04-15 15:05:08,508 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:05:08,508 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:05:39,688 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004113404949506124, var of time: 4.153990403653156e-09
+2020-04-15 15:05:44,692 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:05:44,692 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:06:17,166 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004209344896177451, var of time: 1.2773407457527307e-10
+2020-04-15 15:06:22,207 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:06:22,207 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:06:54,068 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004208348194758097, var of time: 3.2029657836744775e-08
+2020-04-15 15:06:59,164 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:06:59,164 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:07:31,846 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004218265041708946, var of time: 1.5047427228085985e-09
+2020-04-15 15:07:36,887 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:07:36,887 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:08:08,205 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0041274997095266976, var of time: 2.0474067738703743e-08
+2020-04-15 15:08:13,218 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:08:13,218 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:08:45,742 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004227457754313946, var of time: 3.525236784660889e-10
+2020-04-15 15:08:50,708 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:08:50,708 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:09:21,952 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004069262060026327, var of time: 2.9316942913636003e-08
+2020-04-15 15:09:26,965 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:09:26,965 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:10:00,899 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004385238823791345, var of time: 8.980600062984538e-11
+2020-04-15 15:10:05,893 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:10:05,893 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:10:36,798 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.0040052534391482675, var of time: 9.172965921636851e-08
+2020-04-15 15:10:41,801 - mbv2-cpu - INFO - batch size: 128
+2020-04-15 15:10:41,801 - mbv2-cpu - INFO - platform: CPU
+2020-04-15 15:11:15,065 - mbv2-cpu - INFO - model: mbv2-cpu, params: 2.335 M, flops: 0.02801 GMac, mean of time: 0.004304778017103672, var of time: 1.6959781861068198e-09
