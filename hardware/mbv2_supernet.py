@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import math
 from operations import OPS 
-
+from dmmo.generator.SuperNet import supernet  
 # Modified from https://github.com/tonylins/pytorch-mobilenet-v2/blob/master/MobileNetV2.py.
 # In this version, Relu6 is replaced with Relu to make it ONNX compatible.
 # BatchNorm Layer is optional to make it easy do batch norm confusion.
@@ -129,7 +129,7 @@ class MobileNetV2(nn.Module):
         # assert input_size[0] % 32 == 0
         input_channel = int(input_channel * width_mult)
         self.last_channel = int(last_channel * width_mult) if width_mult > 1.0 else last_channel
-        self.features = [conv_bn(3, input_channel, 1, onnx_compatible=onnx_compatible)]
+        self.features = [conv_bn(3, input_channel, 2, onnx_compatible=onnx_compatible)]
         self.features.append(OPS['MB1_3x3'](32,16,1,False))
         # building inverted residual blocks
         inc = 16

@@ -63,8 +63,14 @@ class MobileNet(nn.Module):
     def epoch_end_trigger(self):
         pass
 
+def get_model_parameters_number(model):
+    params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    return params_num
 if __name__ == '__main__':
     net = MobileNet()
-    x = torch.randn(1,3,32,32)
-    y = net(x)
-    print(y.size())
+
+
+    print(get_model_parameters_number(net))
+    # x = torch.randn(1,3,32,32)
+    # y = net(x)
+    # print(y.size())

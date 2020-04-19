@@ -3,12 +3,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import torch.nn as nn
-from  flops_counter import get_model_complexity_info as get_flops
+from  .flops_counter import get_model_complexity_info as get_flops
 # TODO: FIX the import issue
 import torch
 import time
 import numpy as np
-from operations import OPS
+from .operations import OPS
 import os
 import logging
 # from generator.SuperNet import supernet
@@ -24,7 +24,7 @@ def set_torch(seed):
     torch.backends.cudnn.enable = True
     torch.backends.cudnn.benchmark = True
 
-def warm_up(op, inputs, warms_times=10):
+def warm_up(op, inputs, warms_times=100):
     "warmup hardware to reduce error"
     with torch.no_grad():
         for _ in range(warms_times):
@@ -50,7 +50,7 @@ def get_mean_lat(op, inputs, nums_data=100):
     all_t = []
 
     for _ in range(TEST_TIMES):
-        all_t.append(get_latency(op, inputs)/inputs.shape[0])
+        all_t.append(get_latency(op, inputs, nums_data)/inputs.shape[0])
     t_mean, t_var = cal_mean_var(all_t)
     return t_mean, t_var
 
@@ -137,8 +137,8 @@ def test_model(name, model=None, platform ='CPU'):
     bs = 128
     logger.info("batch size: "+ str(bs))
     logger.info("platform: "+str(platform))
-    cfg = {'model_name': 'mbv2'}
-    model = get_model(cfg)
+    # cfg = {'model_name': 'mbv1'}
+    # model = get_model(cfg)
     shape = (3,32,32)
     flops, params, tm, tv = get_op_info(model, input_shape=shape, batch_size=bs, platform=platform)
     logger.info("model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
@@ -208,7 +208,7 @@ def test_op():
             logger.info("Op: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
 
 if __name__ == '__main__':
-    test_model('C-MBV2-CPU')
+    test_model('C-MBV1-CPU')
     
     # bs = 1
     # platform = 'CPU'
