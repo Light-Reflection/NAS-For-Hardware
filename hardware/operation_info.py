@@ -24,7 +24,7 @@ def set_torch(seed):
     torch.backends.cudnn.enable = True
     torch.backends.cudnn.benchmark = True
 
-def warm_up(op, inputs, warms_times=100):
+def warm_up(op, inputs, warms_times=5):
     "warmup hardware to reduce error"
     with torch.no_grad():
         for _ in range(warms_times):
@@ -45,7 +45,7 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
     t_mean, t_var = get_mean_lat(op, inputs)
     return flops, params, t_mean, t_var
 
-def get_mean_lat(op, inputs, nums_data=100):
+def get_mean_lat(op, inputs, nums_data=10):
     warm_up(op, inputs)
     all_t = []
 
@@ -65,11 +65,11 @@ def cal_mean_var(alist):
 def get_latency(op, inputs, nums_data=10):
     # return the cost time of processing one bacth data
     with torch.no_grad():
-        torch.cuda.synchronize()
+        # torch.cuda.synchronize()
         tic = time.time()
         for _ in range(nums_data):
             op(inputs)
-        torch.cuda.synchronize()
+        # torch.cuda.synchronize()
         toc = time.time()
     return (toc-tic)/nums_data
 
@@ -131,7 +131,7 @@ def get_model_parameters_number(model):
     params_num = sum(p.numel() for p in model.parameters() if p.requires_grad)
     return params_num
 
-def test_model(name, model=None, platform ='CPU'):
+def test_model(name, model=None, platform ='RAS'):
     import logging
     logger = set_logger(path='./', type=name)
     bs = 128
