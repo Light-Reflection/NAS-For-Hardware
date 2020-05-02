@@ -1,0 +1,48 @@
+2020-04-19 12:46:08,283 - modelv2-ras - INFO - batch size: 128
+2020-04-19 12:46:08,283 - modelv2-ras - INFO - platform: RAS
+2020-04-19 12:56:18,338 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.086039412394166, var of time: 2.4442222003248622e-08
+2020-04-19 12:56:21,940 - modelv2-ras - INFO - batch size: 128
+2020-04-19 12:56:21,941 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:06:14,987 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08370874108125766, var of time: 7.803940282929559e-08
+2020-04-19 13:06:18,571 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:06:18,572 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:16:16,337 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0844430093963941, var of time: 3.167989852837744e-08
+2020-04-19 13:16:19,916 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:16:19,916 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:26:12,465 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08381264451891184, var of time: 2.281918867061685e-07
+2020-04-19 13:26:16,075 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:26:16,076 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:36:11,315 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0841891854380568, var of time: 1.723083556428769e-07
+2020-04-19 13:36:14,919 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:36:14,919 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:46:07,094 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08394055751462777, var of time: 1.6772959779088237e-07
+2020-04-19 13:46:10,679 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:46:10,679 - modelv2-ras - INFO - platform: RAS
+2020-04-19 13:56:05,536 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0842763320232431, var of time: 3.1930039097639943e-07
+2020-04-19 13:56:09,145 - modelv2-ras - INFO - batch size: 128
+2020-04-19 13:56:09,145 - modelv2-ras - INFO - platform: RAS
+2020-04-19 14:06:00,739 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08350419960916043, var of time: 6.594557162172062e-09
+2020-05-01 23:09:49,263 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:09:49,266 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:14:41,780 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08387235788007578, var of time: 9.161471554093306e-08
+2020-05-01 23:14:45,468 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:14:45,469 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:19:38,591 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08413193027178445, var of time: 7.230677152935621e-08
+2020-05-01 23:19:42,239 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:19:42,239 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:24:32,392 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08314288519322872, var of time: 3.4448656214632017e-10
+2020-05-01 23:24:36,016 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:24:36,016 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:29:27,147 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08354911531011262, var of time: 2.2117938819948365e-07
+2020-05-01 23:29:30,795 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:29:30,795 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:34:22,334 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0836394755790631, var of time: 3.277005312728017e-07
+2020-05-01 23:34:25,949 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:34:25,949 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:39:19,514 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08449215032160283, var of time: 6.12751720617349e-07
+2020-05-01 23:39:23,110 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:39:23,110 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:44:16,257 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.08422910893956821, var of time: 1.5340167875867146e-07
+2020-05-01 23:44:19,874 - modelv2-ras - INFO - batch size: 128
+2020-05-01 23:44:19,875 - modelv2-ras - INFO - platform: RAS
+2020-05-01 23:49:10,746 - modelv2-ras - INFO - model: modelv2-ras, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0834019457300504, var of time: 5.9253741073862705e-08

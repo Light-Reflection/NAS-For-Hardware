@@ -1,0 +1,32 @@
+2020-04-19 21:27:09,609 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 21:27:09,610 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 21:36:53,168 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08268126950909695, var of time: 7.826342956260898e-09
+2020-04-19 21:38:21,021 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 21:38:21,022 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 21:38:44,658 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 21:38:44,658 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 21:48:51,218 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08553281041483085, var of time: 6.361055599695624e-09
+2020-04-19 21:49:25,692 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 21:49:25,692 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 21:54:22,738 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08501980428894361, var of time: 6.6862076348074925e-09
+2020-04-19 21:59:57,268 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 21:59:57,268 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 22:04:44,756 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08231092828015486, var of time: 1.706929824821656e-08
+2020-04-19 22:04:50,160 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 22:04:50,160 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 22:09:45,847 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0848419232914845, var of time: 3.0296158613622423e-09
+2020-04-19 22:09:51,188 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 22:09:51,189 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 22:14:38,144 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08215851051112016, var of time: 8.150702142970523e-09
+2020-04-19 22:15:38,025 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 22:15:38,026 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 22:20:42,914 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0874809845040242, var of time: 3.132843293954558e-08
+2020-04-19 22:55:38,013 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 22:55:38,013 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 23:00:37,346 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08565791063010693, var of time: 1.4713017891334952e-08
+2020-04-19 23:15:12,702 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 23:15:12,703 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 23:20:10,947 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08575020867089429, var of time: 3.583473232994595e-09
+2020-04-19 23:27:42,952 - mobilenet-ras - INFO - batch size: 128
+2020-04-19 23:27:42,952 - mobilenet-ras - INFO - platform: RAS
+2020-04-19 23:32:44,698 - mobilenet-ras - INFO - model: mobilenet-ras, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.08642009533941745, var of time: 1.8509369060596785e-09

@@ -184,12 +184,12 @@ def test_ts():
 
 def test_op():
     import logging
-    logger = set_logger(path='./', type='ops_cpu')
+    logger = set_logger(path='./', type='ops_test')
     # len
 
     # in_channels = [32,16,24,24,32,32,32,64,64,64,96,96,96,160,160,160,320,1280]
 
-    bs = 128
+    bs = 8 
     platform = 'CPU'
     logger.info("batch size: "+ str(bs))
     logger.info("platform: "+str(platform))
