@@ -1,0 +1,18 @@
+2020-05-02 23:39:16,723 - model-gpu-test - INFO - batch size: 128
+2020-05-02 23:39:16,723 - model-gpu-test - INFO - platform: GPU
+2020-05-02 23:39:20,274 - model-gpu-test - INFO - model: model-gpu-test, params: 902.346 k, flops: 0.033461 GMac, mean of time: 3.9253340413173044e-05, var of time: 1.5960969428845052e-15
+2020-05-02 23:39:51,760 - model-gpu-test - INFO - batch size: 128
+2020-05-02 23:39:51,761 - model-gpu-test - INFO - platform: GPU
+2020-05-02 23:39:55,433 - model-gpu-test - INFO - model: model-gpu-test, params: 649.546 k, flops: 0.03357 GMac, mean of time: 3.97641584277153e-05, var of time: 1.9002600419133978e-16
+2020-05-02 23:40:18,377 - model-gpu-test - INFO - batch size: 128
+2020-05-02 23:40:18,378 - model-gpu-test - INFO - platform: GPU
+2020-05-02 23:40:22,186 - model-gpu-test - INFO - model: model-gpu-test, params: 647.498 k, flops: 0.033537 GMac, mean of time: 3.928667555252711e-05, var of time: 3.253555603944959e-16
+2020-05-02 23:43:51,554 - model-gpu-test - INFO - batch size: 128
+2020-05-02 23:43:51,554 - model-gpu-test - INFO - platform: GPU
+2020-05-02 23:43:54,650 - model-gpu-test - INFO - model: model-gpu-test, params: 823.242 k, flops: 0.022701 GMac, mean of time: 3.3389547218879065e-05, var of time: 3.9420881682420063e-16
+2020-05-02 23:44:25,882 - model-gpu-test - INFO - batch size: 128
+2020-05-02 23:44:25,882 - model-gpu-test - INFO - platform: CPU
+2020-05-02 23:45:57,932 - model-gpu-test - INFO - model: model-gpu-test, params: 823.242 k, flops: 0.022701 GMac, mean of time: 0.0011884053051471712, var of time: 2.0061739976577024e-10
+2020-05-03 01:30:46,865 - model-gpu-test - INFO - batch size: 128
+2020-05-03 01:30:46,865 - model-gpu-test - INFO - platform: GPU
+2020-05-03 01:30:49,972 - model-gpu-test - INFO - model: model-gpu-test, params: 823.242 k, flops: 0.022701 GMac, mean of time: 3.3367549379666645e-05, var of time: 1.1107627163736966e-16

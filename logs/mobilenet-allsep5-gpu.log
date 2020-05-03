@@ -1,0 +1,224 @@
+2020-05-02 14:40:41,510 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:40:41,511 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:40:58,621 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:40:58,622 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:41:02,947 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.901893436908722e-05, var of time: 3.3165299210638195e-16
+2020-05-02 14:41:27,666 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:41:27,667 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:41:32,094 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.941867043574651e-05, var of time: 9.094818262698403e-16
+2020-05-02 14:41:57,672 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:41:57,672 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:42:02,047 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.907205700874329e-05, var of time: 3.8415821449852594e-16
+2020-05-02 14:42:14,402 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:42:14,402 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:42:18,723 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.9131599565347044e-05, var of time: 1.846570196133978e-15
+2020-05-02 14:42:24,905 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 14:42:24,905 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 14:42:29,448 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.9530373265345894e-05, var of time: 6.400489706137991e-17
+2020-05-02 15:18:09,421 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:18:09,421 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:18:13,776 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.912774388988813e-05, var of time: 2.0768649146151676e-17
+2020-05-02 15:18:20,836 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:18:20,837 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:18:25,219 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.92740919192632e-05, var of time: 4.598509844516491e-16
+2020-05-02 15:18:31,989 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:18:31,989 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:18:36,437 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.940756286183993e-05, var of time: 3.837262298037575e-17
+2020-05-02 15:18:43,315 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:18:43,315 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:18:47,698 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.945871109763781e-05, var of time: 1.502863420130405e-16
+2020-05-02 15:18:54,315 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:18:54,315 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:18:58,761 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.9583328266938523e-05, var of time: 2.1811125436619195e-16
+2020-05-02 15:19:05,474 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:19:05,474 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:19:09,896 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.961370800932248e-05, var of time: 8.274823727461113e-17
+2020-05-02 15:19:16,545 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:19:16,545 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:19:21,011 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.966201881567637e-05, var of time: 2.3721773002706385e-16
+2020-05-02 15:19:27,313 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:19:27,313 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:19:31,782 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.007142201066017e-05, var of time: 3.6366210968511694e-16
+2020-05-02 15:19:38,721 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:19:38,721 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:19:43,375 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.980821162462235e-05, var of time: 1.4279209759050508e-15
+2020-05-02 15:19:50,464 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:19:50,464 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:19:54,895 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.01160758237044e-05, var of time: 3.3283707580166834e-16
+2020-05-02 15:20:02,357 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:20:02,357 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:20:06,863 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.9876384437084205e-05, var of time: 1.1438838302494996e-15
+2020-05-02 15:20:14,081 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:20:14,082 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:20:18,597 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.988581563035647e-05, var of time: 7.358915174757815e-16
+2020-05-02 15:20:26,047 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:20:26,047 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:20:30,481 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.013288930058479e-05, var of time: 3.4315675301318684e-16
+2020-05-02 15:20:37,820 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:20:37,821 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:20:42,316 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.992639645934105e-05, var of time: 1.0640955709164232e-16
+2020-05-02 15:20:49,545 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:20:49,545 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:20:54,022 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.993997514247895e-05, var of time: 1.3057217344390377e-16
+2020-05-02 15:21:01,033 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:01,033 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:21:05,467 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.995392635464668e-05, var of time: 2.062995607676787e-16
+2020-05-02 15:21:12,179 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:12,179 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:21:16,677 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0485326598087945e-05, var of time: 5.286134600262445e-13
+2020-05-02 15:21:23,810 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:23,811 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:21:28,235 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.997607941428819e-05, var of time: 3.080541223345288e-16
+2020-05-02 15:21:36,070 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:36,070 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:21:40,477 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.010491857926051e-05, var of time: 8.526983131926563e-17
+2020-05-02 15:21:47,684 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:47,685 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:21:52,419 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.070063595970472e-05, var of time: 7.0095858130208e-17
+2020-05-02 15:21:59,375 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:21:59,375 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:22:03,888 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.022146428624789e-05, var of time: 8.545995701222825e-17
+2020-05-02 15:22:11,256 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:22:11,256 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:22:15,679 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.001399045189222e-05, var of time: 3.0135808971720355e-16
+2020-05-02 15:22:22,885 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:22:22,885 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:22:27,295 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.002262691656748e-05, var of time: 1.4718509590129246e-15
+2020-05-02 15:22:34,587 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:22:34,587 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:22:39,020 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.000649020075798e-05, var of time: 4.941193287866577e-16
+2020-05-02 15:22:46,182 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:22:46,182 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:22:50,647 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0404922415812807e-05, var of time: 2.739577854694171e-16
+2020-05-02 15:22:58,024 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:22:58,025 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:23:02,539 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.003229404489199e-05, var of time: 3.313882347545864e-16
+2020-05-02 15:23:09,461 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:23:09,461 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:23:13,928 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.002242823441823e-05, var of time: 2.2908349599995385e-16
+2020-05-02 15:23:21,235 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:23:21,235 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:23:25,678 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.01823549469312e-05, var of time: 1.7498605188303752e-15
+2020-05-02 15:23:32,328 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:23:32,328 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:23:36,748 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.009014159440994e-05, var of time: 1.799995106669735e-15
+2020-05-02 15:23:44,241 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:23:44,241 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:23:48,775 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0021639714638386e-05, var of time: 3.5375922870077374e-16
+2020-05-02 15:23:55,598 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:23:55,598 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:00,026 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.027758578459422e-05, var of time: 4.132565431834008e-16
+2020-05-02 15:24:06,977 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:24:06,977 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:11,414 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.001476034522057e-05, var of time: 4.590670436381307e-16
+2020-05-02 15:24:18,408 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:24:18,408 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:23,118 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.00221053759257e-05, var of time: 1.4878222111117394e-17
+2020-05-02 15:24:30,065 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:24:30,065 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:34,529 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.010166515906652e-05, var of time: 2.0726365839657275e-15
+2020-05-02 15:24:41,795 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:24:41,795 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:46,210 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.012354503075282e-05, var of time: 4.729324185357807e-16
+2020-05-02 15:24:53,518 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:24:53,519 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:24:58,157 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0272724280754725e-05, var of time: 9.639125917207135e-18
+2020-05-02 15:25:05,926 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:25:05,926 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:25:10,341 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.006017163395881e-05, var of time: 4.094740750174825e-16
+2020-05-02 15:25:17,677 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:25:17,678 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:25:22,075 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0005372613668436e-05, var of time: 3.0057555981214336e-15
+2020-05-02 15:25:28,905 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:25:28,905 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:25:33,344 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0104781985282897e-05, var of time: 6.91012062385309e-17
+2020-05-02 15:25:40,159 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:25:40,159 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:25:44,842 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.025170743465424e-05, var of time: 2.412551639944258e-16
+2020-05-02 15:25:52,122 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:25:52,123 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:25:56,671 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.1382755239804584e-05, var of time: 7.988735444767814e-16
+2020-05-02 15:26:04,452 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:26:04,452 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:26:08,863 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.026944602529208e-05, var of time: 7.646185382378399e-16
+2020-05-02 15:26:15,467 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:26:15,467 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:26:19,888 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.011579642693202e-05, var of time: 1.5467970268831902e-15
+2020-05-02 15:26:26,548 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:26:26,548 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:26:30,950 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.013928438226382e-05, var of time: 9.738167062862808e-17
+2020-05-02 15:26:37,668 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:26:37,668 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:26:42,335 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0020671139160785e-05, var of time: 1.6217190399210514e-15
+2020-05-02 15:26:49,271 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:26:49,271 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:26:53,737 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.026282121737798e-05, var of time: 8.4807862892828e-16
+2020-05-02 15:27:00,761 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:00,762 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:27:05,254 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.001071840524673e-05, var of time: 1.8248807557667547e-15
+2020-05-02 15:27:12,121 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:12,122 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:27:16,544 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.019284784793854e-05, var of time: 1.521151954397754e-15
+2020-05-02 15:27:23,305 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:23,305 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:27:27,837 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0024501979351045e-05, var of time: 2.8597772298387173e-16
+2020-05-02 15:27:34,750 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:34,750 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:27:39,336 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0015076994895934e-05, var of time: 5.946863372107863e-18
+2020-05-02 15:27:46,481 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:46,481 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:27:50,923 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.000184600551923e-05, var of time: 2.5562231343989158e-15
+2020-05-02 15:27:57,706 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:27:57,706 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:28:02,130 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.999373108148574e-05, var of time: 1.23349548168206e-15
+2020-05-02 15:28:10,087 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:28:10,088 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:28:14,739 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.024521301190058e-05, var of time: 2.5574989656909657e-17
+2020-05-02 15:28:22,394 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:28:22,394 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:28:26,866 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.082596093416214e-05, var of time: 1.0036786216949595e-16
+2020-05-02 15:28:33,841 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:28:33,841 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:28:38,279 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.056618402401607e-05, var of time: 4.6427291024013184e-17
+2020-05-02 15:28:44,876 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:28:44,876 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:28:49,271 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.001429468393326e-05, var of time: 8.547808294512591e-16
+2020-05-02 15:28:56,026 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:28:56,027 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:29:00,485 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0033119817574814e-05, var of time: 1.7018086785458548e-15
+2020-05-02 15:29:08,084 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:29:08,084 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:29:12,570 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.0247088074684144e-05, var of time: 8.285643005034561e-16
+2020-05-02 15:29:19,739 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:29:19,739 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:29:24,297 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 5.042864630619685e-05, var of time: 2.094633108937292e-16
+2020-05-02 15:29:36,165 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:29:36,165 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:29:42,556 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.637420505285264e-05, var of time: 2.480295313809588e-12
+2020-05-02 15:29:55,795 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:29:55,795 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:30:01,971 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.277453775207202e-05, var of time: 6.255380541408352e-12
+2020-05-02 15:30:15,099 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:30:15,100 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:30:21,128 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.140932440757751e-05, var of time: 8.753076787224974e-12
+2020-05-02 15:30:33,893 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:30:33,894 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:30:40,187 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.0897264629602434e-05, var of time: 1.890416721587556e-11
+2020-05-02 15:30:53,339 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:30:53,340 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:30:59,157 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.594723711411157e-05, var of time: 1.1091698146367744e-13
+2020-05-02 15:31:12,164 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:31:12,164 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:31:18,263 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.583917265137036e-05, var of time: 5.765396709427954e-14
+2020-05-02 15:31:31,076 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:31:31,076 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:31:37,346 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 6.709420432647069e-05, var of time: 1.0559419133835047e-13
+2020-05-02 15:31:50,223 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:31:50,223 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:31:57,078 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 7.001147295037905e-05, var of time: 1.1192314630725177e-11
+2020-05-02 15:32:17,446 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:32:17,448 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:32:28,657 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 0.00011034279440840086, var of time: 1.8104952331864852e-11
+2020-05-02 15:32:47,639 - mobilenet-allsep5-gpu - INFO - batch size: 128
+2020-05-02 15:32:47,642 - mobilenet-allsep5-gpu - INFO - platform: GPU
+2020-05-02 15:33:01,589 - mobilenet-allsep5-gpu - INFO - model: mobilenet-allsep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 0.00016585221514105796, var of time: 5.0699864390333725e-11

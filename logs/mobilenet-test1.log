@@ -1,0 +1,43 @@
+2020-05-02 15:08:04,956 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:08:04,956 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:08:09,826 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 915.018 k, flops: 0.047386 GMac, mean of time: 5.521184454361597e-05, var of time: 2.776629235175637e-17
+2020-05-02 15:13:50,272 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:13:50,272 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:13:54,113 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.7265 M, flops: 0.038052 GMac, mean of time: 4.278394083182017e-05, var of time: 1.5033028834113107e-16
+2020-05-02 15:14:20,793 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:14:20,793 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:14:26,790 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 52.5135 M, flops: 0.08874 GMac, mean of time: 6.868714466691018e-05, var of time: 1.313070023076e-18
+2020-05-02 15:17:43,393 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:17:43,393 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:17:47,919 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 788.618 k, flops: 0.040881 GMac, mean of time: 5.158473427097003e-05, var of time: 5.66304950464218e-16
+2020-05-02 15:19:36,425 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:19:36,426 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:19:40,623 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.0003 M, flops: 0.038411 GMac, mean of time: 4.471228768428167e-05, var of time: 1.5195785216559013e-15
+2020-05-02 15:20:02,639 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:20:02,639 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:20:06,607 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.0003 M, flops: 0.038411 GMac, mean of time: 4.415667926271756e-05, var of time: 7.415834921454066e-17
+2020-05-02 15:20:31,525 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:20:31,525 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:20:35,460 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.106 M, flops: 0.038329 GMac, mean of time: 4.413109893600146e-05, var of time: 2.8011350954813164e-16
+2020-05-02 15:20:46,518 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:20:46,518 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:20:50,457 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.106 M, flops: 0.038329 GMac, mean of time: 4.453099643190702e-05, var of time: 2.229236085850077e-16
+### Choose for GPU 
+2020-05-02 15:21:17,098 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:21:17,098 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:21:21,146 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 4.267806808153788e-05, var of time: 9.807923763271996e-16
+2020-05-02 15:21:35,633 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:21:35,634 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 15:21:39,526 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 4.2560522754987083e-05, var of time: 1.1829665333725427e-16
+### SMAE MODEL 
+2020-05-02 15:54:06,503 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 15:54:06,504 - mobilenet-test1 - INFO - platform: CPU
+2020-05-02 19:17:33,319 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 19:17:33,319 - mobilenet-test1 - INFO - platform: CPU
+2020-05-02 19:19:33,415 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 0.0015418937740226586, var of time: 5.718147167163e-11
+2020-05-02 19:44:14,708 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 19:44:14,708 - mobilenet-test1 - INFO - platform: CPU
+2020-05-02 19:46:07,700 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 0.0014627309950689474, var of time: 5.0052779166813326e-11
+2020-05-02 20:43:58,500 - mobilenet-test1 - INFO - batch size: 128
+2020-05-02 20:43:58,500 - mobilenet-test1 - INFO - platform: GPU
+2020-05-02 20:44:02,317 - mobilenet-test1 - INFO - model: mobilenet-test1, params: 1.108 M, flops: 0.034534 GMac, mean of time: 3.961460043986638e-05, var of time: 1.4607119526291667e-16

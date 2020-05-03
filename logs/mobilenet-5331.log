@@ -1,0 +1,6 @@
+2020-05-02 14:02:41,482 - mobilenet-5331 - INFO - batch size: 128
+2020-05-02 14:02:41,482 - mobilenet-5331 - INFO - platform: CPU
+2020-05-02 14:04:47,580 - mobilenet-5331 - INFO - model: mobilenet-5331, params: 1.4577 M, flops: 0.048296 GMac, mean of time: 0.0016304311839242776, var of time: 1.5341565151902276e-11
+2020-05-02 14:10:11,676 - mobilenet-5331 - INFO - batch size: 128
+2020-05-02 14:10:11,676 - mobilenet-5331 - INFO - platform: CPU
+2020-05-02 14:12:15,373 - mobilenet-5331 - INFO - model: mobilenet-5331, params: 1.4719 M, flops: 0.04888 GMac, mean of time: 0.001598887617389361, var of time: 3.109645405032258e-10

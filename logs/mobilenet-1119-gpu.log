@@ -1,0 +1,12 @@
+2020-05-02 23:24:36,011 - mobilenet-1119-gpu - INFO - batch size: 128
+2020-05-02 23:24:36,011 - mobilenet-1119-gpu - INFO - platform: GPU
+2020-05-02 23:24:40,986 - mobilenet-1119-gpu - INFO - model: mobilenet-1119-gpu, params: 868.81 k, flops: 0.050108 GMac, mean of time: 5.82266536851724e-05, var of time: 4.408148229157546e-17
+2020-05-02 23:25:16,690 - mobilenet-1119-gpu - INFO - batch size: 128
+2020-05-02 23:25:16,690 - mobilenet-1119-gpu - INFO - platform: GPU
+2020-05-02 23:25:21,679 - mobilenet-1119-gpu - INFO - model: mobilenet-1119-gpu, params: 868.81 k, flops: 0.050108 GMac, mean of time: 5.82915854950746e-05, var of time: 1.1528586727227213e-18
+2020-05-02 23:25:53,521 - mobilenet-1119-gpu - INFO - batch size: 128
+2020-05-02 23:25:53,521 - mobilenet-1119-gpu - INFO - platform: GPU
+2020-05-02 23:25:57,362 - mobilenet-1119-gpu - INFO - model: mobilenet-1119-gpu, params: 9.2195 M, flops: 0.046668 GMac, mean of time: 4.308439791202545e-05, var of time: 8.436538504837827e-18
+2020-05-02 23:26:25,255 - mobilenet-1119-gpu - INFO - batch size: 128
+2020-05-02 23:26:25,255 - mobilenet-1119-gpu - INFO - platform: GPU
+2020-05-02 23:26:29,143 - mobilenet-1119-gpu - INFO - model: mobilenet-1119-gpu, params: 9.2195 M, flops: 0.046668 GMac, mean of time: 4.313657681147258e-05, var of time: 8.001084362955198e-18

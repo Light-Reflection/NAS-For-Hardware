@@ -1,0 +1,3056 @@
+You have imported mypackage
+==================== Start building supernet ====================
+channels	[(32, 1), (64, 1), [(128, 2), (256, 2), (512, 2), (1024, 2)], (320, 1), (1280, 1)]
+layers	15
+num_of_classes	10
+division	2
+search_direction	[True, True, True, False]
+num_of_ops	2
+affine	True
+======================== End ========================
+None
+False
+channels	[(32, 1), (64, 1), [(128, 2), (256, 2), (512, 2), (1024, 2)], (320, 1), (1280, 1)]
+layers	15
+num_of_classes	10
+division	2
+search_direction	[True, True, True, False]
+num_of_ops	2
+affine	True
+======================== End ========================
+[5, 4, 2, 1]
+==================== Maunal set the resolution cfg in supernet ====================
+[5, 4, 2, 1]
+Produce channel according to the resolution-encoding:==================== Maunal set the channel_encoding cfg in supernet ====================
+True
+mobilenet_supernet(
+  (_stem): ModuleList(
+    (0): ConvBNActi(
+      (_conv): ManualConv2dPad(
+        3, 32, kernel_size=(3, 3), stride=(1, 1), bias=False
+        (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+      )
+      (_bn): ManualBN(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (_acti): ReLU()
+    )
+    (1): SepConv(
+      (_sconv): DwConvBNActi(
+        (_dwconv): ManualConv2dPad(
+          32, 32, kernel_size=(3, 3), stride=(1, 1), groups=32, bias=False
+          (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+        )
+        (_bn): ManualBN(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (_acti): ReLU()
+      )
+      (_pconv): PwConvBNActi(
+        (_pwconv): ManualConv2dPad(
+          32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False
+          (static_padding): Identity()
+        )
+        (_bn): ManualBN(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (_acti): ReLU()
+      )
+    )
+  )
+  (_cells): ModuleList(
+    (0): Cell(
+      (_cell_nets): ModuleList(
+        (0): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  64, 64, kernel_size=(3, 3), stride=(2, 2), groups=64, bias=False
+                  (static_padding): ZeroPad2d(padding=(0, 1, 0, 1), value=0.0)
+                )
+                (_bn): ManualBN(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  64, 64, kernel_size=(5, 5), stride=(2, 2), groups=64, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 2, 1, 2), value=0.0)
+                )
+                (_bn): ManualBN(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (1): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (2): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (3): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (4): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (5): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (6): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (7): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (8): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(1, 1), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+      )
+    )
+    (1): Cell(
+      (_cell_nets): ModuleList(
+        (0): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(3, 3), stride=(2, 2), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(0, 1, 0, 1), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  128, 128, kernel_size=(5, 5), stride=(2, 2), groups=128, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 2, 1, 2), value=0.0)
+                )
+                (_bn): ManualBN(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (1): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (2): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (3): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (4): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (5): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (6): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (7): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (8): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(1, 1), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+      )
+    )
+    (2): Cell(
+      (_cell_nets): ModuleList(
+        (0): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(3, 3), stride=(2, 2), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(0, 1, 0, 1), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  256, 256, kernel_size=(5, 5), stride=(2, 2), groups=256, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 2, 1, 2), value=0.0)
+                )
+                (_bn): ManualBN(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (1): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (2): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (3): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (4): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (5): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (6): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (7): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (8): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(1, 1), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+      )
+    )
+    (3): Cell(
+      (_cell_nets): ModuleList(
+        (0): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(3, 3), stride=(2, 2), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(0, 1, 0, 1), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  512, 512, kernel_size=(5, 5), stride=(2, 2), groups=512, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 2, 1, 2), value=0.0)
+                )
+                (_bn): ManualBN(512, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (1): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (2): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (3): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (4): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (5): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (6): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (7): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+        (8): MixOPs(
+          (_mix_ops): ModuleList(
+            (0): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(3, 3), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(1, 1, 1, 1), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+            (1): SepConv(
+              (_sconv): DwConvBNActi(
+                (_dwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(5, 5), stride=(1, 1), groups=1024, bias=False
+                  (static_padding): ZeroPad2d(padding=(2, 2, 2, 2), value=0.0)
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+              (_pconv): PwConvBNActi(
+                (_pwconv): ManualConv2dPad(
+                  1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False
+                  (static_padding): Identity()
+                )
+                (_bn): ManualBN(1024, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+                (_acti): ReLU()
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (_linear): ManualLinear(in_features=1024, out_features=10, bias=True)
+)
+Experiment dir : ./testing/20200503-020234/logs
+05/03 02:02:34 AM Create logger and wirter in the path: ./testing/20200503-020234/logs 
+05/03 02:02:34 AM || torch.backends.cudnn.enabled = True
+05/03 02:02:34 AM || torch.backends.cudnn.benchmark = False
+05/03 02:02:34 AM || torch.backends.cudnn.deterministic = True
+05/03 02:02:34 AM || torch.cuda.initial_seed = 0
+Save path is exists
+05/03 02:02:36 AM train: 000 | loss: 2.310704e+00 | prec1:12.500000 | prec5: 53.906250
+05/03 02:02:42 AM train: 200 | loss: 1.979076e+00 | prec1:25.454757 | prec5: 77.681903
+05/03 02:02:48 AM Epoch 000 | Time: 0:00:13 | train_acc 32.406000 | learning_rate [0.04]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch0.pt
+05/03 02:02:48 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:02:50 AM Epoch 000 |  Time: 0:00:02 | valid_acc 26.100000 | best_acc 26.100000
+05/03 02:02:50 AM train: 000 | loss: 1.428165e+00 | prec1:49.218750 | prec5: 91.406250
+05/03 02:02:58 AM train: 200 | loss: 1.448205e+00 | prec1:47.061567 | prec5: 92.105877
+05/03 02:03:05 AM Epoch 001 | Time: 0:00:15 | train_acc 48.868000 | learning_rate [0.04]
+05/03 02:03:05 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:03:07 AM Epoch 001 |  Time: 0:00:02 | valid_acc 37.940000 | best_acc 37.940000
+05/03 02:03:07 AM train: 000 | loss: 1.377619e+00 | prec1:52.343750 | prec5: 95.312500
+05/03 02:03:15 AM train: 200 | loss: 1.244541e+00 | prec1:54.944030 | prec5: 94.426306
+05/03 02:03:22 AM Epoch 002 | Time: 0:00:15 | train_acc 56.688000 | learning_rate [0.04]
+05/03 02:03:22 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:03:23 AM Epoch 002 |  Time: 0:00:02 | valid_acc 45.020000 | best_acc 45.020000
+05/03 02:03:24 AM train: 000 | loss: 9.276214e-01 | prec1:62.500000 | prec5: 99.218750
+05/03 02:03:32 AM train: 200 | loss: 1.067989e+00 | prec1:61.357276 | prec5: 95.887749
+05/03 02:03:39 AM Epoch 003 | Time: 0:00:15 | train_acc 62.816000 | learning_rate [0.04]
+05/03 02:03:39 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:03:41 AM Epoch 003 |  Time: 0:00:02 | valid_acc 52.400000 | best_acc 52.400000
+05/03 02:03:41 AM train: 000 | loss: 9.266042e-01 | prec1:67.187500 | prec5: 96.093750
+05/03 02:03:49 AM train: 200 | loss: 9.447573e-01 | prec1:66.487873 | prec5: 97.018812
+05/03 02:03:56 AM Epoch 004 | Time: 0:00:15 | train_acc 67.420000 | learning_rate [0.04]
+05/03 02:03:56 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:03:58 AM Epoch 004 |  Time: 0:00:02 | valid_acc 60.080000 | best_acc 60.080000
+05/03 02:03:58 AM train: 000 | loss: 7.701333e-01 | prec1:76.562500 | prec5: 100.000000
+05/03 02:04:06 AM train: 200 | loss: 8.419598e-01 | prec1:70.164801 | prec5: 97.636816
+05/03 02:04:14 AM Epoch 005 | Time: 0:00:16 | train_acc 71.030000 | learning_rate [0.04]
+05/03 02:04:14 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:04:16 AM Epoch 005 |  Time: 0:00:02 | valid_acc 64.050000 | best_acc 64.050000
+05/03 02:04:16 AM train: 000 | loss: 7.526920e-01 | prec1:75.781250 | prec5: 98.437500
+05/03 02:04:24 AM train: 200 | loss: 7.600892e-01 | prec1:73.394745 | prec5: 98.157649
+05/03 02:04:31 AM Epoch 006 | Time: 0:00:15 | train_acc 73.756000 | learning_rate [0.04]
+05/03 02:04:31 AM Val DispatchNet
+05/03 02:04:33 AM Epoch 006 |  Time: 0:00:02 | valid_acc 62.270000 | best_acc 64.050000
+05/03 02:04:34 AM train: 000 | loss: 6.141472e-01 | prec1:81.250000 | prec5: 100.000000
+05/03 02:04:41 AM train: 200 | loss: 7.064590e-01 | prec1:75.400342 | prec5: 98.262593
+05/03 02:04:49 AM Epoch 007 | Time: 0:00:16 | train_acc 75.808000 | learning_rate [0.04]
+05/03 02:04:49 AM Val DispatchNet
+05/03 02:04:51 AM Epoch 007 |  Time: 0:00:02 | valid_acc 55.420000 | best_acc 64.050000
+05/03 02:04:51 AM train: 000 | loss: 6.797500e-01 | prec1:77.343750 | prec5: 97.656250
+05/03 02:04:59 AM train: 200 | loss: 6.522509e-01 | prec1:77.227146 | prec5: 98.592973
+05/03 02:05:06 AM Epoch 008 | Time: 0:00:16 | train_acc 77.384000 | learning_rate [0.04]
+05/03 02:05:06 AM Val DispatchNet
+05/03 02:05:08 AM Epoch 008 |  Time: 0:00:02 | valid_acc 49.850000 | best_acc 64.050000
+05/03 02:05:09 AM train: 000 | loss: 5.569333e-01 | prec1:82.031250 | prec5: 98.437500
+05/03 02:05:16 AM train: 200 | loss: 6.096965e-01 | prec1:78.758551 | prec5: 98.791200
+05/03 02:05:24 AM Epoch 009 | Time: 0:00:15 | train_acc 78.924000 | learning_rate [0.04]
+05/03 02:05:24 AM Val DispatchNet
+05/03 02:05:26 AM Epoch 009 |  Time: 0:00:02 | valid_acc 63.590000 | best_acc 64.050000
+05/03 02:05:26 AM train: 000 | loss: 5.333917e-01 | prec1:82.812500 | prec5: 98.437500
+05/03 02:05:34 AM train: 200 | loss: 5.718664e-01 | prec1:80.111163 | prec5: 99.086598
+05/03 02:05:41 AM Epoch 010 | Time: 0:00:15 | train_acc 79.946000 | learning_rate [0.04]
+05/03 02:05:41 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:05:43 AM Epoch 010 |  Time: 0:00:02 | valid_acc 74.360000 | best_acc 74.360000
+05/03 02:05:43 AM train: 000 | loss: 6.652690e-01 | prec1:75.000000 | prec5: 100.000000
+05/03 02:05:51 AM train: 200 | loss: 5.475975e-01 | prec1:80.985697 | prec5: 99.113806
+05/03 02:05:59 AM Epoch 011 | Time: 0:00:16 | train_acc 80.968000 | learning_rate [0.04]
+05/03 02:05:59 AM Val DispatchNet
+05/03 02:06:00 AM Epoch 011 |  Time: 0:00:02 | valid_acc 67.580000 | best_acc 74.360000
+05/03 02:06:01 AM train: 000 | loss: 5.797358e-01 | prec1:81.250000 | prec5: 99.218750
+05/03 02:06:09 AM train: 200 | loss: 5.399564e-01 | prec1:81.642568 | prec5: 99.113806
+05/03 02:06:16 AM Epoch 012 | Time: 0:00:16 | train_acc 81.606000 | learning_rate [0.04]
+05/03 02:06:16 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:06:18 AM Epoch 012 |  Time: 0:00:02 | valid_acc 76.290000 | best_acc 76.290000
+05/03 02:06:19 AM train: 000 | loss: 4.042838e-01 | prec1:83.593750 | prec5: 100.000000
+05/03 02:06:26 AM train: 200 | loss: 5.101401e-01 | prec1:82.295553 | prec5: 99.183769
+05/03 02:06:34 AM Epoch 013 | Time: 0:00:16 | train_acc 82.174000 | learning_rate [0.04]
+05/03 02:06:34 AM Val DispatchNet
+05/03 02:06:36 AM Epoch 013 |  Time: 0:00:02 | valid_acc 70.830000 | best_acc 76.290000
+05/03 02:06:36 AM train: 000 | loss: 4.739153e-01 | prec1:82.812500 | prec5: 100.000000
+05/03 02:06:43 AM train: 200 | loss: 5.046659e-01 | prec1:82.544310 | prec5: 99.257618
+05/03 02:06:51 AM Epoch 014 | Time: 0:00:15 | train_acc 82.628000 | learning_rate [0.04]
+05/03 02:06:51 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:06:53 AM Epoch 014 |  Time: 0:00:02 | valid_acc 76.540000 | best_acc 76.540000
+05/03 02:06:54 AM train: 000 | loss: 3.609219e-01 | prec1:88.281250 | prec5: 100.000000
+05/03 02:07:01 AM train: 200 | loss: 4.853353e-01 | prec1:83.360541 | prec5: 99.245958
+05/03 02:07:09 AM Epoch 015 | Time: 0:00:15 | train_acc 83.248000 | learning_rate [0.04]
+05/03 02:07:09 AM Val DispatchNet
+05/03 02:07:10 AM Epoch 015 |  Time: 0:00:02 | valid_acc 69.580000 | best_acc 76.540000
+05/03 02:07:11 AM train: 000 | loss: 3.138738e-01 | prec1:89.843750 | prec5: 100.000000
+05/03 02:07:19 AM train: 200 | loss: 4.774964e-01 | prec1:83.710354 | prec5: 99.277052
+05/03 02:07:27 AM Epoch 016 | Time: 0:00:16 | train_acc 83.530000 | learning_rate [0.04]
+05/03 02:07:27 AM Val DispatchNet
+05/03 02:07:29 AM Epoch 016 |  Time: 0:00:02 | valid_acc 72.880000 | best_acc 76.540000
+05/03 02:07:29 AM train: 000 | loss: 4.561565e-01 | prec1:85.156250 | prec5: 99.218750
+05/03 02:07:37 AM train: 200 | loss: 4.695712e-01 | prec1:83.823072 | prec5: 99.284826
+05/03 02:07:44 AM Epoch 017 | Time: 0:00:15 | train_acc 83.780000 | learning_rate [0.04]
+05/03 02:07:44 AM Val DispatchNet
+05/03 02:07:46 AM Epoch 017 |  Time: 0:00:02 | valid_acc 73.020000 | best_acc 76.540000
+05/03 02:07:46 AM train: 000 | loss: 5.284417e-01 | prec1:84.375000 | prec5: 99.218750
+05/03 02:07:54 AM train: 200 | loss: 4.625424e-01 | prec1:84.161225 | prec5: 99.393657
+05/03 02:08:02 AM Epoch 018 | Time: 0:00:16 | train_acc 84.228000 | learning_rate [0.04]
+05/03 02:08:02 AM Val DispatchNet
+05/03 02:08:04 AM Epoch 018 |  Time: 0:00:02 | valid_acc 68.020000 | best_acc 76.540000
+05/03 02:08:04 AM train: 000 | loss: 3.782335e-01 | prec1:88.281250 | prec5: 99.218750
+05/03 02:08:12 AM train: 200 | loss: 4.569981e-01 | prec1:84.409981 | prec5: 99.296486
+05/03 02:08:19 AM Epoch 019 | Time: 0:00:15 | train_acc 84.328000 | learning_rate [0.04]
+05/03 02:08:19 AM Val DispatchNet
+05/03 02:08:21 AM Epoch 019 |  Time: 0:00:02 | valid_acc 64.450000 | best_acc 76.540000
+05/03 02:08:21 AM train: 000 | loss: 3.002082e-01 | prec1:89.062500 | prec5: 100.000000
+05/03 02:08:29 AM train: 200 | loss: 4.434143e-01 | prec1:84.752021 | prec5: 99.483053
+05/03 02:08:36 AM Epoch 020 | Time: 0:00:16 | train_acc 84.526000 | learning_rate [0.04]
+05/03 02:08:36 AM Val DispatchNet
+05/03 02:08:38 AM Epoch 020 |  Time: 0:00:02 | valid_acc 71.570000 | best_acc 76.540000
+05/03 02:08:39 AM train: 000 | loss: 4.606843e-01 | prec1:82.812500 | prec5: 97.656250
+05/03 02:08:46 AM train: 200 | loss: 4.419339e-01 | prec1:84.592662 | prec5: 99.378109
+05/03 02:08:54 AM Epoch 021 | Time: 0:00:16 | train_acc 84.666000 | learning_rate [0.04]
+05/03 02:08:54 AM Val DispatchNet
+05/03 02:08:56 AM Epoch 021 |  Time: 0:00:02 | valid_acc 75.210000 | best_acc 76.540000
+05/03 02:08:56 AM train: 000 | loss: 3.954223e-01 | prec1:85.937500 | prec5: 100.000000
+05/03 02:09:04 AM train: 200 | loss: 4.439760e-01 | prec1:84.895833 | prec5: 99.315920
+05/03 02:09:11 AM Epoch 022 | Time: 0:00:16 | train_acc 84.906000 | learning_rate [0.04]
+05/03 02:09:11 AM Val DispatchNet
+05/03 02:09:13 AM Epoch 022 |  Time: 0:00:02 | valid_acc 68.150000 | best_acc 76.540000
+05/03 02:09:14 AM train: 000 | loss: 3.910612e-01 | prec1:88.281250 | prec5: 100.000000
+05/03 02:09:21 AM train: 200 | loss: 4.262214e-01 | prec1:85.303949 | prec5: 99.416978
+05/03 02:09:28 AM Epoch 023 | Time: 0:00:15 | train_acc 84.964000 | learning_rate [0.04]
+05/03 02:09:28 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:09:30 AM Epoch 023 |  Time: 0:00:02 | valid_acc 76.550000 | best_acc 76.550000
+05/03 02:09:31 AM train: 000 | loss: 3.732230e-01 | prec1:84.375000 | prec5: 100.000000
+05/03 02:09:38 AM train: 200 | loss: 4.207061e-01 | prec1:85.439988 | prec5: 99.397544
+05/03 02:09:46 AM Epoch 024 | Time: 0:00:16 | train_acc 85.176000 | learning_rate [0.04]
+05/03 02:09:46 AM Val DispatchNet
+05/03 02:09:48 AM Epoch 024 |  Time: 0:00:02 | valid_acc 71.300000 | best_acc 76.550000
+05/03 02:09:48 AM train: 000 | loss: 3.609828e-01 | prec1:86.718750 | prec5: 100.000000
+05/03 02:09:56 AM train: 200 | loss: 4.258999e-01 | prec1:85.517724 | prec5: 99.393657
+05/03 02:10:03 AM Epoch 025 | Time: 0:00:15 | train_acc 85.574000 | learning_rate [0.04]
+05/03 02:10:03 AM Val DispatchNet
+05/03 02:10:05 AM Epoch 025 |  Time: 0:00:02 | valid_acc 72.350000 | best_acc 76.550000
+05/03 02:10:05 AM train: 000 | loss: 4.698417e-01 | prec1:84.375000 | prec5: 99.218750
+05/03 02:10:13 AM train: 200 | loss: 4.216400e-01 | prec1:85.529384 | prec5: 99.409204
+05/03 02:10:20 AM Epoch 026 | Time: 0:00:15 | train_acc 85.594000 | learning_rate [0.04]
+05/03 02:10:20 AM Val DispatchNet
+05/03 02:10:22 AM Epoch 026 |  Time: 0:00:02 | valid_acc 70.980000 | best_acc 76.550000
+05/03 02:10:23 AM train: 000 | loss: 4.562062e-01 | prec1:85.937500 | prec5: 98.437500
+05/03 02:10:30 AM train: 200 | loss: 4.128233e-01 | prec1:85.509950 | prec5: 99.440299
+05/03 02:10:38 AM Epoch 027 | Time: 0:00:15 | train_acc 85.606000 | learning_rate [0.04]
+05/03 02:10:38 AM Val DispatchNet
+05/03 02:10:40 AM Epoch 027 |  Time: 0:00:02 | valid_acc 63.870000 | best_acc 76.550000
+05/03 02:10:40 AM train: 000 | loss: 3.416923e-01 | prec1:88.281250 | prec5: 99.218750
+05/03 02:10:48 AM train: 200 | loss: 3.980478e-01 | prec1:86.357276 | prec5: 99.529695
+05/03 02:10:55 AM Epoch 028 | Time: 0:00:15 | train_acc 85.786000 | learning_rate [0.04]
+05/03 02:10:55 AM Val DispatchNet
+05/03 02:10:57 AM Epoch 028 |  Time: 0:00:02 | valid_acc 73.370000 | best_acc 76.550000
+05/03 02:10:57 AM train: 000 | loss: 3.199017e-01 | prec1:86.718750 | prec5: 100.000000
+05/03 02:11:05 AM train: 200 | loss: 3.960024e-01 | prec1:86.314521 | prec5: 99.498601
+05/03 02:11:13 AM Epoch 029 | Time: 0:00:16 | train_acc 85.978000 | learning_rate [0.04]
+05/03 02:11:13 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:11:14 AM Epoch 029 |  Time: 0:00:02 | valid_acc 76.610000 | best_acc 76.610000
+05/03 02:11:15 AM train: 000 | loss: 3.068369e-01 | prec1:87.500000 | prec5: 100.000000
+05/03 02:11:22 AM train: 200 | loss: 4.013309e-01 | prec1:86.271766 | prec5: 99.475280
+05/03 02:11:30 AM Epoch 030 | Time: 0:00:15 | train_acc 86.110000 | learning_rate [0.04]
+05/03 02:11:30 AM Val DispatchNet
+05/03 02:11:32 AM Epoch 030 |  Time: 0:00:02 | valid_acc 66.030000 | best_acc 76.610000
+05/03 02:11:32 AM train: 000 | loss: 5.278715e-01 | prec1:82.031250 | prec5: 97.656250
+05/03 02:11:39 AM train: 200 | loss: 3.923415e-01 | prec1:86.462220 | prec5: 99.475280
+05/03 02:11:47 AM Epoch 031 | Time: 0:00:15 | train_acc 86.204000 | learning_rate [0.04]
+05/03 02:11:47 AM Val DispatchNet
+05/03 02:11:49 AM Epoch 031 |  Time: 0:00:02 | valid_acc 74.050000 | best_acc 76.610000
+05/03 02:11:49 AM train: 000 | loss: 3.752556e-01 | prec1:89.062500 | prec5: 100.000000
+05/03 02:11:57 AM train: 200 | loss: 3.859804e-01 | prec1:86.909204 | prec5: 99.479167
+05/03 02:12:04 AM Epoch 032 | Time: 0:00:15 | train_acc 86.470000 | learning_rate [0.04]
+05/03 02:12:04 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:12:06 AM Epoch 032 |  Time: 0:00:02 | valid_acc 77.870000 | best_acc 77.870000
+05/03 02:12:06 AM train: 000 | loss: 5.087142e-01 | prec1:81.250000 | prec5: 99.218750
+05/03 02:12:14 AM train: 200 | loss: 3.890626e-01 | prec1:86.812034 | prec5: 99.521922
+05/03 02:12:21 AM Epoch 033 | Time: 0:00:15 | train_acc 86.346000 | learning_rate [0.04]
+05/03 02:12:21 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:12:23 AM Epoch 033 |  Time: 0:00:02 | valid_acc 78.170000 | best_acc 78.170000
+05/03 02:12:23 AM train: 000 | loss: 1.866368e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:12:31 AM train: 200 | loss: 4.017731e-01 | prec1:86.100746 | prec5: 99.475280
+05/03 02:12:38 AM Epoch 034 | Time: 0:00:15 | train_acc 86.128000 | learning_rate [0.04]
+05/03 02:12:38 AM Val DispatchNet
+05/03 02:12:40 AM Epoch 034 |  Time: 0:00:02 | valid_acc 73.920000 | best_acc 78.170000
+05/03 02:12:41 AM train: 000 | loss: 3.900728e-01 | prec1:85.156250 | prec5: 100.000000
+05/03 02:12:48 AM train: 200 | loss: 3.802985e-01 | prec1:86.909204 | prec5: 99.521922
+05/03 02:12:55 AM Epoch 035 | Time: 0:00:15 | train_acc 86.552000 | learning_rate [0.04]
+05/03 02:12:55 AM Val DispatchNet
+05/03 02:12:57 AM Epoch 035 |  Time: 0:00:02 | valid_acc 69.200000 | best_acc 78.170000
+05/03 02:12:58 AM train: 000 | loss: 2.725248e-01 | prec1:90.625000 | prec5: 99.218750
+05/03 02:13:05 AM train: 200 | loss: 3.775418e-01 | prec1:87.099658 | prec5: 99.595771
+05/03 02:13:12 AM Epoch 036 | Time: 0:00:15 | train_acc 86.676000 | learning_rate [0.04]
+05/03 02:13:12 AM Val DispatchNet
+05/03 02:13:14 AM Epoch 036 |  Time: 0:00:02 | valid_acc 69.230000 | best_acc 78.170000
+05/03 02:13:15 AM train: 000 | loss: 3.149948e-01 | prec1:89.062500 | prec5: 100.000000
+05/03 02:13:22 AM train: 200 | loss: 3.853066e-01 | prec1:86.672108 | prec5: 99.584111
+05/03 02:13:30 AM Epoch 037 | Time: 0:00:16 | train_acc 86.446000 | learning_rate [0.04]
+05/03 02:13:30 AM Val DispatchNet
+05/03 02:13:32 AM Epoch 037 |  Time: 0:00:02 | valid_acc 77.860000 | best_acc 78.170000
+05/03 02:13:32 AM train: 000 | loss: 4.952988e-01 | prec1:81.250000 | prec5: 100.000000
+05/03 02:13:40 AM train: 200 | loss: 3.828691e-01 | prec1:87.021922 | prec5: 99.502488
+05/03 02:13:47 AM Epoch 038 | Time: 0:00:15 | train_acc 87.008000 | learning_rate [0.04]
+05/03 02:13:47 AM Val DispatchNet
+05/03 02:13:49 AM Epoch 038 |  Time: 0:00:02 | valid_acc 76.910000 | best_acc 78.170000
+05/03 02:13:49 AM train: 000 | loss: 3.756488e-01 | prec1:85.937500 | prec5: 99.218750
+05/03 02:13:57 AM train: 200 | loss: 3.801502e-01 | prec1:86.893657 | prec5: 99.556903
+05/03 02:14:04 AM Epoch 039 | Time: 0:00:16 | train_acc 86.498000 | learning_rate [0.04]
+05/03 02:14:04 AM Val DispatchNet
+05/03 02:14:06 AM Epoch 039 |  Time: 0:00:02 | valid_acc 76.850000 | best_acc 78.170000
+05/03 02:14:07 AM train: 000 | loss: 2.920748e-01 | prec1:92.187500 | prec5: 99.218750
+05/03 02:14:14 AM train: 200 | loss: 3.740726e-01 | prec1:87.014148 | prec5: 99.564677
+05/03 02:14:21 AM Epoch 040 | Time: 0:00:15 | train_acc 86.720000 | learning_rate [0.04]
+05/03 02:14:21 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:14:23 AM Epoch 040 |  Time: 0:00:02 | valid_acc 81.250000 | best_acc 81.250000
+05/03 02:14:24 AM train: 000 | loss: 3.689107e-01 | prec1:87.500000 | prec5: 100.000000
+05/03 02:14:31 AM train: 200 | loss: 3.803258e-01 | prec1:86.800373 | prec5: 99.568563
+05/03 02:14:39 AM Epoch 041 | Time: 0:00:15 | train_acc 86.630000 | learning_rate [0.04]
+05/03 02:14:39 AM Val DispatchNet
+05/03 02:14:40 AM Epoch 041 |  Time: 0:00:02 | valid_acc 70.870000 | best_acc 81.250000
+05/03 02:14:41 AM train: 000 | loss: 3.654312e-01 | prec1:86.718750 | prec5: 99.218750
+05/03 02:14:49 AM train: 200 | loss: 3.728455e-01 | prec1:87.196828 | prec5: 99.529695
+05/03 02:14:56 AM Epoch 042 | Time: 0:00:15 | train_acc 86.988000 | learning_rate [0.04]
+05/03 02:14:56 AM Val DispatchNet
+05/03 02:14:57 AM Epoch 042 |  Time: 0:00:02 | valid_acc 77.960000 | best_acc 81.250000
+05/03 02:14:58 AM train: 000 | loss: 3.060781e-01 | prec1:89.062500 | prec5: 99.218750
+05/03 02:15:05 AM train: 200 | loss: 3.741264e-01 | prec1:87.064677 | prec5: 99.591884
+05/03 02:15:12 AM Epoch 043 | Time: 0:00:15 | train_acc 86.766000 | learning_rate [0.04]
+05/03 02:15:12 AM Val DispatchNet
+05/03 02:15:14 AM Epoch 043 |  Time: 0:00:02 | valid_acc 72.650000 | best_acc 81.250000
+05/03 02:15:14 AM train: 000 | loss: 3.339955e-01 | prec1:88.281250 | prec5: 99.218750
+05/03 02:15:22 AM train: 200 | loss: 3.640766e-01 | prec1:87.391169 | prec5: 99.560790
+05/03 02:15:29 AM Epoch 044 | Time: 0:00:15 | train_acc 87.208000 | learning_rate [0.04]
+05/03 02:15:29 AM Val DispatchNet
+05/03 02:15:31 AM Epoch 044 |  Time: 0:00:02 | valid_acc 74.430000 | best_acc 81.250000
+05/03 02:15:32 AM train: 000 | loss: 4.034960e-01 | prec1:88.281250 | prec5: 100.000000
+05/03 02:15:39 AM train: 200 | loss: 3.656409e-01 | prec1:87.488340 | prec5: 99.545243
+05/03 02:15:47 AM Epoch 045 | Time: 0:00:16 | train_acc 87.246000 | learning_rate [0.04]
+05/03 02:15:47 AM Val DispatchNet
+05/03 02:15:49 AM Epoch 045 |  Time: 0:00:02 | valid_acc 76.210000 | best_acc 81.250000
+05/03 02:15:50 AM train: 000 | loss: 3.373907e-01 | prec1:89.843750 | prec5: 99.218750
+05/03 02:15:57 AM train: 200 | loss: 3.694517e-01 | prec1:87.150187 | prec5: 99.541356
+05/03 02:16:04 AM Epoch 046 | Time: 0:00:15 | train_acc 87.040000 | learning_rate [0.04]
+05/03 02:16:04 AM Val DispatchNet
+05/03 02:16:06 AM Epoch 046 |  Time: 0:00:02 | valid_acc 71.830000 | best_acc 81.250000
+05/03 02:16:06 AM train: 000 | loss: 3.868464e-01 | prec1:85.937500 | prec5: 98.437500
+05/03 02:16:14 AM train: 200 | loss: 3.623318e-01 | prec1:87.531095 | prec5: 99.576337
+05/03 02:16:21 AM Epoch 047 | Time: 0:00:15 | train_acc 87.324000 | learning_rate [0.04]
+05/03 02:16:21 AM Val DispatchNet
+05/03 02:16:23 AM Epoch 047 |  Time: 0:00:02 | valid_acc 77.750000 | best_acc 81.250000
+05/03 02:16:24 AM train: 000 | loss: 3.606237e-01 | prec1:84.375000 | prec5: 100.000000
+05/03 02:16:32 AM train: 200 | loss: 3.576313e-01 | prec1:87.643812 | prec5: 99.537469
+05/03 02:16:39 AM Epoch 048 | Time: 0:00:16 | train_acc 87.432000 | learning_rate [0.04]
+05/03 02:16:39 AM Val DispatchNet
+05/03 02:16:41 AM Epoch 048 |  Time: 0:00:02 | valid_acc 73.580000 | best_acc 81.250000
+05/03 02:16:41 AM train: 000 | loss: 2.985483e-01 | prec1:86.718750 | prec5: 100.000000
+05/03 02:16:49 AM train: 200 | loss: 3.600720e-01 | prec1:87.632152 | prec5: 99.607432
+05/03 02:16:56 AM Epoch 049 | Time: 0:00:15 | train_acc 87.392000 | learning_rate [0.04]
+05/03 02:16:56 AM Val DispatchNet
+05/03 02:16:58 AM Epoch 049 |  Time: 0:00:02 | valid_acc 78.560000 | best_acc 81.250000
+05/03 02:16:58 AM train: 000 | loss: 3.880303e-01 | prec1:88.281250 | prec5: 100.000000
+05/03 02:17:06 AM train: 200 | loss: 3.602651e-01 | prec1:87.744869 | prec5: 99.599658
+05/03 02:17:13 AM Epoch 050 | Time: 0:00:15 | train_acc 87.574000 | learning_rate [0.04]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch50.pt
+05/03 02:17:13 AM Val DispatchNet
+05/03 02:17:15 AM Epoch 050 |  Time: 0:00:02 | valid_acc 65.360000 | best_acc 81.250000
+05/03 02:17:16 AM train: 000 | loss: 2.874162e-01 | prec1:90.625000 | prec5: 99.218750
+05/03 02:17:24 AM train: 200 | loss: 3.568656e-01 | prec1:87.818719 | prec5: 99.568563
+05/03 02:17:31 AM Epoch 051 | Time: 0:00:16 | train_acc 87.480000 | learning_rate [0.04]
+05/03 02:17:31 AM Val DispatchNet
+05/03 02:17:33 AM Epoch 051 |  Time: 0:00:02 | valid_acc 71.250000 | best_acc 81.250000
+05/03 02:17:33 AM train: 000 | loss: 3.091355e-01 | prec1:86.718750 | prec5: 100.000000
+05/03 02:17:41 AM train: 200 | loss: 3.594354e-01 | prec1:87.589397 | prec5: 99.564677
+05/03 02:17:49 AM Epoch 052 | Time: 0:00:16 | train_acc 87.472000 | learning_rate [0.04]
+05/03 02:17:49 AM Val DispatchNet
+05/03 02:17:51 AM Epoch 052 |  Time: 0:00:02 | valid_acc 73.120000 | best_acc 81.250000
+05/03 02:17:51 AM train: 000 | loss: 4.436304e-01 | prec1:82.812500 | prec5: 100.000000
+05/03 02:17:59 AM train: 200 | loss: 3.511581e-01 | prec1:87.985852 | prec5: 99.576337
+05/03 02:18:06 AM Epoch 053 | Time: 0:00:16 | train_acc 87.744000 | learning_rate [0.04]
+05/03 02:18:06 AM Val DispatchNet
+05/03 02:18:08 AM Epoch 053 |  Time: 0:00:02 | valid_acc 70.200000 | best_acc 81.250000
+05/03 02:18:08 AM train: 000 | loss: 2.828460e-01 | prec1:91.406250 | prec5: 99.218750
+05/03 02:18:17 AM train: 200 | loss: 3.489413e-01 | prec1:87.943097 | prec5: 99.619092
+05/03 02:18:24 AM Epoch 054 | Time: 0:00:16 | train_acc 87.528000 | learning_rate [0.04]
+05/03 02:18:24 AM Val DispatchNet
+05/03 02:18:26 AM Epoch 054 |  Time: 0:00:02 | valid_acc 75.420000 | best_acc 81.250000
+05/03 02:18:27 AM train: 000 | loss: 2.697928e-01 | prec1:92.187500 | prec5: 100.000000
+05/03 02:18:34 AM train: 200 | loss: 3.529280e-01 | prec1:88.044154 | prec5: 99.657960
+05/03 02:18:42 AM Epoch 055 | Time: 0:00:16 | train_acc 87.676000 | learning_rate [0.04]
+05/03 02:18:42 AM Val DispatchNet
+05/03 02:18:44 AM Epoch 055 |  Time: 0:00:02 | valid_acc 75.460000 | best_acc 81.250000
+05/03 02:18:44 AM train: 000 | loss: 2.660605e-01 | prec1:89.843750 | prec5: 100.000000
+05/03 02:18:52 AM train: 200 | loss: 3.458268e-01 | prec1:88.133551 | prec5: 99.638526
+05/03 02:18:59 AM Epoch 056 | Time: 0:00:15 | train_acc 87.888000 | learning_rate [0.04]
+05/03 02:18:59 AM Val DispatchNet
+05/03 02:19:01 AM Epoch 056 |  Time: 0:00:02 | valid_acc 74.650000 | best_acc 81.250000
+05/03 02:19:01 AM train: 000 | loss: 2.619230e-01 | prec1:90.625000 | prec5: 100.000000
+05/03 02:19:09 AM train: 200 | loss: 3.527509e-01 | prec1:87.861474 | prec5: 99.599658
+05/03 02:19:16 AM Epoch 057 | Time: 0:00:15 | train_acc 87.656000 | learning_rate [0.04]
+05/03 02:19:16 AM Val DispatchNet
+05/03 02:19:19 AM Epoch 057 |  Time: 0:00:02 | valid_acc 76.860000 | best_acc 81.250000
+05/03 02:19:19 AM train: 000 | loss: 3.081911e-01 | prec1:89.062500 | prec5: 99.218750
+05/03 02:19:26 AM train: 200 | loss: 3.516285e-01 | prec1:87.993626 | prec5: 99.622979
+05/03 02:19:33 AM Epoch 058 | Time: 0:00:15 | train_acc 88.074000 | learning_rate [0.04]
+05/03 02:19:33 AM Val DispatchNet
+05/03 02:19:35 AM Epoch 058 |  Time: 0:00:02 | valid_acc 76.600000 | best_acc 81.250000
+05/03 02:19:36 AM train: 000 | loss: 3.605271e-01 | prec1:85.156250 | prec5: 100.000000
+05/03 02:19:43 AM train: 200 | loss: 2.561305e-01 | prec1:91.379042 | prec5: 99.793999
+05/03 02:19:50 AM Epoch 059 | Time: 0:00:15 | train_acc 92.006000 | learning_rate [0.004]
+05/03 02:19:50 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:19:52 AM Epoch 059 |  Time: 0:00:02 | valid_acc 90.390000 | best_acc 90.390000
+05/03 02:19:52 AM train: 000 | loss: 1.483501e-01 | prec1:94.531250 | prec5: 100.000000
+05/03 02:20:00 AM train: 200 | loss: 2.007005e-01 | prec1:93.322450 | prec5: 99.867848
+05/03 02:20:07 AM Epoch 060 | Time: 0:00:15 | train_acc 93.538000 | learning_rate [0.004]
+05/03 02:20:07 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:20:09 AM Epoch 060 |  Time: 0:00:02 | valid_acc 91.040000 | best_acc 91.040000
+05/03 02:20:09 AM train: 000 | loss: 1.573629e-01 | prec1:93.750000 | prec5: 100.000000
+05/03 02:20:17 AM train: 200 | loss: 1.737713e-01 | prec1:94.103700 | prec5: 99.825093
+05/03 02:20:24 AM Epoch 061 | Time: 0:00:15 | train_acc 94.022000 | learning_rate [0.004]
+05/03 02:20:24 AM Val DispatchNet
+05/03 02:20:26 AM Epoch 061 |  Time: 0:00:02 | valid_acc 90.550000 | best_acc 91.040000
+05/03 02:20:27 AM train: 000 | loss: 1.328185e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:20:35 AM train: 200 | loss: 1.674210e-01 | prec1:94.399098 | prec5: 99.867848
+05/03 02:20:42 AM Epoch 062 | Time: 0:00:15 | train_acc 94.372000 | learning_rate [0.004]
+05/03 02:20:42 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:20:44 AM Epoch 062 |  Time: 0:00:02 | valid_acc 91.160000 | best_acc 91.160000
+05/03 02:20:44 AM train: 000 | loss: 1.510259e-01 | prec1:94.531250 | prec5: 100.000000
+05/03 02:20:52 AM train: 200 | loss: 1.547756e-01 | prec1:94.756685 | prec5: 99.914490
+05/03 02:20:59 AM Epoch 063 | Time: 0:00:15 | train_acc 94.704000 | learning_rate [0.004]
+05/03 02:20:59 AM Val DispatchNet
+05/03 02:21:01 AM Epoch 063 |  Time: 0:00:02 | valid_acc 91.160000 | best_acc 91.160000
+05/03 02:21:01 AM train: 000 | loss: 2.257159e-01 | prec1:92.187500 | prec5: 100.000000
+05/03 02:21:08 AM train: 200 | loss: 1.473868e-01 | prec1:95.067631 | prec5: 99.933924
+05/03 02:21:16 AM Epoch 064 | Time: 0:00:15 | train_acc 94.818000 | learning_rate [0.004]
+05/03 02:21:16 AM Val DispatchNet
+05/03 02:21:18 AM Epoch 064 |  Time: 0:00:02 | valid_acc 91.160000 | best_acc 91.160000
+05/03 02:21:18 AM train: 000 | loss: 1.773672e-01 | prec1:93.750000 | prec5: 100.000000
+05/03 02:21:26 AM train: 200 | loss: 1.411825e-01 | prec1:95.207556 | prec5: 99.926150
+05/03 02:21:33 AM Epoch 065 | Time: 0:00:16 | train_acc 95.164000 | learning_rate [0.004]
+05/03 02:21:33 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:21:35 AM Epoch 065 |  Time: 0:00:02 | valid_acc 91.180000 | best_acc 91.180000
+05/03 02:21:36 AM train: 000 | loss: 1.056297e-01 | prec1:96.093750 | prec5: 100.000000
+05/03 02:21:43 AM train: 200 | loss: 1.414694e-01 | prec1:95.211443 | prec5: 99.922264
+05/03 02:21:51 AM Epoch 066 | Time: 0:00:15 | train_acc 95.138000 | learning_rate [0.004]
+05/03 02:21:51 AM Val DispatchNet
+05/03 02:21:52 AM Epoch 066 |  Time: 0:00:02 | valid_acc 91.160000 | best_acc 91.180000
+05/03 02:21:53 AM train: 000 | loss: 1.652404e-01 | prec1:96.093750 | prec5: 99.218750
+05/03 02:22:00 AM train: 200 | loss: 1.346072e-01 | prec1:95.467973 | prec5: 99.914490
+05/03 02:22:08 AM Epoch 067 | Time: 0:00:15 | train_acc 95.482000 | learning_rate [0.004]
+05/03 02:22:08 AM Val DispatchNet
+05/03 02:22:09 AM Epoch 067 |  Time: 0:00:02 | valid_acc 90.930000 | best_acc 91.180000
+05/03 02:22:10 AM train: 000 | loss: 1.155919e-01 | prec1:96.875000 | prec5: 100.000000
+05/03 02:22:17 AM train: 200 | loss: 1.290335e-01 | prec1:95.666200 | prec5: 99.945585
+05/03 02:22:24 AM Epoch 068 | Time: 0:00:15 | train_acc 95.600000 | learning_rate [0.004]
+05/03 02:22:24 AM Val DispatchNet
+05/03 02:22:26 AM Epoch 068 |  Time: 0:00:02 | valid_acc 90.920000 | best_acc 91.180000
+05/03 02:22:26 AM train: 000 | loss: 1.501283e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:22:34 AM train: 200 | loss: 1.173239e-01 | prec1:96.058769 | prec5: 99.933924
+05/03 02:22:41 AM Epoch 069 | Time: 0:00:15 | train_acc 95.850000 | learning_rate [0.004]
+05/03 02:22:41 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:22:43 AM Epoch 069 |  Time: 0:00:02 | valid_acc 91.500000 | best_acc 91.500000
+05/03 02:22:44 AM train: 000 | loss: 1.369248e-01 | prec1:96.093750 | prec5: 100.000000
+05/03 02:22:52 AM train: 200 | loss: 1.170296e-01 | prec1:96.117071 | prec5: 99.941698
+05/03 02:22:59 AM Epoch 070 | Time: 0:00:16 | train_acc 95.976000 | learning_rate [0.004]
+05/03 02:22:59 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:23:01 AM Epoch 070 |  Time: 0:00:02 | valid_acc 91.540000 | best_acc 91.540000
+05/03 02:23:01 AM train: 000 | loss: 4.643247e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:23:09 AM train: 200 | loss: 1.143685e-01 | prec1:96.140392 | prec5: 99.937811
+05/03 02:23:16 AM Epoch 071 | Time: 0:00:16 | train_acc 95.998000 | learning_rate [0.004]
+05/03 02:23:16 AM Val DispatchNet
+05/03 02:23:18 AM Epoch 071 |  Time: 0:00:02 | valid_acc 91.270000 | best_acc 91.540000
+05/03 02:23:19 AM train: 000 | loss: 9.447549e-02 | prec1:96.093750 | prec5: 100.000000
+05/03 02:23:26 AM train: 200 | loss: 1.098957e-01 | prec1:96.190920 | prec5: 99.961132
+05/03 02:23:33 AM Epoch 072 | Time: 0:00:15 | train_acc 96.000000 | learning_rate [0.004]
+05/03 02:23:33 AM Val DispatchNet
+05/03 02:23:35 AM Epoch 072 |  Time: 0:00:02 | valid_acc 90.860000 | best_acc 91.540000
+05/03 02:23:36 AM train: 000 | loss: 9.158638e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:23:43 AM train: 200 | loss: 1.067181e-01 | prec1:96.408582 | prec5: 99.961132
+05/03 02:23:51 AM Epoch 073 | Time: 0:00:15 | train_acc 96.200000 | learning_rate [0.004]
+05/03 02:23:51 AM Val DispatchNet
+05/03 02:23:53 AM Epoch 073 |  Time: 0:00:02 | valid_acc 91.230000 | best_acc 91.540000
+05/03 02:23:53 AM train: 000 | loss: 1.036035e-01 | prec1:96.093750 | prec5: 100.000000
+05/03 02:24:01 AM train: 200 | loss: 1.049663e-01 | prec1:96.509639 | prec5: 99.968905
+05/03 02:24:08 AM Epoch 074 | Time: 0:00:15 | train_acc 96.356000 | learning_rate [0.004]
+05/03 02:24:08 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:24:10 AM Epoch 074 |  Time: 0:00:02 | valid_acc 91.690000 | best_acc 91.690000
+05/03 02:24:10 AM train: 000 | loss: 3.564980e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:24:18 AM train: 200 | loss: 1.048857e-01 | prec1:96.451337 | prec5: 99.984453
+05/03 02:24:25 AM Epoch 075 | Time: 0:00:15 | train_acc 96.380000 | learning_rate [0.004]
+05/03 02:24:25 AM Val DispatchNet
+05/03 02:24:27 AM Epoch 075 |  Time: 0:00:02 | valid_acc 91.340000 | best_acc 91.690000
+05/03 02:24:27 AM train: 000 | loss: 5.123594e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:24:34 AM train: 200 | loss: 1.049237e-01 | prec1:96.400808 | prec5: 99.976679
+05/03 02:24:42 AM Epoch 076 | Time: 0:00:15 | train_acc 96.352000 | learning_rate [0.004]
+05/03 02:24:42 AM Val DispatchNet
+05/03 02:24:43 AM Epoch 076 |  Time: 0:00:02 | valid_acc 90.910000 | best_acc 91.690000
+05/03 02:24:44 AM train: 000 | loss: 1.382481e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:24:51 AM train: 200 | loss: 9.278176e-02 | prec1:96.805037 | prec5: 99.976679
+05/03 02:24:59 AM Epoch 077 | Time: 0:00:15 | train_acc 96.560000 | learning_rate [0.004]
+05/03 02:24:59 AM Val DispatchNet
+05/03 02:25:01 AM Epoch 077 |  Time: 0:00:02 | valid_acc 91.130000 | best_acc 91.690000
+05/03 02:25:01 AM train: 000 | loss: 7.752219e-02 | prec1:95.312500 | prec5: 100.000000
+05/03 02:25:09 AM train: 200 | loss: 9.206980e-02 | prec1:96.913868 | prec5: 99.968905
+05/03 02:25:16 AM Epoch 078 | Time: 0:00:15 | train_acc 96.544000 | learning_rate [0.004]
+05/03 02:25:16 AM Val DispatchNet
+05/03 02:25:18 AM Epoch 078 |  Time: 0:00:02 | valid_acc 91.270000 | best_acc 91.690000
+05/03 02:25:18 AM train: 000 | loss: 3.822548e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:25:26 AM train: 200 | loss: 9.016245e-02 | prec1:96.960510 | prec5: 99.968905
+05/03 02:25:33 AM Epoch 079 | Time: 0:00:15 | train_acc 96.770000 | learning_rate [0.004]
+05/03 02:25:33 AM Val DispatchNet
+05/03 02:25:34 AM Epoch 079 |  Time: 0:00:02 | valid_acc 91.350000 | best_acc 91.690000
+05/03 02:25:35 AM train: 000 | loss: 1.229498e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:25:43 AM train: 200 | loss: 9.290931e-02 | prec1:96.882774 | prec5: 99.984453
+05/03 02:25:50 AM Epoch 080 | Time: 0:00:15 | train_acc 96.790000 | learning_rate [0.004]
+05/03 02:25:50 AM Val DispatchNet
+05/03 02:25:52 AM Epoch 080 |  Time: 0:00:02 | valid_acc 90.720000 | best_acc 91.690000
+05/03 02:25:52 AM train: 000 | loss: 5.462730e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:26:00 AM train: 200 | loss: 9.017550e-02 | prec1:96.933302 | prec5: 99.968905
+05/03 02:26:07 AM Epoch 081 | Time: 0:00:15 | train_acc 96.680000 | learning_rate [0.004]
+05/03 02:26:07 AM Val DispatchNet
+05/03 02:26:09 AM Epoch 081 |  Time: 0:00:02 | valid_acc 91.260000 | best_acc 91.690000
+05/03 02:26:09 AM train: 000 | loss: 9.005460e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:26:17 AM train: 200 | loss: 9.469587e-02 | prec1:96.766169 | prec5: 99.965019
+05/03 02:26:25 AM Epoch 082 | Time: 0:00:16 | train_acc 96.792000 | learning_rate [0.004]
+05/03 02:26:25 AM Val DispatchNet
+05/03 02:26:26 AM Epoch 082 |  Time: 0:00:02 | valid_acc 90.790000 | best_acc 91.690000
+05/03 02:26:27 AM train: 000 | loss: 7.518195e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:26:35 AM train: 200 | loss: 8.206053e-02 | prec1:97.298663 | prec5: 99.988340
+05/03 02:26:42 AM Epoch 083 | Time: 0:00:16 | train_acc 97.110000 | learning_rate [0.004]
+05/03 02:26:42 AM Val DispatchNet
+05/03 02:26:44 AM Epoch 083 |  Time: 0:00:02 | valid_acc 90.450000 | best_acc 91.690000
+05/03 02:26:45 AM train: 000 | loss: 5.263634e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:26:52 AM train: 200 | loss: 8.340681e-02 | prec1:97.077114 | prec5: 99.980566
+05/03 02:27:00 AM Epoch 084 | Time: 0:00:16 | train_acc 97.000000 | learning_rate [0.004]
+05/03 02:27:00 AM Val DispatchNet
+05/03 02:27:02 AM Epoch 084 |  Time: 0:00:02 | valid_acc 91.150000 | best_acc 91.690000
+05/03 02:27:02 AM train: 000 | loss: 4.112282e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:27:10 AM train: 200 | loss: 8.414210e-02 | prec1:97.108209 | prec5: 99.965019
+05/03 02:27:17 AM Epoch 085 | Time: 0:00:15 | train_acc 96.928000 | learning_rate [0.004]
+05/03 02:27:17 AM Val DispatchNet
+05/03 02:27:19 AM Epoch 085 |  Time: 0:00:02 | valid_acc 89.830000 | best_acc 91.690000
+05/03 02:27:19 AM train: 000 | loss: 6.805546e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:27:27 AM train: 200 | loss: 8.102876e-02 | prec1:97.112096 | prec5: 99.972792
+05/03 02:27:34 AM Epoch 086 | Time: 0:00:16 | train_acc 97.046000 | learning_rate [0.004]
+05/03 02:27:34 AM Val DispatchNet
+05/03 02:27:36 AM Epoch 086 |  Time: 0:00:02 | valid_acc 89.880000 | best_acc 91.690000
+05/03 02:27:37 AM train: 000 | loss: 2.806154e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:27:44 AM train: 200 | loss: 8.585511e-02 | prec1:96.976057 | prec5: 99.965019
+05/03 02:27:52 AM Epoch 087 | Time: 0:00:15 | train_acc 97.006000 | learning_rate [0.004]
+05/03 02:27:52 AM Val DispatchNet
+05/03 02:27:53 AM Epoch 087 |  Time: 0:00:02 | valid_acc 90.750000 | best_acc 91.690000
+05/03 02:27:54 AM train: 000 | loss: 6.488473e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:28:01 AM train: 200 | loss: 8.246055e-02 | prec1:97.217040 | prec5: 99.980566
+05/03 02:28:09 AM Epoch 088 | Time: 0:00:16 | train_acc 97.016000 | learning_rate [0.004]
+05/03 02:28:09 AM Val DispatchNet
+05/03 02:28:11 AM Epoch 088 |  Time: 0:00:02 | valid_acc 91.250000 | best_acc 91.690000
+05/03 02:28:11 AM train: 000 | loss: 8.779608e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:28:19 AM train: 200 | loss: 8.209344e-02 | prec1:97.283116 | prec5: 99.976679
+05/03 02:28:26 AM Epoch 089 | Time: 0:00:15 | train_acc 97.176000 | learning_rate [0.004]
+05/03 02:28:26 AM Val DispatchNet
+05/03 02:28:28 AM Epoch 089 |  Time: 0:00:02 | valid_acc 90.640000 | best_acc 91.690000
+05/03 02:28:28 AM train: 000 | loss: 1.186639e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:28:36 AM train: 200 | loss: 7.731828e-02 | prec1:97.399720 | prec5: 99.984453
+05/03 02:28:43 AM Epoch 090 | Time: 0:00:15 | train_acc 97.252000 | learning_rate [0.004]
+05/03 02:28:43 AM Val DispatchNet
+05/03 02:28:45 AM Epoch 090 |  Time: 0:00:02 | valid_acc 91.040000 | best_acc 91.690000
+05/03 02:28:45 AM train: 000 | loss: 8.688067e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:28:53 AM train: 200 | loss: 7.622310e-02 | prec1:97.372512 | prec5: 99.984453
+05/03 02:29:01 AM Epoch 091 | Time: 0:00:16 | train_acc 97.304000 | learning_rate [0.004]
+05/03 02:29:01 AM Val DispatchNet
+05/03 02:29:03 AM Epoch 091 |  Time: 0:00:02 | valid_acc 89.020000 | best_acc 91.690000
+05/03 02:29:03 AM train: 000 | loss: 3.742312e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:29:11 AM train: 200 | loss: 7.500178e-02 | prec1:97.477456 | prec5: 99.992226
+05/03 02:29:18 AM Epoch 092 | Time: 0:00:16 | train_acc 97.230000 | learning_rate [0.004]
+05/03 02:29:18 AM Val DispatchNet
+05/03 02:29:20 AM Epoch 092 |  Time: 0:00:02 | valid_acc 90.040000 | best_acc 91.690000
+05/03 02:29:20 AM train: 000 | loss: 6.338181e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:29:29 AM train: 200 | loss: 7.910402e-02 | prec1:97.302550 | prec5: 99.992226
+05/03 02:29:36 AM Epoch 093 | Time: 0:00:16 | train_acc 97.296000 | learning_rate [0.004]
+05/03 02:29:36 AM Val DispatchNet
+05/03 02:29:38 AM Epoch 093 |  Time: 0:00:02 | valid_acc 89.810000 | best_acc 91.690000
+05/03 02:29:38 AM train: 000 | loss: 1.158068e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:29:46 AM train: 200 | loss: 7.899491e-02 | prec1:97.294776 | prec5: 99.992226
+05/03 02:29:53 AM Epoch 094 | Time: 0:00:15 | train_acc 97.238000 | learning_rate [0.004]
+05/03 02:29:53 AM Val DispatchNet
+05/03 02:29:55 AM Epoch 094 |  Time: 0:00:02 | valid_acc 89.730000 | best_acc 91.690000
+05/03 02:29:56 AM train: 000 | loss: 5.682081e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:30:03 AM train: 200 | loss: 7.510689e-02 | prec1:97.345305 | prec5: 99.996113
+05/03 02:30:10 AM Epoch 095 | Time: 0:00:15 | train_acc 97.336000 | learning_rate [0.004]
+05/03 02:30:10 AM Val DispatchNet
+05/03 02:30:12 AM Epoch 095 |  Time: 0:00:02 | valid_acc 90.250000 | best_acc 91.690000
+05/03 02:30:13 AM train: 000 | loss: 8.741464e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:30:21 AM train: 200 | loss: 7.242612e-02 | prec1:97.547419 | prec5: 99.984453
+05/03 02:30:28 AM Epoch 096 | Time: 0:00:16 | train_acc 97.446000 | learning_rate [0.004]
+05/03 02:30:28 AM Val DispatchNet
+05/03 02:30:30 AM Epoch 096 |  Time: 0:00:02 | valid_acc 90.340000 | best_acc 91.690000
+05/03 02:30:31 AM train: 000 | loss: 5.162793e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:30:38 AM train: 200 | loss: 7.141553e-02 | prec1:97.559080 | prec5: 100.000000
+05/03 02:30:46 AM Epoch 097 | Time: 0:00:15 | train_acc 97.406000 | learning_rate [0.004]
+05/03 02:30:46 AM Val DispatchNet
+05/03 02:30:47 AM Epoch 097 |  Time: 0:00:02 | valid_acc 90.640000 | best_acc 91.690000
+05/03 02:30:48 AM train: 000 | loss: 1.006549e-01 | prec1:96.093750 | prec5: 100.000000
+05/03 02:30:56 AM train: 200 | loss: 7.346331e-02 | prec1:97.426928 | prec5: 99.992226
+05/03 02:31:03 AM Epoch 098 | Time: 0:00:15 | train_acc 97.276000 | learning_rate [0.004]
+05/03 02:31:03 AM Val DispatchNet
+05/03 02:31:05 AM Epoch 098 |  Time: 0:00:02 | valid_acc 90.660000 | best_acc 91.690000
+05/03 02:31:05 AM train: 000 | loss: 7.075495e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:31:13 AM train: 200 | loss: 7.262538e-02 | prec1:97.559080 | prec5: 100.000000
+05/03 02:31:21 AM Epoch 099 | Time: 0:00:16 | train_acc 97.426000 | learning_rate [0.004]
+05/03 02:31:21 AM Val DispatchNet
+05/03 02:31:23 AM Epoch 099 |  Time: 0:00:02 | valid_acc 90.990000 | best_acc 91.690000
+05/03 02:31:23 AM train: 000 | loss: 3.426413e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:31:31 AM train: 200 | loss: 6.865124e-02 | prec1:97.667910 | prec5: 99.992226
+05/03 02:31:38 AM Epoch 100 | Time: 0:00:15 | train_acc 97.576000 | learning_rate [0.004]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch100.pt
+05/03 02:31:38 AM Val DispatchNet
+05/03 02:31:40 AM Epoch 100 |  Time: 0:00:02 | valid_acc 89.090000 | best_acc 91.690000
+05/03 02:31:40 AM train: 000 | loss: 7.850546e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:31:48 AM train: 200 | loss: 7.261078e-02 | prec1:97.489117 | prec5: 99.988340
+05/03 02:31:55 AM Epoch 101 | Time: 0:00:15 | train_acc 97.396000 | learning_rate [0.004]
+05/03 02:31:55 AM Val DispatchNet
+05/03 02:31:57 AM Epoch 101 |  Time: 0:00:02 | valid_acc 89.410000 | best_acc 91.690000
+05/03 02:31:57 AM train: 000 | loss: 4.868473e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:32:05 AM train: 200 | loss: 7.053928e-02 | prec1:97.551306 | prec5: 99.988340
+05/03 02:32:12 AM Epoch 102 | Time: 0:00:15 | train_acc 97.462000 | learning_rate [0.004]
+05/03 02:32:12 AM Val DispatchNet
+05/03 02:32:14 AM Epoch 102 |  Time: 0:00:02 | valid_acc 90.600000 | best_acc 91.690000
+05/03 02:32:14 AM train: 000 | loss: 6.566910e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:32:22 AM train: 200 | loss: 6.999425e-02 | prec1:97.574627 | prec5: 99.996113
+05/03 02:32:29 AM Epoch 103 | Time: 0:00:15 | train_acc 97.476000 | learning_rate [0.004]
+05/03 02:32:29 AM Val DispatchNet
+05/03 02:32:31 AM Epoch 103 |  Time: 0:00:02 | valid_acc 90.050000 | best_acc 91.690000
+05/03 02:32:31 AM train: 000 | loss: 1.223964e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:32:39 AM train: 200 | loss: 7.140289e-02 | prec1:97.566853 | prec5: 99.988340
+05/03 02:32:46 AM Epoch 104 | Time: 0:00:15 | train_acc 97.476000 | learning_rate [0.004]
+05/03 02:32:46 AM Val DispatchNet
+05/03 02:32:47 AM Epoch 104 |  Time: 0:00:02 | valid_acc 89.460000 | best_acc 91.690000
+05/03 02:32:48 AM train: 000 | loss: 7.908688e-02 | prec1:95.312500 | prec5: 100.000000
+05/03 02:32:55 AM train: 200 | loss: 6.984639e-02 | prec1:97.632929 | prec5: 99.996113
+05/03 02:33:02 AM Epoch 105 | Time: 0:00:15 | train_acc 97.534000 | learning_rate [0.004]
+05/03 02:33:02 AM Val DispatchNet
+05/03 02:33:04 AM Epoch 105 |  Time: 0:00:02 | valid_acc 90.190000 | best_acc 91.690000
+05/03 02:33:05 AM train: 000 | loss: 5.618188e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:33:12 AM train: 200 | loss: 6.648059e-02 | prec1:97.726213 | prec5: 99.992226
+05/03 02:33:20 AM Epoch 106 | Time: 0:00:15 | train_acc 97.498000 | learning_rate [0.004]
+05/03 02:33:20 AM Val DispatchNet
+05/03 02:33:22 AM Epoch 106 |  Time: 0:00:02 | valid_acc 89.930000 | best_acc 91.690000
+05/03 02:33:22 AM train: 000 | loss: 3.591905e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:33:29 AM train: 200 | loss: 6.982526e-02 | prec1:97.632929 | prec5: 99.992226
+05/03 02:33:37 AM Epoch 107 | Time: 0:00:15 | train_acc 97.508000 | learning_rate [0.004]
+05/03 02:33:37 AM Val DispatchNet
+05/03 02:33:39 AM Epoch 107 |  Time: 0:00:02 | valid_acc 89.840000 | best_acc 91.690000
+05/03 02:33:39 AM train: 000 | loss: 1.236153e-01 | prec1:95.312500 | prec5: 100.000000
+05/03 02:33:47 AM train: 200 | loss: 7.249830e-02 | prec1:97.434701 | prec5: 99.988340
+05/03 02:33:54 AM Epoch 108 | Time: 0:00:15 | train_acc 97.382000 | learning_rate [0.004]
+05/03 02:33:54 AM Val DispatchNet
+05/03 02:33:56 AM Epoch 108 |  Time: 0:00:02 | valid_acc 90.170000 | best_acc 91.690000
+05/03 02:33:56 AM train: 000 | loss: 1.025144e-01 | prec1:96.093750 | prec5: 100.000000
+05/03 02:34:04 AM train: 200 | loss: 7.278673e-02 | prec1:97.446362 | prec5: 99.996113
+05/03 02:34:11 AM Epoch 109 | Time: 0:00:15 | train_acc 97.416000 | learning_rate [0.004]
+05/03 02:34:11 AM Val DispatchNet
+05/03 02:34:13 AM Epoch 109 |  Time: 0:00:02 | valid_acc 89.080000 | best_acc 91.690000
+05/03 02:34:13 AM train: 000 | loss: 6.358777e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:34:21 AM train: 200 | loss: 7.051837e-02 | prec1:97.527985 | prec5: 99.988340
+05/03 02:34:28 AM Epoch 110 | Time: 0:00:15 | train_acc 97.368000 | learning_rate [0.004]
+05/03 02:34:28 AM Val DispatchNet
+05/03 02:34:30 AM Epoch 110 |  Time: 0:00:02 | valid_acc 89.650000 | best_acc 91.690000
+05/03 02:34:30 AM train: 000 | loss: 8.401881e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:34:38 AM train: 200 | loss: 6.696572e-02 | prec1:97.562966 | prec5: 99.996113
+05/03 02:34:45 AM Epoch 111 | Time: 0:00:15 | train_acc 97.516000 | learning_rate [0.004]
+05/03 02:34:45 AM Val DispatchNet
+05/03 02:34:47 AM Epoch 111 |  Time: 0:00:02 | valid_acc 88.970000 | best_acc 91.690000
+05/03 02:34:47 AM train: 000 | loss: 7.629220e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:34:55 AM train: 200 | loss: 7.111647e-02 | prec1:97.574627 | prec5: 99.992226
+05/03 02:35:02 AM Epoch 112 | Time: 0:00:15 | train_acc 97.462000 | learning_rate [0.004]
+05/03 02:35:02 AM Val DispatchNet
+05/03 02:35:04 AM Epoch 112 |  Time: 0:00:02 | valid_acc 90.240000 | best_acc 91.690000
+05/03 02:35:05 AM train: 000 | loss: 8.703898e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:35:12 AM train: 200 | loss: 7.015680e-02 | prec1:97.699005 | prec5: 99.996113
+05/03 02:35:20 AM Epoch 113 | Time: 0:00:16 | train_acc 97.590000 | learning_rate [0.004]
+05/03 02:35:20 AM Val DispatchNet
+05/03 02:35:22 AM Epoch 113 |  Time: 0:00:02 | valid_acc 90.090000 | best_acc 91.690000
+05/03 02:35:22 AM train: 000 | loss: 9.245026e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:35:29 AM train: 200 | loss: 7.410960e-02 | prec1:97.500777 | prec5: 99.996113
+05/03 02:35:36 AM Epoch 114 | Time: 0:00:15 | train_acc 97.478000 | learning_rate [0.004]
+05/03 02:35:36 AM Val DispatchNet
+05/03 02:35:38 AM Epoch 114 |  Time: 0:00:02 | valid_acc 89.080000 | best_acc 91.690000
+05/03 02:35:39 AM train: 000 | loss: 7.499054e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:35:47 AM train: 200 | loss: 7.088032e-02 | prec1:97.562966 | prec5: 100.000000
+05/03 02:35:54 AM Epoch 115 | Time: 0:00:15 | train_acc 97.456000 | learning_rate [0.004]
+05/03 02:35:54 AM Val DispatchNet
+05/03 02:35:55 AM Epoch 115 |  Time: 0:00:02 | valid_acc 90.040000 | best_acc 91.690000
+05/03 02:35:56 AM train: 000 | loss: 6.459585e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:36:04 AM train: 200 | loss: 7.516946e-02 | prec1:97.415267 | prec5: 99.992226
+05/03 02:36:10 AM Epoch 116 | Time: 0:00:15 | train_acc 97.348000 | learning_rate [0.004]
+05/03 02:36:10 AM Val DispatchNet
+05/03 02:36:12 AM Epoch 116 |  Time: 0:00:02 | valid_acc 90.140000 | best_acc 91.690000
+05/03 02:36:13 AM train: 000 | loss: 6.360942e-02 | prec1:97.656250 | prec5: 100.000000
+05/03 02:36:20 AM train: 200 | loss: 6.959748e-02 | prec1:97.597948 | prec5: 99.992226
+05/03 02:36:28 AM Epoch 117 | Time: 0:00:15 | train_acc 97.448000 | learning_rate [0.004]
+05/03 02:36:28 AM Val DispatchNet
+05/03 02:36:30 AM Epoch 117 |  Time: 0:00:02 | valid_acc 90.140000 | best_acc 91.690000
+05/03 02:36:30 AM train: 000 | loss: 3.543995e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:36:37 AM train: 200 | loss: 6.763034e-02 | prec1:97.768968 | prec5: 99.992226
+05/03 02:36:45 AM Epoch 118 | Time: 0:00:15 | train_acc 97.576000 | learning_rate [0.004]
+05/03 02:36:45 AM Val DispatchNet
+05/03 02:36:46 AM Epoch 118 |  Time: 0:00:02 | valid_acc 88.890000 | best_acc 91.690000
+05/03 02:36:47 AM train: 000 | loss: 9.973693e-02 | prec1:96.093750 | prec5: 100.000000
+05/03 02:36:55 AM train: 200 | loss: 5.797877e-02 | prec1:98.107121 | prec5: 99.992226
+05/03 02:37:02 AM Epoch 119 | Time: 0:00:16 | train_acc 98.262000 | learning_rate [0.0004000000000000001]
+05/03 02:37:02 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:37:04 AM Epoch 119 |  Time: 0:00:02 | valid_acc 92.040000 | best_acc 92.040000
+05/03 02:37:04 AM train: 000 | loss: 6.063482e-02 | prec1:96.875000 | prec5: 100.000000
+05/03 02:37:12 AM train: 200 | loss: 4.089106e-02 | prec1:98.841729 | prec5: 99.996113
+05/03 02:37:19 AM Epoch 120 | Time: 0:00:15 | train_acc 98.810000 | learning_rate [0.0004000000000000001]
+05/03 02:37:19 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:37:21 AM Epoch 120 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.370000
+05/03 02:37:21 AM train: 000 | loss: 9.585457e-02 | prec1:97.656250 | prec5: 99.218750
+05/03 02:37:29 AM train: 200 | loss: 3.742717e-02 | prec1:98.950560 | prec5: 99.996113
+05/03 02:37:36 AM Epoch 121 | Time: 0:00:16 | train_acc 98.964000 | learning_rate [0.0004000000000000001]
+05/03 02:37:36 AM Val DispatchNet
+05/03 02:37:38 AM Epoch 121 |  Time: 0:00:02 | valid_acc 92.170000 | best_acc 92.370000
+05/03 02:37:39 AM train: 000 | loss: 3.327661e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:37:47 AM train: 200 | loss: 3.483967e-02 | prec1:98.942786 | prec5: 100.000000
+05/03 02:37:54 AM Epoch 122 | Time: 0:00:16 | train_acc 99.012000 | learning_rate [0.0004000000000000001]
+05/03 02:37:54 AM Val DispatchNet
+05/03 02:37:56 AM Epoch 122 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.370000
+05/03 02:37:57 AM train: 000 | loss: 3.646351e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:38:04 AM train: 200 | loss: 3.109489e-02 | prec1:99.098259 | prec5: 100.000000
+05/03 02:38:11 AM Epoch 123 | Time: 0:00:15 | train_acc 99.066000 | learning_rate [0.0004000000000000001]
+05/03 02:38:11 AM Val DispatchNet
+05/03 02:38:13 AM Epoch 123 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.370000
+05/03 02:38:13 AM train: 000 | loss: 2.103277e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:38:21 AM train: 200 | loss: 3.032580e-02 | prec1:99.245958 | prec5: 99.996113
+05/03 02:38:28 AM Epoch 124 | Time: 0:00:16 | train_acc 99.218000 | learning_rate [0.0004000000000000001]
+05/03 02:38:28 AM Val DispatchNet
+05/03 02:38:30 AM Epoch 124 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.370000
+05/03 02:38:30 AM train: 000 | loss: 3.228851e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:38:38 AM train: 200 | loss: 2.993184e-02 | prec1:99.160448 | prec5: 100.000000
+05/03 02:38:46 AM Epoch 125 | Time: 0:00:16 | train_acc 99.174000 | learning_rate [0.0004000000000000001]
+05/03 02:38:46 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:38:48 AM Epoch 125 |  Time: 0:00:02 | valid_acc 92.380000 | best_acc 92.380000
+05/03 02:38:48 AM train: 000 | loss: 9.308815e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:38:56 AM train: 200 | loss: 2.851613e-02 | prec1:99.253731 | prec5: 99.996113
+05/03 02:39:03 AM Epoch 126 | Time: 0:00:16 | train_acc 99.206000 | learning_rate [0.0004000000000000001]
+05/03 02:39:03 AM Val DispatchNet
+05/03 02:39:05 AM Epoch 126 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.380000
+05/03 02:39:06 AM train: 000 | loss: 2.247921e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:39:13 AM train: 200 | loss: 2.774374e-02 | prec1:99.242071 | prec5: 100.000000
+05/03 02:39:20 AM Epoch 127 | Time: 0:00:15 | train_acc 99.224000 | learning_rate [0.0004000000000000001]
+05/03 02:39:20 AM Val DispatchNet
+05/03 02:39:22 AM Epoch 127 |  Time: 0:00:02 | valid_acc 92.280000 | best_acc 92.380000
+05/03 02:39:23 AM train: 000 | loss: 1.619111e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:39:31 AM train: 200 | loss: 2.619287e-02 | prec1:99.339241 | prec5: 100.000000
+05/03 02:39:38 AM Epoch 128 | Time: 0:00:16 | train_acc 99.274000 | learning_rate [0.0004000000000000001]
+05/03 02:39:38 AM Val DispatchNet
+05/03 02:39:40 AM Epoch 128 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.380000
+05/03 02:39:40 AM train: 000 | loss: 1.687715e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:39:48 AM train: 200 | loss: 2.663974e-02 | prec1:99.358675 | prec5: 100.000000
+05/03 02:39:55 AM Epoch 129 | Time: 0:00:15 | train_acc 99.298000 | learning_rate [0.0004000000000000001]
+05/03 02:39:55 AM Val DispatchNet
+05/03 02:39:57 AM Epoch 129 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.380000
+05/03 02:39:57 AM train: 000 | loss: 1.610766e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:40:05 AM train: 200 | loss: 2.495952e-02 | prec1:99.420864 | prec5: 100.000000
+05/03 02:40:12 AM Epoch 130 | Time: 0:00:16 | train_acc 99.364000 | learning_rate [0.0004000000000000001]
+05/03 02:40:12 AM Val DispatchNet
+05/03 02:40:15 AM Epoch 130 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.380000
+05/03 02:40:15 AM train: 000 | loss: 2.443559e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:40:22 AM train: 200 | loss: 2.330327e-02 | prec1:99.424751 | prec5: 100.000000
+05/03 02:40:30 AM Epoch 131 | Time: 0:00:15 | train_acc 99.362000 | learning_rate [0.0004000000000000001]
+05/03 02:40:30 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:40:32 AM Epoch 131 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.400000
+05/03 02:40:32 AM train: 000 | loss: 1.386207e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:40:40 AM train: 200 | loss: 2.526347e-02 | prec1:99.347015 | prec5: 100.000000
+05/03 02:40:48 AM Epoch 132 | Time: 0:00:16 | train_acc 99.324000 | learning_rate [0.0004000000000000001]
+05/03 02:40:48 AM Val DispatchNet
+05/03 02:40:50 AM Epoch 132 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.400000
+05/03 02:40:50 AM train: 000 | loss: 1.220739e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:40:58 AM train: 200 | loss: 2.434851e-02 | prec1:99.308147 | prec5: 99.996113
+05/03 02:41:06 AM Epoch 133 | Time: 0:00:16 | train_acc 99.334000 | learning_rate [0.0004000000000000001]
+05/03 02:41:06 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:41:07 AM Epoch 133 |  Time: 0:00:02 | valid_acc 92.410000 | best_acc 92.410000
+05/03 02:41:08 AM train: 000 | loss: 2.023303e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:41:15 AM train: 200 | loss: 2.424691e-02 | prec1:99.378109 | prec5: 100.000000
+05/03 02:41:23 AM Epoch 134 | Time: 0:00:15 | train_acc 99.406000 | learning_rate [0.0004000000000000001]
+05/03 02:41:23 AM Val DispatchNet
+05/03 02:41:25 AM Epoch 134 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.410000
+05/03 02:41:25 AM train: 000 | loss: 1.216192e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:41:33 AM train: 200 | loss: 2.290968e-02 | prec1:99.409204 | prec5: 100.000000
+05/03 02:41:41 AM Epoch 135 | Time: 0:00:16 | train_acc 99.390000 | learning_rate [0.0004000000000000001]
+05/03 02:41:41 AM Val DispatchNet
+05/03 02:41:42 AM Epoch 135 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.410000
+05/03 02:41:43 AM train: 000 | loss: 9.901695e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:41:51 AM train: 200 | loss: 2.303864e-02 | prec1:99.366449 | prec5: 100.000000
+05/03 02:41:58 AM Epoch 136 | Time: 0:00:15 | train_acc 99.406000 | learning_rate [0.0004000000000000001]
+05/03 02:41:58 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:42:00 AM Epoch 136 |  Time: 0:00:02 | valid_acc 92.480000 | best_acc 92.480000
+05/03 02:42:00 AM train: 000 | loss: 1.681075e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:42:07 AM train: 200 | loss: 2.239325e-02 | prec1:99.378109 | prec5: 99.996113
+05/03 02:42:15 AM Epoch 137 | Time: 0:00:15 | train_acc 99.420000 | learning_rate [0.0004000000000000001]
+05/03 02:42:15 AM Val DispatchNet
+05/03 02:42:16 AM Epoch 137 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.480000
+05/03 02:42:17 AM train: 000 | loss: 1.506465e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:42:24 AM train: 200 | loss: 2.239477e-02 | prec1:99.428638 | prec5: 100.000000
+05/03 02:42:31 AM Epoch 138 | Time: 0:00:15 | train_acc 99.414000 | learning_rate [0.0004000000000000001]
+05/03 02:42:31 AM Val DispatchNet
+05/03 02:42:33 AM Epoch 138 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.480000
+05/03 02:42:33 AM train: 000 | loss: 1.443335e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:42:41 AM train: 200 | loss: 2.135524e-02 | prec1:99.424751 | prec5: 100.000000
+05/03 02:42:48 AM Epoch 139 | Time: 0:00:15 | train_acc 99.432000 | learning_rate [0.0004000000000000001]
+05/03 02:42:48 AM Val DispatchNet
+05/03 02:42:50 AM Epoch 139 |  Time: 0:00:02 | valid_acc 92.470000 | best_acc 92.480000
+05/03 02:42:51 AM train: 000 | loss: 1.230701e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:42:59 AM train: 200 | loss: 2.027136e-02 | prec1:99.529695 | prec5: 100.000000
+05/03 02:43:06 AM Epoch 140 | Time: 0:00:15 | train_acc 99.506000 | learning_rate [0.0004000000000000001]
+05/03 02:43:06 AM Val DispatchNet
+05/03 02:43:07 AM Epoch 140 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.480000
+05/03 02:43:08 AM train: 000 | loss: 1.019276e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:43:15 AM train: 200 | loss: 2.043335e-02 | prec1:99.451959 | prec5: 100.000000
+05/03 02:43:23 AM Epoch 141 | Time: 0:00:15 | train_acc 99.440000 | learning_rate [0.0004000000000000001]
+05/03 02:43:23 AM Val DispatchNet
+05/03 02:43:24 AM Epoch 141 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.480000
+05/03 02:43:25 AM train: 000 | loss: 2.548477e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:43:32 AM train: 200 | loss: 2.044300e-02 | prec1:99.510261 | prec5: 100.000000
+05/03 02:43:40 AM Epoch 142 | Time: 0:00:16 | train_acc 99.476000 | learning_rate [0.0004000000000000001]
+05/03 02:43:40 AM Val DispatchNet
+05/03 02:43:42 AM Epoch 142 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.480000
+05/03 02:43:42 AM train: 000 | loss: 7.302769e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:43:50 AM train: 200 | loss: 2.023838e-02 | prec1:99.486940 | prec5: 100.000000
+05/03 02:43:58 AM Epoch 143 | Time: 0:00:16 | train_acc 99.480000 | learning_rate [0.0004000000000000001]
+05/03 02:43:58 AM Val DispatchNet
+05/03 02:43:59 AM Epoch 143 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.480000
+05/03 02:44:00 AM train: 000 | loss: 2.131132e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:44:07 AM train: 200 | loss: 2.055539e-02 | prec1:99.459733 | prec5: 99.996113
+05/03 02:44:14 AM Epoch 144 | Time: 0:00:15 | train_acc 99.456000 | learning_rate [0.0004000000000000001]
+05/03 02:44:14 AM Val DispatchNet
+05/03 02:44:16 AM Epoch 144 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.480000
+05/03 02:44:17 AM train: 000 | loss: 1.175056e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:44:25 AM train: 200 | loss: 1.994958e-02 | prec1:99.514148 | prec5: 100.000000
+05/03 02:44:32 AM Epoch 145 | Time: 0:00:15 | train_acc 99.462000 | learning_rate [0.0004000000000000001]
+05/03 02:44:32 AM Val DispatchNet
+05/03 02:44:33 AM Epoch 145 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.480000
+05/03 02:44:34 AM train: 000 | loss: 3.934003e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:44:41 AM train: 200 | loss: 1.749034e-02 | prec1:99.622979 | prec5: 100.000000
+05/03 02:44:49 AM Epoch 146 | Time: 0:00:15 | train_acc 99.582000 | learning_rate [0.0004000000000000001]
+05/03 02:44:49 AM Val DispatchNet
+05/03 02:44:50 AM Epoch 146 |  Time: 0:00:02 | valid_acc 92.440000 | best_acc 92.480000
+05/03 02:44:51 AM train: 000 | loss: 1.588167e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:44:59 AM train: 200 | loss: 2.075264e-02 | prec1:99.432525 | prec5: 100.000000
+05/03 02:45:06 AM Epoch 147 | Time: 0:00:16 | train_acc 99.480000 | learning_rate [0.0004000000000000001]
+05/03 02:45:06 AM Val DispatchNet
+05/03 02:45:08 AM Epoch 147 |  Time: 0:00:02 | valid_acc 92.460000 | best_acc 92.480000
+05/03 02:45:09 AM train: 000 | loss: 3.913000e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:45:17 AM train: 200 | loss: 1.964533e-02 | prec1:99.483053 | prec5: 100.000000
+05/03 02:45:24 AM Epoch 148 | Time: 0:00:16 | train_acc 99.474000 | learning_rate [0.0004000000000000001]
+05/03 02:45:24 AM Val DispatchNet
+05/03 02:45:26 AM Epoch 148 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.480000
+05/03 02:45:27 AM train: 000 | loss: 1.783690e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:45:35 AM train: 200 | loss: 2.024057e-02 | prec1:99.471393 | prec5: 100.000000
+05/03 02:45:42 AM Epoch 149 | Time: 0:00:16 | train_acc 99.484000 | learning_rate [0.0004000000000000001]
+05/03 02:45:42 AM Val DispatchNet
+05/03 02:45:44 AM Epoch 149 |  Time: 0:00:02 | valid_acc 92.410000 | best_acc 92.480000
+05/03 02:45:45 AM train: 000 | loss: 1.044330e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:45:52 AM train: 200 | loss: 1.941237e-02 | prec1:99.510261 | prec5: 100.000000
+05/03 02:46:00 AM Epoch 150 | Time: 0:00:15 | train_acc 99.522000 | learning_rate [0.0004000000000000001]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch150.pt
+05/03 02:46:00 AM Val DispatchNet
+05/03 02:46:01 AM Epoch 150 |  Time: 0:00:02 | valid_acc 92.420000 | best_acc 92.480000
+05/03 02:46:02 AM train: 000 | loss: 1.361708e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:46:09 AM train: 200 | loss: 1.931301e-02 | prec1:99.459733 | prec5: 100.000000
+05/03 02:46:17 AM Epoch 151 | Time: 0:00:15 | train_acc 99.506000 | learning_rate [0.0004000000000000001]
+05/03 02:46:17 AM Val DispatchNet
+05/03 02:46:19 AM Epoch 151 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.480000
+05/03 02:46:19 AM train: 000 | loss: 9.983737e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:46:28 AM train: 200 | loss: 1.764930e-02 | prec1:99.615205 | prec5: 100.000000
+05/03 02:46:35 AM Epoch 152 | Time: 0:00:16 | train_acc 99.548000 | learning_rate [0.0004000000000000001]
+05/03 02:46:35 AM Val DispatchNet
+05/03 02:46:37 AM Epoch 152 |  Time: 0:00:02 | valid_acc 92.480000 | best_acc 92.480000
+05/03 02:46:37 AM train: 000 | loss: 1.161687e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:46:45 AM train: 200 | loss: 1.720054e-02 | prec1:99.603545 | prec5: 100.000000
+05/03 02:46:53 AM Epoch 153 | Time: 0:00:16 | train_acc 99.598000 | learning_rate [0.0004000000000000001]
+05/03 02:46:53 AM Val DispatchNet
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/best_weights.pt
+05/03 02:46:55 AM Epoch 153 |  Time: 0:00:02 | valid_acc 92.520000 | best_acc 92.520000
+05/03 02:46:56 AM train: 000 | loss: 1.668227e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:47:03 AM train: 200 | loss: 1.882666e-02 | prec1:99.498601 | prec5: 100.000000
+05/03 02:47:11 AM Epoch 154 | Time: 0:00:16 | train_acc 99.532000 | learning_rate [0.0004000000000000001]
+05/03 02:47:11 AM Val DispatchNet
+05/03 02:47:13 AM Epoch 154 |  Time: 0:00:02 | valid_acc 92.210000 | best_acc 92.520000
+05/03 02:47:13 AM train: 000 | loss: 1.122770e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:47:21 AM train: 200 | loss: 1.797486e-02 | prec1:99.591884 | prec5: 100.000000
+05/03 02:47:28 AM Epoch 155 | Time: 0:00:15 | train_acc 99.550000 | learning_rate [0.0004000000000000001]
+05/03 02:47:28 AM Val DispatchNet
+05/03 02:47:30 AM Epoch 155 |  Time: 0:00:02 | valid_acc 92.510000 | best_acc 92.520000
+05/03 02:47:30 AM train: 000 | loss: 1.773351e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:47:38 AM train: 200 | loss: 1.835653e-02 | prec1:99.584111 | prec5: 100.000000
+05/03 02:47:45 AM Epoch 156 | Time: 0:00:15 | train_acc 99.582000 | learning_rate [0.0004000000000000001]
+05/03 02:47:45 AM Val DispatchNet
+05/03 02:47:47 AM Epoch 156 |  Time: 0:00:02 | valid_acc 92.160000 | best_acc 92.520000
+05/03 02:47:47 AM train: 000 | loss: 8.849990e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:47:55 AM train: 200 | loss: 1.747910e-02 | prec1:99.564677 | prec5: 100.000000
+05/03 02:48:02 AM Epoch 157 | Time: 0:00:15 | train_acc 99.544000 | learning_rate [0.0004000000000000001]
+05/03 02:48:02 AM Val DispatchNet
+05/03 02:48:04 AM Epoch 157 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 02:48:05 AM train: 000 | loss: 6.748220e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 02:48:12 AM train: 200 | loss: 1.815629e-02 | prec1:99.564677 | prec5: 100.000000
+05/03 02:48:19 AM Epoch 158 | Time: 0:00:15 | train_acc 99.552000 | learning_rate [0.0004000000000000001]
+05/03 02:48:19 AM Val DispatchNet
+05/03 02:48:21 AM Epoch 158 |  Time: 0:00:02 | valid_acc 92.200000 | best_acc 92.520000
+05/03 02:48:21 AM train: 000 | loss: 2.101454e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:48:29 AM train: 200 | loss: 1.676838e-02 | prec1:99.611318 | prec5: 100.000000
+05/03 02:48:36 AM Epoch 159 | Time: 0:00:15 | train_acc 99.568000 | learning_rate [0.0004000000000000001]
+05/03 02:48:36 AM Val DispatchNet
+05/03 02:48:38 AM Epoch 159 |  Time: 0:00:02 | valid_acc 92.020000 | best_acc 92.520000
+05/03 02:48:38 AM train: 000 | loss: 6.227925e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:48:46 AM train: 200 | loss: 1.776263e-02 | prec1:99.556903 | prec5: 100.000000
+05/03 02:48:54 AM Epoch 160 | Time: 0:00:16 | train_acc 99.602000 | learning_rate [0.0004000000000000001]
+05/03 02:48:54 AM Val DispatchNet
+05/03 02:48:55 AM Epoch 160 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 02:48:56 AM train: 000 | loss: 1.043676e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:49:03 AM train: 200 | loss: 1.814751e-02 | prec1:99.521922 | prec5: 100.000000
+05/03 02:49:11 AM Epoch 161 | Time: 0:00:15 | train_acc 99.594000 | learning_rate [0.0004000000000000001]
+05/03 02:49:11 AM Val DispatchNet
+05/03 02:49:13 AM Epoch 161 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 02:49:13 AM train: 000 | loss: 1.038892e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:49:20 AM train: 200 | loss: 1.792858e-02 | prec1:99.525808 | prec5: 100.000000
+05/03 02:49:28 AM Epoch 162 | Time: 0:00:15 | train_acc 99.580000 | learning_rate [0.0004000000000000001]
+05/03 02:49:28 AM Val DispatchNet
+05/03 02:49:30 AM Epoch 162 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 02:49:30 AM train: 000 | loss: 1.789946e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:49:37 AM train: 200 | loss: 1.778186e-02 | prec1:99.560790 | prec5: 100.000000
+05/03 02:49:45 AM Epoch 163 | Time: 0:00:15 | train_acc 99.568000 | learning_rate [0.0004000000000000001]
+05/03 02:49:45 AM Val DispatchNet
+05/03 02:49:46 AM Epoch 163 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 02:49:47 AM train: 000 | loss: 1.097941e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:49:55 AM train: 200 | loss: 1.588123e-02 | prec1:99.654073 | prec5: 100.000000
+05/03 02:50:02 AM Epoch 164 | Time: 0:00:16 | train_acc 99.642000 | learning_rate [0.0004000000000000001]
+05/03 02:50:02 AM Val DispatchNet
+05/03 02:50:04 AM Epoch 164 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 02:50:04 AM train: 000 | loss: 2.895073e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:50:12 AM train: 200 | loss: 1.748082e-02 | prec1:99.518035 | prec5: 100.000000
+05/03 02:50:19 AM Epoch 165 | Time: 0:00:15 | train_acc 99.538000 | learning_rate [0.0004000000000000001]
+05/03 02:50:19 AM Val DispatchNet
+05/03 02:50:21 AM Epoch 165 |  Time: 0:00:02 | valid_acc 92.470000 | best_acc 92.520000
+05/03 02:50:22 AM train: 000 | loss: 9.264819e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:50:29 AM train: 200 | loss: 1.696077e-02 | prec1:99.599658 | prec5: 100.000000
+05/03 02:50:37 AM Epoch 166 | Time: 0:00:15 | train_acc 99.598000 | learning_rate [0.0004000000000000001]
+05/03 02:50:37 AM Val DispatchNet
+05/03 02:50:38 AM Epoch 166 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 02:50:39 AM train: 000 | loss: 1.542683e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:50:46 AM train: 200 | loss: 1.664753e-02 | prec1:99.630752 | prec5: 100.000000
+05/03 02:50:53 AM Epoch 167 | Time: 0:00:15 | train_acc 99.610000 | learning_rate [0.0004000000000000001]
+05/03 02:50:53 AM Val DispatchNet
+05/03 02:50:55 AM Epoch 167 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 02:50:56 AM train: 000 | loss: 6.620236e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:51:03 AM train: 200 | loss: 1.558020e-02 | prec1:99.634639 | prec5: 100.000000
+05/03 02:51:10 AM Epoch 168 | Time: 0:00:15 | train_acc 99.616000 | learning_rate [0.0004000000000000001]
+05/03 02:51:10 AM Val DispatchNet
+05/03 02:51:12 AM Epoch 168 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 02:51:12 AM train: 000 | loss: 1.829459e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:51:20 AM train: 200 | loss: 1.454254e-02 | prec1:99.665734 | prec5: 100.000000
+05/03 02:51:27 AM Epoch 169 | Time: 0:00:15 | train_acc 99.620000 | learning_rate [0.0004000000000000001]
+05/03 02:51:27 AM Val DispatchNet
+05/03 02:51:29 AM Epoch 169 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 02:51:29 AM train: 000 | loss: 1.042843e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:51:37 AM train: 200 | loss: 1.553532e-02 | prec1:99.630752 | prec5: 99.996113
+05/03 02:51:44 AM Epoch 170 | Time: 0:00:15 | train_acc 99.636000 | learning_rate [0.0004000000000000001]
+05/03 02:51:44 AM Val DispatchNet
+05/03 02:51:46 AM Epoch 170 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 02:51:47 AM train: 000 | loss: 9.208370e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:51:54 AM train: 200 | loss: 1.524553e-02 | prec1:99.638526 | prec5: 100.000000
+05/03 02:52:02 AM Epoch 171 | Time: 0:00:15 | train_acc 99.570000 | learning_rate [0.0004000000000000001]
+05/03 02:52:02 AM Val DispatchNet
+05/03 02:52:03 AM Epoch 171 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.520000
+05/03 02:52:04 AM train: 000 | loss: 9.120047e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:52:12 AM train: 200 | loss: 1.553342e-02 | prec1:99.654073 | prec5: 100.000000
+05/03 02:52:19 AM Epoch 172 | Time: 0:00:15 | train_acc 99.624000 | learning_rate [0.0004000000000000001]
+05/03 02:52:19 AM Val DispatchNet
+05/03 02:52:20 AM Epoch 172 |  Time: 0:00:02 | valid_acc 92.460000 | best_acc 92.520000
+05/03 02:52:21 AM train: 000 | loss: 1.737768e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:52:28 AM train: 200 | loss: 1.561822e-02 | prec1:99.622979 | prec5: 100.000000
+05/03 02:52:35 AM Epoch 173 | Time: 0:00:15 | train_acc 99.606000 | learning_rate [0.0004000000000000001]
+05/03 02:52:35 AM Val DispatchNet
+05/03 02:52:37 AM Epoch 173 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.520000
+05/03 02:52:38 AM train: 000 | loss: 2.917371e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:52:45 AM train: 200 | loss: 1.508697e-02 | prec1:99.661847 | prec5: 100.000000
+05/03 02:52:52 AM Epoch 174 | Time: 0:00:15 | train_acc 99.650000 | learning_rate [0.0004000000000000001]
+05/03 02:52:52 AM Val DispatchNet
+05/03 02:52:54 AM Epoch 174 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 02:52:55 AM train: 000 | loss: 1.231448e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:53:02 AM train: 200 | loss: 1.590065e-02 | prec1:99.626866 | prec5: 100.000000
+05/03 02:53:10 AM Epoch 175 | Time: 0:00:15 | train_acc 99.648000 | learning_rate [0.0004000000000000001]
+05/03 02:53:10 AM Val DispatchNet
+05/03 02:53:11 AM Epoch 175 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.520000
+05/03 02:53:12 AM train: 000 | loss: 1.167742e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:53:20 AM train: 200 | loss: 1.659749e-02 | prec1:99.580224 | prec5: 100.000000
+05/03 02:53:27 AM Epoch 176 | Time: 0:00:16 | train_acc 99.618000 | learning_rate [0.0004000000000000001]
+05/03 02:53:27 AM Val DispatchNet
+05/03 02:53:29 AM Epoch 176 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 02:53:29 AM train: 000 | loss: 3.273295e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:53:37 AM train: 200 | loss: 1.577081e-02 | prec1:99.611318 | prec5: 100.000000
+05/03 02:53:44 AM Epoch 177 | Time: 0:00:16 | train_acc 99.612000 | learning_rate [0.0004000000000000001]
+05/03 02:53:44 AM Val DispatchNet
+05/03 02:53:46 AM Epoch 177 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 02:53:47 AM train: 000 | loss: 1.120683e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:53:54 AM train: 200 | loss: 1.462920e-02 | prec1:99.685168 | prec5: 100.000000
+05/03 02:54:02 AM Epoch 178 | Time: 0:00:15 | train_acc 99.674000 | learning_rate [0.0004000000000000001]
+05/03 02:54:02 AM Val DispatchNet
+05/03 02:54:04 AM Epoch 178 |  Time: 0:00:02 | valid_acc 92.170000 | best_acc 92.520000
+05/03 02:54:04 AM train: 000 | loss: 1.021559e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:54:12 AM train: 200 | loss: 1.564326e-02 | prec1:99.611318 | prec5: 100.000000
+05/03 02:54:19 AM Epoch 179 | Time: 0:00:15 | train_acc 99.604000 | learning_rate [0.0004000000000000001]
+05/03 02:54:19 AM Val DispatchNet
+05/03 02:54:20 AM Epoch 179 |  Time: 0:00:02 | valid_acc 92.120000 | best_acc 92.520000
+05/03 02:54:21 AM train: 000 | loss: 2.672567e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:54:28 AM train: 200 | loss: 1.521091e-02 | prec1:99.665734 | prec5: 100.000000
+05/03 02:54:35 AM Epoch 180 | Time: 0:00:15 | train_acc 99.634000 | learning_rate [0.0004000000000000001]
+05/03 02:54:35 AM Val DispatchNet
+05/03 02:54:37 AM Epoch 180 |  Time: 0:00:02 | valid_acc 92.210000 | best_acc 92.520000
+05/03 02:54:37 AM train: 000 | loss: 6.777052e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:54:45 AM train: 200 | loss: 1.577418e-02 | prec1:99.607432 | prec5: 100.000000
+05/03 02:54:52 AM Epoch 181 | Time: 0:00:15 | train_acc 99.610000 | learning_rate [0.0004000000000000001]
+05/03 02:54:52 AM Val DispatchNet
+05/03 02:54:54 AM Epoch 181 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 02:54:55 AM train: 000 | loss: 1.408205e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:55:02 AM train: 200 | loss: 1.645968e-02 | prec1:99.638526 | prec5: 100.000000
+05/03 02:55:09 AM Epoch 182 | Time: 0:00:15 | train_acc 99.666000 | learning_rate [0.0004000000000000001]
+05/03 02:55:09 AM Val DispatchNet
+05/03 02:55:11 AM Epoch 182 |  Time: 0:00:02 | valid_acc 92.190000 | best_acc 92.520000
+05/03 02:55:11 AM train: 000 | loss: 2.157495e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:55:19 AM train: 200 | loss: 1.579570e-02 | prec1:99.607432 | prec5: 100.000000
+05/03 02:55:26 AM Epoch 183 | Time: 0:00:15 | train_acc 99.636000 | learning_rate [0.0004000000000000001]
+05/03 02:55:26 AM Val DispatchNet
+05/03 02:55:28 AM Epoch 183 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 02:55:28 AM train: 000 | loss: 7.188328e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:55:36 AM train: 200 | loss: 1.507071e-02 | prec1:99.650187 | prec5: 100.000000
+05/03 02:55:42 AM Epoch 184 | Time: 0:00:14 | train_acc 99.624000 | learning_rate [0.0004000000000000001]
+05/03 02:55:42 AM Val DispatchNet
+05/03 02:55:44 AM Epoch 184 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 02:55:44 AM train: 000 | loss: 1.274648e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:55:52 AM train: 200 | loss: 1.515605e-02 | prec1:99.638526 | prec5: 100.000000
+05/03 02:55:59 AM Epoch 185 | Time: 0:00:15 | train_acc 99.622000 | learning_rate [0.0004000000000000001]
+05/03 02:55:59 AM Val DispatchNet
+05/03 02:56:01 AM Epoch 185 |  Time: 0:00:02 | valid_acc 92.220000 | best_acc 92.520000
+05/03 02:56:01 AM train: 000 | loss: 4.342142e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:56:09 AM train: 200 | loss: 1.410829e-02 | prec1:99.712376 | prec5: 100.000000
+05/03 02:56:16 AM Epoch 186 | Time: 0:00:15 | train_acc 99.670000 | learning_rate [0.0004000000000000001]
+05/03 02:56:16 AM Val DispatchNet
+05/03 02:56:18 AM Epoch 186 |  Time: 0:00:02 | valid_acc 92.280000 | best_acc 92.520000
+05/03 02:56:18 AM train: 000 | loss: 9.425789e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:56:26 AM train: 200 | loss: 1.468542e-02 | prec1:99.626866 | prec5: 100.000000
+05/03 02:56:33 AM Epoch 187 | Time: 0:00:15 | train_acc 99.638000 | learning_rate [0.0004000000000000001]
+05/03 02:56:33 AM Val DispatchNet
+05/03 02:56:35 AM Epoch 187 |  Time: 0:00:02 | valid_acc 92.130000 | best_acc 92.520000
+05/03 02:56:35 AM train: 000 | loss: 1.087612e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:56:42 AM train: 200 | loss: 1.412874e-02 | prec1:99.646300 | prec5: 100.000000
+05/03 02:56:49 AM Epoch 188 | Time: 0:00:15 | train_acc 99.672000 | learning_rate [0.0004000000000000001]
+05/03 02:56:49 AM Val DispatchNet
+05/03 02:56:51 AM Epoch 188 |  Time: 0:00:02 | valid_acc 92.210000 | best_acc 92.520000
+05/03 02:56:52 AM train: 000 | loss: 6.359059e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:56:59 AM train: 200 | loss: 1.518746e-02 | prec1:99.650187 | prec5: 100.000000
+05/03 02:57:06 AM Epoch 189 | Time: 0:00:15 | train_acc 99.674000 | learning_rate [0.0004000000000000001]
+05/03 02:57:06 AM Val DispatchNet
+05/03 02:57:08 AM Epoch 189 |  Time: 0:00:02 | valid_acc 92.420000 | best_acc 92.520000
+05/03 02:57:09 AM train: 000 | loss: 1.227672e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:57:17 AM train: 200 | loss: 1.437021e-02 | prec1:99.646300 | prec5: 100.000000
+05/03 02:57:24 AM Epoch 190 | Time: 0:00:15 | train_acc 99.672000 | learning_rate [0.0004000000000000001]
+05/03 02:57:24 AM Val DispatchNet
+05/03 02:57:26 AM Epoch 190 |  Time: 0:00:02 | valid_acc 92.160000 | best_acc 92.520000
+05/03 02:57:26 AM train: 000 | loss: 1.404581e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:57:34 AM train: 200 | loss: 1.326503e-02 | prec1:99.696828 | prec5: 100.000000
+05/03 02:57:41 AM Epoch 191 | Time: 0:00:15 | train_acc 99.674000 | learning_rate [0.0004000000000000001]
+05/03 02:57:41 AM Val DispatchNet
+05/03 02:57:42 AM Epoch 191 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 02:57:43 AM train: 000 | loss: 6.129205e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:57:51 AM train: 200 | loss: 1.361575e-02 | prec1:99.689055 | prec5: 100.000000
+05/03 02:57:58 AM Epoch 192 | Time: 0:00:15 | train_acc 99.686000 | learning_rate [0.0004000000000000001]
+05/03 02:57:58 AM Val DispatchNet
+05/03 02:58:00 AM Epoch 192 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 02:58:00 AM train: 000 | loss: 1.119089e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:58:08 AM train: 200 | loss: 1.426641e-02 | prec1:99.685168 | prec5: 100.000000
+05/03 02:58:15 AM Epoch 193 | Time: 0:00:16 | train_acc 99.672000 | learning_rate [0.0004000000000000001]
+05/03 02:58:15 AM Val DispatchNet
+05/03 02:58:17 AM Epoch 193 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 02:58:18 AM train: 000 | loss: 7.061280e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 02:58:25 AM train: 200 | loss: 1.437918e-02 | prec1:99.716262 | prec5: 100.000000
+05/03 02:58:32 AM Epoch 194 | Time: 0:00:15 | train_acc 99.722000 | learning_rate [0.0004000000000000001]
+05/03 02:58:32 AM Val DispatchNet
+05/03 02:58:34 AM Epoch 194 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 02:58:35 AM train: 000 | loss: 2.515113e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:58:42 AM train: 200 | loss: 1.334715e-02 | prec1:99.731810 | prec5: 100.000000
+05/03 02:58:49 AM Epoch 195 | Time: 0:00:15 | train_acc 99.696000 | learning_rate [0.0004000000000000001]
+05/03 02:58:49 AM Val DispatchNet
+05/03 02:58:51 AM Epoch 195 |  Time: 0:00:02 | valid_acc 92.140000 | best_acc 92.520000
+05/03 02:58:52 AM train: 000 | loss: 1.046081e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:58:59 AM train: 200 | loss: 1.519567e-02 | prec1:99.634639 | prec5: 100.000000
+05/03 02:59:07 AM Epoch 196 | Time: 0:00:16 | train_acc 99.670000 | learning_rate [0.0004000000000000001]
+05/03 02:59:07 AM Val DispatchNet
+05/03 02:59:09 AM Epoch 196 |  Time: 0:00:02 | valid_acc 92.150000 | best_acc 92.520000
+05/03 02:59:09 AM train: 000 | loss: 1.645892e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:59:17 AM train: 200 | loss: 1.650507e-02 | prec1:99.595771 | prec5: 100.000000
+05/03 02:59:24 AM Epoch 197 | Time: 0:00:15 | train_acc 99.640000 | learning_rate [0.0004000000000000001]
+05/03 02:59:24 AM Val DispatchNet
+05/03 02:59:26 AM Epoch 197 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 02:59:27 AM train: 000 | loss: 1.458368e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 02:59:34 AM train: 200 | loss: 1.291385e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 02:59:41 AM Epoch 198 | Time: 0:00:15 | train_acc 99.706000 | learning_rate [0.0004000000000000001]
+05/03 02:59:41 AM Val DispatchNet
+05/03 02:59:43 AM Epoch 198 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.520000
+05/03 02:59:44 AM train: 000 | loss: 1.511905e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 02:59:51 AM train: 200 | loss: 1.348666e-02 | prec1:99.704602 | prec5: 100.000000
+05/03 02:59:59 AM Epoch 199 | Time: 0:00:16 | train_acc 99.722000 | learning_rate [4.000000000000001e-05]
+05/03 02:59:59 AM Val DispatchNet
+05/03 03:00:01 AM Epoch 199 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 03:00:01 AM train: 000 | loss: 1.476210e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:00:09 AM train: 200 | loss: 1.423618e-02 | prec1:99.642413 | prec5: 100.000000
+05/03 03:00:17 AM Epoch 200 | Time: 0:00:16 | train_acc 99.700000 | learning_rate [4.000000000000001e-05]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch200.pt
+05/03 03:00:17 AM Val DispatchNet
+05/03 03:00:18 AM Epoch 200 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:00:19 AM train: 000 | loss: 3.861503e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:00:26 AM train: 200 | loss: 1.382972e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:00:34 AM Epoch 201 | Time: 0:00:16 | train_acc 99.752000 | learning_rate [4.000000000000001e-05]
+05/03 03:00:34 AM Val DispatchNet
+05/03 03:00:36 AM Epoch 201 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:00:36 AM train: 000 | loss: 8.933183e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:00:44 AM train: 200 | loss: 1.327652e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:00:52 AM Epoch 202 | Time: 0:00:16 | train_acc 99.756000 | learning_rate [4.000000000000001e-05]
+05/03 03:00:52 AM Val DispatchNet
+05/03 03:00:54 AM Epoch 202 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:00:54 AM train: 000 | loss: 1.017102e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:01:02 AM train: 200 | loss: 1.260838e-02 | prec1:99.696828 | prec5: 100.000000
+05/03 03:01:10 AM Epoch 203 | Time: 0:00:16 | train_acc 99.702000 | learning_rate [4.000000000000001e-05]
+05/03 03:01:10 AM Val DispatchNet
+05/03 03:01:12 AM Epoch 203 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.520000
+05/03 03:01:12 AM train: 000 | loss: 8.540291e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:01:20 AM train: 200 | loss: 1.234417e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:01:28 AM Epoch 204 | Time: 0:00:16 | train_acc 99.738000 | learning_rate [4.000000000000001e-05]
+05/03 03:01:28 AM Val DispatchNet
+05/03 03:01:29 AM Epoch 204 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.520000
+05/03 03:01:30 AM train: 000 | loss: 2.194738e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:01:37 AM train: 200 | loss: 1.345708e-02 | prec1:99.657960 | prec5: 100.000000
+05/03 03:01:45 AM Epoch 205 | Time: 0:00:15 | train_acc 99.696000 | learning_rate [4.000000000000001e-05]
+05/03 03:01:45 AM Val DispatchNet
+05/03 03:01:47 AM Epoch 205 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.520000
+05/03 03:01:47 AM train: 000 | loss: 6.846588e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:01:55 AM train: 200 | loss: 1.326526e-02 | prec1:99.700715 | prec5: 100.000000
+05/03 03:02:02 AM Epoch 206 | Time: 0:00:15 | train_acc 99.724000 | learning_rate [4.000000000000001e-05]
+05/03 03:02:02 AM Val DispatchNet
+05/03 03:02:04 AM Epoch 206 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 03:02:04 AM train: 000 | loss: 4.114680e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:02:12 AM train: 200 | loss: 1.259419e-02 | prec1:99.739583 | prec5: 100.000000
+05/03 03:02:19 AM Epoch 207 | Time: 0:00:15 | train_acc 99.718000 | learning_rate [4.000000000000001e-05]
+05/03 03:02:19 AM Val DispatchNet
+05/03 03:02:20 AM Epoch 207 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.520000
+05/03 03:02:21 AM train: 000 | loss: 4.116967e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:02:29 AM train: 200 | loss: 1.178134e-02 | prec1:99.782338 | prec5: 100.000000
+05/03 03:02:36 AM Epoch 208 | Time: 0:00:15 | train_acc 99.760000 | learning_rate [4.000000000000001e-05]
+05/03 03:02:36 AM Val DispatchNet
+05/03 03:02:38 AM Epoch 208 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.520000
+05/03 03:02:38 AM train: 000 | loss: 7.362779e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:02:45 AM train: 200 | loss: 1.307160e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:02:52 AM Epoch 209 | Time: 0:00:15 | train_acc 99.746000 | learning_rate [4.000000000000001e-05]
+05/03 03:02:52 AM Val DispatchNet
+05/03 03:02:54 AM Epoch 209 |  Time: 0:00:02 | valid_acc 92.380000 | best_acc 92.520000
+05/03 03:02:55 AM train: 000 | loss: 1.465550e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:03:02 AM train: 200 | loss: 1.235292e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:03:10 AM Epoch 210 | Time: 0:00:15 | train_acc 99.752000 | learning_rate [4.000000000000001e-05]
+05/03 03:03:10 AM Val DispatchNet
+05/03 03:03:11 AM Epoch 210 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:03:12 AM train: 000 | loss: 4.519689e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:03:20 AM train: 200 | loss: 1.135307e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:03:27 AM Epoch 211 | Time: 0:00:16 | train_acc 99.720000 | learning_rate [4.000000000000001e-05]
+05/03 03:03:27 AM Val DispatchNet
+05/03 03:03:29 AM Epoch 211 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 03:03:29 AM train: 000 | loss: 4.383352e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:03:37 AM train: 200 | loss: 1.346036e-02 | prec1:99.692942 | prec5: 100.000000
+05/03 03:03:44 AM Epoch 212 | Time: 0:00:16 | train_acc 99.706000 | learning_rate [4.000000000000001e-05]
+05/03 03:03:44 AM Val DispatchNet
+05/03 03:03:46 AM Epoch 212 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:03:47 AM train: 000 | loss: 8.022193e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:03:54 AM train: 200 | loss: 1.261443e-02 | prec1:99.712376 | prec5: 100.000000
+05/03 03:04:02 AM Epoch 213 | Time: 0:00:15 | train_acc 99.700000 | learning_rate [4.000000000000001e-05]
+05/03 03:04:02 AM Val DispatchNet
+05/03 03:04:03 AM Epoch 213 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.520000
+05/03 03:04:04 AM train: 000 | loss: 1.199536e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:04:12 AM train: 200 | loss: 1.301376e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:04:19 AM Epoch 214 | Time: 0:00:15 | train_acc 99.722000 | learning_rate [4.000000000000001e-05]
+05/03 03:04:19 AM Val DispatchNet
+05/03 03:04:21 AM Epoch 214 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:04:21 AM train: 000 | loss: 6.224286e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:04:29 AM train: 200 | loss: 1.245589e-02 | prec1:99.700715 | prec5: 100.000000
+05/03 03:04:36 AM Epoch 215 | Time: 0:00:15 | train_acc 99.700000 | learning_rate [4.000000000000001e-05]
+05/03 03:04:36 AM Val DispatchNet
+05/03 03:04:38 AM Epoch 215 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:04:38 AM train: 000 | loss: 1.384417e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:04:46 AM train: 200 | loss: 1.136642e-02 | prec1:99.801772 | prec5: 100.000000
+05/03 03:04:53 AM Epoch 216 | Time: 0:00:16 | train_acc 99.738000 | learning_rate [4.000000000000001e-05]
+05/03 03:04:53 AM Val DispatchNet
+05/03 03:04:55 AM Epoch 216 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.520000
+05/03 03:04:56 AM train: 000 | loss: 1.222160e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:05:03 AM train: 200 | loss: 1.214582e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:05:11 AM Epoch 217 | Time: 0:00:15 | train_acc 99.752000 | learning_rate [4.000000000000001e-05]
+05/03 03:05:11 AM Val DispatchNet
+05/03 03:05:12 AM Epoch 217 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 03:05:13 AM train: 000 | loss: 2.058735e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:05:21 AM train: 200 | loss: 1.313998e-02 | prec1:99.712376 | prec5: 100.000000
+05/03 03:05:28 AM Epoch 218 | Time: 0:00:15 | train_acc 99.708000 | learning_rate [4.000000000000001e-05]
+05/03 03:05:28 AM Val DispatchNet
+05/03 03:05:30 AM Epoch 218 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.520000
+05/03 03:05:30 AM train: 000 | loss: 2.674858e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:05:38 AM train: 200 | loss: 1.257224e-02 | prec1:99.770678 | prec5: 100.000000
+05/03 03:05:46 AM Epoch 219 | Time: 0:00:16 | train_acc 99.752000 | learning_rate [4.000000000000001e-05]
+05/03 03:05:46 AM Val DispatchNet
+05/03 03:05:47 AM Epoch 219 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:05:48 AM train: 000 | loss: 1.576387e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:05:56 AM train: 200 | loss: 1.303851e-02 | prec1:99.696828 | prec5: 100.000000
+05/03 03:06:03 AM Epoch 220 | Time: 0:00:16 | train_acc 99.726000 | learning_rate [4.000000000000001e-05]
+05/03 03:06:03 AM Val DispatchNet
+05/03 03:06:05 AM Epoch 220 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 03:06:06 AM train: 000 | loss: 5.920265e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:06:14 AM train: 200 | loss: 1.206911e-02 | prec1:99.778451 | prec5: 100.000000
+05/03 03:06:21 AM Epoch 221 | Time: 0:00:16 | train_acc 99.726000 | learning_rate [4.000000000000001e-05]
+05/03 03:06:21 AM Val DispatchNet
+05/03 03:06:23 AM Epoch 221 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:06:23 AM train: 000 | loss: 3.079386e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:06:31 AM train: 200 | loss: 1.191546e-02 | prec1:99.790112 | prec5: 100.000000
+05/03 03:06:38 AM Epoch 222 | Time: 0:00:15 | train_acc 99.764000 | learning_rate [4.000000000000001e-05]
+05/03 03:06:38 AM Val DispatchNet
+05/03 03:06:39 AM Epoch 222 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.520000
+05/03 03:06:40 AM train: 000 | loss: 1.836024e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:06:48 AM train: 200 | loss: 1.201847e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:06:55 AM Epoch 223 | Time: 0:00:16 | train_acc 99.720000 | learning_rate [4.000000000000001e-05]
+05/03 03:06:55 AM Val DispatchNet
+05/03 03:06:57 AM Epoch 223 |  Time: 0:00:02 | valid_acc 92.410000 | best_acc 92.520000
+05/03 03:06:57 AM train: 000 | loss: 1.191645e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:07:05 AM train: 200 | loss: 1.339178e-02 | prec1:99.689055 | prec5: 100.000000
+05/03 03:07:12 AM Epoch 224 | Time: 0:00:15 | train_acc 99.696000 | learning_rate [4.000000000000001e-05]
+05/03 03:07:12 AM Val DispatchNet
+05/03 03:07:14 AM Epoch 224 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:07:14 AM train: 000 | loss: 2.495477e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:07:22 AM train: 200 | loss: 1.161849e-02 | prec1:99.735697 | prec5: 100.000000
+05/03 03:07:29 AM Epoch 225 | Time: 0:00:15 | train_acc 99.740000 | learning_rate [4.000000000000001e-05]
+05/03 03:07:29 AM Val DispatchNet
+05/03 03:07:31 AM Epoch 225 |  Time: 0:00:02 | valid_acc 92.380000 | best_acc 92.520000
+05/03 03:07:31 AM train: 000 | loss: 2.418887e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:07:39 AM train: 200 | loss: 1.135615e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:07:46 AM Epoch 226 | Time: 0:00:15 | train_acc 99.708000 | learning_rate [4.000000000000001e-05]
+05/03 03:07:46 AM Val DispatchNet
+05/03 03:07:48 AM Epoch 226 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 03:07:49 AM train: 000 | loss: 1.419831e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:07:56 AM train: 200 | loss: 1.212507e-02 | prec1:99.790112 | prec5: 100.000000
+05/03 03:08:03 AM Epoch 227 | Time: 0:00:15 | train_acc 99.730000 | learning_rate [4.000000000000001e-05]
+05/03 03:08:03 AM Val DispatchNet
+05/03 03:08:05 AM Epoch 227 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:08:06 AM train: 000 | loss: 7.589146e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:08:13 AM train: 200 | loss: 1.172863e-02 | prec1:99.751244 | prec5: 100.000000
+05/03 03:08:20 AM Epoch 228 | Time: 0:00:15 | train_acc 99.726000 | learning_rate [4.000000000000001e-05]
+05/03 03:08:20 AM Val DispatchNet
+05/03 03:08:22 AM Epoch 228 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.520000
+05/03 03:08:23 AM train: 000 | loss: 8.886494e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:08:31 AM train: 200 | loss: 1.183890e-02 | prec1:99.747357 | prec5: 100.000000
+05/03 03:08:38 AM Epoch 229 | Time: 0:00:16 | train_acc 99.736000 | learning_rate [4.000000000000001e-05]
+05/03 03:08:38 AM Val DispatchNet
+05/03 03:08:40 AM Epoch 229 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:08:40 AM train: 000 | loss: 1.749730e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:08:47 AM train: 200 | loss: 1.320180e-02 | prec1:99.661847 | prec5: 100.000000
+05/03 03:08:55 AM Epoch 230 | Time: 0:00:15 | train_acc 99.710000 | learning_rate [4.000000000000001e-05]
+05/03 03:08:55 AM Val DispatchNet
+05/03 03:08:56 AM Epoch 230 |  Time: 0:00:02 | valid_acc 92.390000 | best_acc 92.520000
+05/03 03:08:57 AM train: 000 | loss: 4.303359e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:09:05 AM train: 200 | loss: 1.294245e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:09:12 AM Epoch 231 | Time: 0:00:16 | train_acc 99.714000 | learning_rate [4.000000000000001e-05]
+05/03 03:09:12 AM Val DispatchNet
+05/03 03:09:14 AM Epoch 231 |  Time: 0:00:02 | valid_acc 92.380000 | best_acc 92.520000
+05/03 03:09:15 AM train: 000 | loss: 3.830075e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:09:23 AM train: 200 | loss: 1.281391e-02 | prec1:99.681281 | prec5: 100.000000
+05/03 03:09:30 AM Epoch 232 | Time: 0:00:16 | train_acc 99.698000 | learning_rate [4.000000000000001e-05]
+05/03 03:09:30 AM Val DispatchNet
+05/03 03:09:32 AM Epoch 232 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 03:09:32 AM train: 000 | loss: 7.892184e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:09:40 AM train: 200 | loss: 1.263644e-02 | prec1:99.716262 | prec5: 100.000000
+05/03 03:09:48 AM Epoch 233 | Time: 0:00:16 | train_acc 99.738000 | learning_rate [4.000000000000001e-05]
+05/03 03:09:48 AM Val DispatchNet
+05/03 03:09:50 AM Epoch 233 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:09:50 AM train: 000 | loss: 9.892792e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:09:57 AM train: 200 | loss: 1.091660e-02 | prec1:99.790112 | prec5: 100.000000
+05/03 03:10:05 AM Epoch 234 | Time: 0:00:15 | train_acc 99.768000 | learning_rate [4.000000000000001e-05]
+05/03 03:10:05 AM Val DispatchNet
+05/03 03:10:07 AM Epoch 234 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.520000
+05/03 03:10:07 AM train: 000 | loss: 2.945561e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:10:15 AM train: 200 | loss: 1.172983e-02 | prec1:99.801772 | prec5: 100.000000
+05/03 03:10:22 AM Epoch 235 | Time: 0:00:15 | train_acc 99.762000 | learning_rate [4.000000000000001e-05]
+05/03 03:10:22 AM Val DispatchNet
+05/03 03:10:23 AM Epoch 235 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:10:24 AM train: 000 | loss: 7.347118e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:10:31 AM train: 200 | loss: 1.225285e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:10:38 AM Epoch 236 | Time: 0:00:15 | train_acc 99.746000 | learning_rate [4.000000000000001e-05]
+05/03 03:10:38 AM Val DispatchNet
+05/03 03:10:40 AM Epoch 236 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:10:41 AM train: 000 | loss: 4.429851e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:10:48 AM train: 200 | loss: 1.245922e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:10:55 AM Epoch 237 | Time: 0:00:15 | train_acc 99.748000 | learning_rate [4.000000000000001e-05]
+05/03 03:10:55 AM Val DispatchNet
+05/03 03:10:57 AM Epoch 237 |  Time: 0:00:02 | valid_acc 92.360000 | best_acc 92.520000
+05/03 03:10:57 AM train: 000 | loss: 2.011914e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:11:05 AM train: 200 | loss: 1.203033e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:11:12 AM Epoch 238 | Time: 0:00:15 | train_acc 99.738000 | learning_rate [4.000000000000001e-05]
+05/03 03:11:12 AM Val DispatchNet
+05/03 03:11:14 AM Epoch 238 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.520000
+05/03 03:11:14 AM train: 000 | loss: 7.347610e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:11:22 AM train: 200 | loss: 1.201926e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:11:29 AM Epoch 239 | Time: 0:00:15 | train_acc 99.766000 | learning_rate [4.000000000000001e-05]
+05/03 03:11:29 AM Val DispatchNet
+05/03 03:11:31 AM Epoch 239 |  Time: 0:00:02 | valid_acc 92.320000 | best_acc 92.520000
+05/03 03:11:31 AM train: 000 | loss: 1.295133e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:11:38 AM train: 200 | loss: 1.251652e-02 | prec1:99.762904 | prec5: 100.000000
+05/03 03:11:46 AM Epoch 240 | Time: 0:00:15 | train_acc 99.774000 | learning_rate [4.000000000000001e-05]
+05/03 03:11:46 AM Val DispatchNet
+05/03 03:11:48 AM Epoch 240 |  Time: 0:00:02 | valid_acc 92.380000 | best_acc 92.520000
+05/03 03:11:48 AM train: 000 | loss: 8.203335e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:11:56 AM train: 200 | loss: 1.154169e-02 | prec1:99.782338 | prec5: 100.000000
+05/03 03:12:03 AM Epoch 241 | Time: 0:00:15 | train_acc 99.786000 | learning_rate [4.000000000000001e-05]
+05/03 03:12:03 AM Val DispatchNet
+05/03 03:12:04 AM Epoch 241 |  Time: 0:00:02 | valid_acc 92.400000 | best_acc 92.520000
+05/03 03:12:05 AM train: 000 | loss: 1.416875e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:12:12 AM train: 200 | loss: 1.302846e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:12:20 AM Epoch 242 | Time: 0:00:15 | train_acc 99.748000 | learning_rate [4.000000000000001e-05]
+05/03 03:12:20 AM Val DispatchNet
+05/03 03:12:22 AM Epoch 242 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 03:12:22 AM train: 000 | loss: 1.405977e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:12:29 AM train: 200 | loss: 1.313845e-02 | prec1:99.712376 | prec5: 100.000000
+05/03 03:12:36 AM Epoch 243 | Time: 0:00:14 | train_acc 99.720000 | learning_rate [4.000000000000001e-05]
+05/03 03:12:36 AM Val DispatchNet
+05/03 03:12:38 AM Epoch 243 |  Time: 0:00:02 | valid_acc 92.370000 | best_acc 92.520000
+05/03 03:12:38 AM train: 000 | loss: 6.100591e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:12:46 AM train: 200 | loss: 1.229368e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:12:53 AM Epoch 244 | Time: 0:00:15 | train_acc 99.702000 | learning_rate [4.000000000000001e-05]
+05/03 03:12:53 AM Val DispatchNet
+05/03 03:12:55 AM Epoch 244 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 03:12:56 AM train: 000 | loss: 1.892770e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:13:03 AM train: 200 | loss: 1.203357e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:13:10 AM Epoch 245 | Time: 0:00:15 | train_acc 99.772000 | learning_rate [4.000000000000001e-05]
+05/03 03:13:10 AM Val DispatchNet
+05/03 03:13:12 AM Epoch 245 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:13:12 AM train: 000 | loss: 5.730234e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:13:20 AM train: 200 | loss: 1.326444e-02 | prec1:99.696828 | prec5: 100.000000
+05/03 03:13:27 AM Epoch 246 | Time: 0:00:15 | train_acc 99.728000 | learning_rate [4.000000000000001e-05]
+05/03 03:13:27 AM Val DispatchNet
+05/03 03:13:29 AM Epoch 246 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:13:30 AM train: 000 | loss: 1.513056e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:13:37 AM train: 200 | loss: 1.171088e-02 | prec1:99.762904 | prec5: 100.000000
+05/03 03:13:45 AM Epoch 247 | Time: 0:00:15 | train_acc 99.728000 | learning_rate [4.000000000000001e-05]
+05/03 03:13:45 AM Val DispatchNet
+05/03 03:13:46 AM Epoch 247 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:13:47 AM train: 000 | loss: 5.026352e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:13:54 AM train: 200 | loss: 1.185028e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:14:01 AM Epoch 248 | Time: 0:00:15 | train_acc 99.764000 | learning_rate [4.000000000000001e-05]
+05/03 03:14:01 AM Val DispatchNet
+05/03 03:14:03 AM Epoch 248 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:14:04 AM train: 000 | loss: 3.543377e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:14:11 AM train: 200 | loss: 1.214366e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:14:19 AM Epoch 249 | Time: 0:00:15 | train_acc 99.740000 | learning_rate [4.000000000000001e-06]
+05/03 03:14:19 AM Val DispatchNet
+05/03 03:14:21 AM Epoch 249 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:14:21 AM train: 000 | loss: 5.883947e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:14:29 AM train: 200 | loss: 1.078808e-02 | prec1:99.809546 | prec5: 100.000000
+05/03 03:14:36 AM Epoch 250 | Time: 0:00:15 | train_acc 99.772000 | learning_rate [4.000000000000001e-06]
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/Epoch250.pt
+05/03 03:14:36 AM Val DispatchNet
+05/03 03:14:38 AM Epoch 250 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:14:38 AM train: 000 | loss: 1.624119e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:14:46 AM train: 200 | loss: 1.182333e-02 | prec1:99.735697 | prec5: 100.000000
+05/03 03:14:53 AM Epoch 251 | Time: 0:00:15 | train_acc 99.742000 | learning_rate [4.000000000000001e-06]
+05/03 03:14:53 AM Val DispatchNet
+05/03 03:14:55 AM Epoch 251 |  Time: 0:00:02 | valid_acc 92.210000 | best_acc 92.520000
+05/03 03:14:56 AM train: 000 | loss: 4.495781e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:15:04 AM train: 200 | loss: 1.236277e-02 | prec1:99.731810 | prec5: 100.000000
+05/03 03:15:11 AM Epoch 252 | Time: 0:00:16 | train_acc 99.730000 | learning_rate [4.000000000000001e-06]
+05/03 03:15:11 AM Val DispatchNet
+05/03 03:15:13 AM Epoch 252 |  Time: 0:00:02 | valid_acc 92.220000 | best_acc 92.520000
+05/03 03:15:13 AM train: 000 | loss: 1.807905e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:15:21 AM train: 200 | loss: 1.124794e-02 | prec1:99.825093 | prec5: 100.000000
+05/03 03:15:28 AM Epoch 253 | Time: 0:00:16 | train_acc 99.796000 | learning_rate [4.000000000000001e-06]
+05/03 03:15:28 AM Val DispatchNet
+05/03 03:15:30 AM Epoch 253 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:15:30 AM train: 000 | loss: 4.803460e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:15:38 AM train: 200 | loss: 1.177819e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:15:46 AM Epoch 254 | Time: 0:00:16 | train_acc 99.718000 | learning_rate [4.000000000000001e-06]
+05/03 03:15:46 AM Val DispatchNet
+05/03 03:15:48 AM Epoch 254 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:15:48 AM train: 000 | loss: 1.251118e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:15:56 AM train: 200 | loss: 1.143907e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:16:03 AM Epoch 255 | Time: 0:00:16 | train_acc 99.730000 | learning_rate [4.000000000000001e-06]
+05/03 03:16:03 AM Val DispatchNet
+05/03 03:16:05 AM Epoch 255 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:16:05 AM train: 000 | loss: 8.097868e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:16:13 AM train: 200 | loss: 1.219169e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:16:20 AM Epoch 256 | Time: 0:00:15 | train_acc 99.732000 | learning_rate [4.000000000000001e-06]
+05/03 03:16:20 AM Val DispatchNet
+05/03 03:16:22 AM Epoch 256 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:16:22 AM train: 000 | loss: 8.087125e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:16:30 AM train: 200 | loss: 1.185262e-02 | prec1:99.743470 | prec5: 100.000000
+05/03 03:16:37 AM Epoch 257 | Time: 0:00:15 | train_acc 99.768000 | learning_rate [4.000000000000001e-06]
+05/03 03:16:37 AM Val DispatchNet
+05/03 03:16:39 AM Epoch 257 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:16:39 AM train: 000 | loss: 9.562995e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:16:47 AM train: 200 | loss: 1.210776e-02 | prec1:99.739583 | prec5: 100.000000
+05/03 03:16:54 AM Epoch 258 | Time: 0:00:15 | train_acc 99.748000 | learning_rate [4.000000000000001e-06]
+05/03 03:16:54 AM Val DispatchNet
+05/03 03:16:56 AM Epoch 258 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:16:56 AM train: 000 | loss: 6.754749e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:17:04 AM train: 200 | loss: 1.098191e-02 | prec1:99.770678 | prec5: 100.000000
+05/03 03:17:11 AM Epoch 259 | Time: 0:00:16 | train_acc 99.778000 | learning_rate [4.000000000000001e-06]
+05/03 03:17:11 AM Val DispatchNet
+05/03 03:17:13 AM Epoch 259 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:17:14 AM train: 000 | loss: 1.711489e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:17:21 AM train: 200 | loss: 1.173061e-02 | prec1:99.747357 | prec5: 100.000000
+05/03 03:17:29 AM Epoch 260 | Time: 0:00:16 | train_acc 99.746000 | learning_rate [4.000000000000001e-06]
+05/03 03:17:29 AM Val DispatchNet
+05/03 03:17:31 AM Epoch 260 |  Time: 0:00:02 | valid_acc 92.310000 | best_acc 92.520000
+05/03 03:17:31 AM train: 000 | loss: 4.280187e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:17:39 AM train: 200 | loss: 1.252145e-02 | prec1:99.720149 | prec5: 100.000000
+05/03 03:17:46 AM Epoch 261 | Time: 0:00:15 | train_acc 99.752000 | learning_rate [4.000000000000001e-06]
+05/03 03:17:46 AM Val DispatchNet
+05/03 03:17:48 AM Epoch 261 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:17:48 AM train: 000 | loss: 6.593455e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:17:56 AM train: 200 | loss: 1.170300e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:18:03 AM Epoch 262 | Time: 0:00:16 | train_acc 99.744000 | learning_rate [4.000000000000001e-06]
+05/03 03:18:03 AM Val DispatchNet
+05/03 03:18:05 AM Epoch 262 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:18:06 AM train: 000 | loss: 2.218919e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:18:13 AM train: 200 | loss: 1.156551e-02 | prec1:99.751244 | prec5: 100.000000
+05/03 03:18:20 AM Epoch 263 | Time: 0:00:15 | train_acc 99.762000 | learning_rate [4.000000000000001e-06]
+05/03 03:18:20 AM Val DispatchNet
+05/03 03:18:22 AM Epoch 263 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:18:23 AM train: 000 | loss: 1.224934e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:18:31 AM train: 200 | loss: 1.333202e-02 | prec1:99.704602 | prec5: 99.996113
+05/03 03:18:38 AM Epoch 264 | Time: 0:00:16 | train_acc 99.748000 | learning_rate [4.000000000000001e-06]
+05/03 03:18:38 AM Val DispatchNet
+05/03 03:18:40 AM Epoch 264 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:18:40 AM train: 000 | loss: 6.940480e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:18:48 AM train: 200 | loss: 1.112568e-02 | prec1:99.801772 | prec5: 100.000000
+05/03 03:18:55 AM Epoch 265 | Time: 0:00:15 | train_acc 99.754000 | learning_rate [4.000000000000001e-06]
+05/03 03:18:55 AM Val DispatchNet
+05/03 03:18:57 AM Epoch 265 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 03:18:57 AM train: 000 | loss: 5.336720e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:19:05 AM train: 200 | loss: 1.313659e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:19:12 AM Epoch 266 | Time: 0:00:15 | train_acc 99.732000 | learning_rate [4.000000000000001e-06]
+05/03 03:19:12 AM Val DispatchNet
+05/03 03:19:14 AM Epoch 266 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:19:14 AM train: 000 | loss: 1.301587e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:19:22 AM train: 200 | loss: 1.200264e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:19:30 AM Epoch 267 | Time: 0:00:16 | train_acc 99.722000 | learning_rate [4.000000000000001e-06]
+05/03 03:19:30 AM Val DispatchNet
+05/03 03:19:32 AM Epoch 267 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:19:32 AM train: 000 | loss: 8.161448e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:19:40 AM train: 200 | loss: 1.299642e-02 | prec1:99.681281 | prec5: 100.000000
+05/03 03:19:47 AM Epoch 268 | Time: 0:00:16 | train_acc 99.722000 | learning_rate [4.000000000000001e-06]
+05/03 03:19:47 AM Val DispatchNet
+05/03 03:19:49 AM Epoch 268 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 03:19:49 AM train: 000 | loss: 9.552423e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:19:57 AM train: 200 | loss: 1.294700e-02 | prec1:99.696828 | prec5: 100.000000
+05/03 03:20:04 AM Epoch 269 | Time: 0:00:15 | train_acc 99.730000 | learning_rate [4.000000000000001e-06]
+05/03 03:20:04 AM Val DispatchNet
+05/03 03:20:06 AM Epoch 269 |  Time: 0:00:02 | valid_acc 92.210000 | best_acc 92.520000
+05/03 03:20:07 AM train: 000 | loss: 1.050588e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:20:15 AM train: 200 | loss: 1.216081e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:20:22 AM Epoch 270 | Time: 0:00:16 | train_acc 99.772000 | learning_rate [4.000000000000001e-06]
+05/03 03:20:22 AM Val DispatchNet
+05/03 03:20:24 AM Epoch 270 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:20:24 AM train: 000 | loss: 6.920176e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:20:31 AM train: 200 | loss: 1.103411e-02 | prec1:99.825093 | prec5: 100.000000
+05/03 03:20:39 AM Epoch 271 | Time: 0:00:15 | train_acc 99.768000 | learning_rate [4.000000000000001e-06]
+05/03 03:20:39 AM Val DispatchNet
+05/03 03:20:41 AM Epoch 271 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:20:41 AM train: 000 | loss: 4.052237e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:20:49 AM train: 200 | loss: 1.157201e-02 | prec1:99.774565 | prec5: 100.000000
+05/03 03:20:56 AM Epoch 272 | Time: 0:00:15 | train_acc 99.786000 | learning_rate [4.000000000000001e-06]
+05/03 03:20:56 AM Val DispatchNet
+05/03 03:20:58 AM Epoch 272 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:20:58 AM train: 000 | loss: 7.360116e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:21:06 AM train: 200 | loss: 1.214332e-02 | prec1:99.716262 | prec5: 100.000000
+05/03 03:21:13 AM Epoch 273 | Time: 0:00:15 | train_acc 99.762000 | learning_rate [4.000000000000001e-06]
+05/03 03:21:13 AM Val DispatchNet
+05/03 03:21:15 AM Epoch 273 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:21:16 AM train: 000 | loss: 9.453457e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:21:23 AM train: 200 | loss: 1.171093e-02 | prec1:99.735697 | prec5: 100.000000
+05/03 03:21:30 AM Epoch 274 | Time: 0:00:15 | train_acc 99.730000 | learning_rate [4.000000000000001e-06]
+05/03 03:21:30 AM Val DispatchNet
+05/03 03:21:32 AM Epoch 274 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:21:32 AM train: 000 | loss: 1.219843e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:21:40 AM train: 200 | loss: 1.115076e-02 | prec1:99.805659 | prec5: 100.000000
+05/03 03:21:47 AM Epoch 275 | Time: 0:00:15 | train_acc 99.804000 | learning_rate [4.000000000000001e-06]
+05/03 03:21:47 AM Val DispatchNet
+05/03 03:21:49 AM Epoch 275 |  Time: 0:00:02 | valid_acc 92.250000 | best_acc 92.520000
+05/03 03:21:50 AM train: 000 | loss: 2.066317e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:21:57 AM train: 200 | loss: 1.223976e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:22:04 AM Epoch 276 | Time: 0:00:15 | train_acc 99.738000 | learning_rate [4.000000000000001e-06]
+05/03 03:22:04 AM Val DispatchNet
+05/03 03:22:06 AM Epoch 276 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 03:22:07 AM train: 000 | loss: 2.263780e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:22:14 AM train: 200 | loss: 1.134578e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:22:22 AM Epoch 277 | Time: 0:00:15 | train_acc 99.766000 | learning_rate [4.000000000000001e-06]
+05/03 03:22:22 AM Val DispatchNet
+05/03 03:22:23 AM Epoch 277 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:22:24 AM train: 000 | loss: 1.073866e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:22:31 AM train: 200 | loss: 1.274389e-02 | prec1:99.704602 | prec5: 100.000000
+05/03 03:22:38 AM Epoch 278 | Time: 0:00:15 | train_acc 99.732000 | learning_rate [4.000000000000001e-06]
+05/03 03:22:38 AM Val DispatchNet
+05/03 03:22:40 AM Epoch 278 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 03:22:41 AM train: 000 | loss: 1.047127e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:22:48 AM train: 200 | loss: 1.178288e-02 | prec1:99.770678 | prec5: 100.000000
+05/03 03:22:55 AM Epoch 279 | Time: 0:00:15 | train_acc 99.728000 | learning_rate [4.000000000000001e-06]
+05/03 03:22:55 AM Val DispatchNet
+05/03 03:22:57 AM Epoch 279 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:22:57 AM train: 000 | loss: 1.060855e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:23:05 AM train: 200 | loss: 1.175185e-02 | prec1:99.790112 | prec5: 100.000000
+05/03 03:23:13 AM Epoch 280 | Time: 0:00:16 | train_acc 99.738000 | learning_rate [4.000000000000001e-06]
+05/03 03:23:13 AM Val DispatchNet
+05/03 03:23:15 AM Epoch 280 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:23:15 AM train: 000 | loss: 1.150553e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:23:23 AM train: 200 | loss: 1.324811e-02 | prec1:99.704602 | prec5: 100.000000
+05/03 03:23:30 AM Epoch 281 | Time: 0:00:15 | train_acc 99.738000 | learning_rate [4.000000000000001e-06]
+05/03 03:23:30 AM Val DispatchNet
+05/03 03:23:32 AM Epoch 281 |  Time: 0:00:02 | valid_acc 92.230000 | best_acc 92.520000
+05/03 03:23:32 AM train: 000 | loss: 1.540587e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:23:40 AM train: 200 | loss: 1.143592e-02 | prec1:99.786225 | prec5: 100.000000
+05/03 03:23:48 AM Epoch 282 | Time: 0:00:16 | train_acc 99.782000 | learning_rate [4.000000000000001e-06]
+05/03 03:23:48 AM Val DispatchNet
+05/03 03:23:50 AM Epoch 282 |  Time: 0:00:02 | valid_acc 92.260000 | best_acc 92.520000
+05/03 03:23:50 AM train: 000 | loss: 7.514432e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:23:57 AM train: 200 | loss: 1.259934e-02 | prec1:99.700715 | prec5: 100.000000
+05/03 03:24:05 AM Epoch 283 | Time: 0:00:16 | train_acc 99.718000 | learning_rate [4.000000000000001e-06]
+05/03 03:24:05 AM Val DispatchNet
+05/03 03:24:07 AM Epoch 283 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:24:08 AM train: 000 | loss: 3.049743e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:24:16 AM train: 200 | loss: 1.208000e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:24:23 AM Epoch 284 | Time: 0:00:16 | train_acc 99.766000 | learning_rate [4.000000000000001e-06]
+05/03 03:24:23 AM Val DispatchNet
+05/03 03:24:25 AM Epoch 284 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:24:25 AM train: 000 | loss: 6.766636e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:24:33 AM train: 200 | loss: 1.156167e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:24:41 AM Epoch 285 | Time: 0:00:16 | train_acc 99.762000 | learning_rate [4.000000000000001e-06]
+05/03 03:24:41 AM Val DispatchNet
+05/03 03:24:43 AM Epoch 285 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 03:24:43 AM train: 000 | loss: 8.409955e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:24:51 AM train: 200 | loss: 1.197238e-02 | prec1:99.766791 | prec5: 100.000000
+05/03 03:24:58 AM Epoch 286 | Time: 0:00:15 | train_acc 99.726000 | learning_rate [4.000000000000001e-06]
+05/03 03:24:58 AM Val DispatchNet
+05/03 03:25:00 AM Epoch 286 |  Time: 0:00:02 | valid_acc 92.240000 | best_acc 92.520000
+05/03 03:25:00 AM train: 000 | loss: 1.615607e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:25:08 AM train: 200 | loss: 1.222526e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:25:15 AM Epoch 287 | Time: 0:00:15 | train_acc 99.770000 | learning_rate [4.000000000000001e-06]
+05/03 03:25:15 AM Val DispatchNet
+05/03 03:25:17 AM Epoch 287 |  Time: 0:00:02 | valid_acc 92.280000 | best_acc 92.520000
+05/03 03:25:17 AM train: 000 | loss: 5.615730e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:25:24 AM train: 200 | loss: 1.215780e-02 | prec1:99.731810 | prec5: 100.000000
+05/03 03:25:32 AM Epoch 288 | Time: 0:00:15 | train_acc 99.706000 | learning_rate [4.000000000000001e-06]
+05/03 03:25:32 AM Val DispatchNet
+05/03 03:25:34 AM Epoch 288 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:25:34 AM train: 000 | loss: 1.585690e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:25:41 AM train: 200 | loss: 1.193404e-02 | prec1:99.790112 | prec5: 100.000000
+05/03 03:25:49 AM Epoch 289 | Time: 0:00:15 | train_acc 99.784000 | learning_rate [4.000000000000001e-06]
+05/03 03:25:49 AM Val DispatchNet
+05/03 03:25:51 AM Epoch 289 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 03:25:51 AM train: 000 | loss: 4.457429e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:25:59 AM train: 200 | loss: 1.154141e-02 | prec1:99.762904 | prec5: 100.000000
+05/03 03:26:06 AM Epoch 290 | Time: 0:00:15 | train_acc 99.760000 | learning_rate [4.000000000000001e-06]
+05/03 03:26:06 AM Val DispatchNet
+05/03 03:26:08 AM Epoch 290 |  Time: 0:00:02 | valid_acc 92.270000 | best_acc 92.520000
+05/03 03:26:08 AM train: 000 | loss: 1.836526e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:26:16 AM train: 200 | loss: 1.182636e-02 | prec1:99.751244 | prec5: 100.000000
+05/03 03:26:23 AM Epoch 291 | Time: 0:00:15 | train_acc 99.748000 | learning_rate [4.000000000000001e-06]
+05/03 03:26:23 AM Val DispatchNet
+05/03 03:26:25 AM Epoch 291 |  Time: 0:00:02 | valid_acc 92.280000 | best_acc 92.520000
+05/03 03:26:26 AM train: 000 | loss: 4.497302e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:26:33 AM train: 200 | loss: 1.220055e-02 | prec1:99.759017 | prec5: 100.000000
+05/03 03:26:40 AM Epoch 292 | Time: 0:00:15 | train_acc 99.758000 | learning_rate [4.000000000000001e-06]
+05/03 03:26:40 AM Val DispatchNet
+05/03 03:26:42 AM Epoch 292 |  Time: 0:00:02 | valid_acc 92.340000 | best_acc 92.520000
+05/03 03:26:42 AM train: 000 | loss: 9.110883e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:26:50 AM train: 200 | loss: 1.249133e-02 | prec1:99.724036 | prec5: 100.000000
+05/03 03:26:57 AM Epoch 293 | Time: 0:00:15 | train_acc 99.728000 | learning_rate [4.000000000000001e-06]
+05/03 03:26:57 AM Val DispatchNet
+05/03 03:26:59 AM Epoch 293 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:27:00 AM train: 000 | loss: 3.445387e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:27:07 AM train: 200 | loss: 1.234661e-02 | prec1:99.712376 | prec5: 100.000000
+05/03 03:27:14 AM Epoch 294 | Time: 0:00:15 | train_acc 99.732000 | learning_rate [4.000000000000001e-06]
+05/03 03:27:14 AM Val DispatchNet
+05/03 03:27:16 AM Epoch 294 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+05/03 03:27:17 AM train: 000 | loss: 1.352550e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:27:24 AM train: 200 | loss: 1.202014e-02 | prec1:99.782338 | prec5: 100.000000
+05/03 03:27:32 AM Epoch 295 | Time: 0:00:16 | train_acc 99.760000 | learning_rate [4.000000000000001e-06]
+05/03 03:27:32 AM Val DispatchNet
+05/03 03:27:34 AM Epoch 295 |  Time: 0:00:02 | valid_acc 92.330000 | best_acc 92.520000
+05/03 03:27:34 AM train: 000 | loss: 2.198087e-02 | prec1:98.437500 | prec5: 100.000000
+05/03 03:27:42 AM train: 200 | loss: 1.129996e-02 | prec1:99.755131 | prec5: 100.000000
+05/03 03:27:49 AM Epoch 296 | Time: 0:00:16 | train_acc 99.770000 | learning_rate [4.000000000000001e-06]
+05/03 03:27:49 AM Val DispatchNet
+05/03 03:27:51 AM Epoch 296 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:27:52 AM train: 000 | loss: 4.047990e-03 | prec1:100.000000 | prec5: 100.000000
+05/03 03:27:59 AM train: 200 | loss: 1.268248e-02 | prec1:99.689055 | prec5: 100.000000
+05/03 03:28:07 AM Epoch 297 | Time: 0:00:15 | train_acc 99.712000 | learning_rate [4.000000000000001e-06]
+05/03 03:28:07 AM Val DispatchNet
+05/03 03:28:09 AM Epoch 297 |  Time: 0:00:02 | valid_acc 92.290000 | best_acc 92.520000
+05/03 03:28:09 AM train: 000 | loss: 1.681325e-02 | prec1:99.218750 | prec5: 100.000000
+05/03 03:28:17 AM train: 200 | loss: 1.200220e-02 | prec1:99.770678 | prec5: 100.000000
+05/03 03:28:24 AM Epoch 298 | Time: 0:00:15 | train_acc 99.752000 | learning_rate [4.000000000000001e-06]
+05/03 03:28:24 AM Val DispatchNet
+05/03 03:28:25 AM Epoch 298 |  Time: 0:00:02 | valid_acc 92.350000 | best_acc 92.520000
+05/03 03:28:26 AM train: 000 | loss: 1.585384e-02 | prec1:100.000000 | prec5: 100.000000
+05/03 03:28:33 AM train: 200 | loss: 1.248628e-02 | prec1:99.727923 | prec5: 100.000000
+05/03 03:28:41 AM Epoch 299 | Time: 0:00:15 | train_acc 99.756000 | learning_rate [4.000000000000001e-06]
+05/03 03:28:41 AM Val DispatchNet
+05/03 03:28:43 AM Epoch 299 |  Time: 0:00:02 | valid_acc 92.300000 | best_acc 92.520000
+** Current Training without DDP or DP  ** saving model.state_dict() in  ./logs/final_weights.pt

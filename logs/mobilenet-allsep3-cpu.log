@@ -1,0 +1,20 @@
+2020-05-02 19:20:30,882 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:20:30,882 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:21:58,312 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0011238738025228182, var of time: 1.5599474970196335e-10
+2020-05-02 19:25:45,257 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:25:45,258 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:25:53,654 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:25:53,655 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:27:58,487 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0016148911726971468, var of time: 1.3863413220722708e-11
+2020-05-02 19:28:05,233 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:28:05,233 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:30:10,915 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.001622351494928201, var of time: 2.4900243786858017e-11
+2020-05-02 19:30:17,477 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:30:17,477 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:32:22,456 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0016148235897223157, var of time: 4.2065694469714154e-11
+2020-05-02 19:32:29,244 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:32:29,244 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:34:35,843 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.0016351715847849847, var of time: 6.93767360159889e-11
+2020-05-02 19:34:42,970 - mobilenet-allsep3-cpu - INFO - batch size: 128
+2020-05-02 19:34:42,971 - mobilenet-allsep3-cpu - INFO - platform: CPU
+2020-05-02 19:36:10,706 - mobilenet-allsep3-cpu - INFO - model: mobilenet-allsep3-cpu, params: 3.2172 M, flops: 0.047589 GMac, mean of time: 0.001133239498982827, var of time: 4.2490645225318605e-12

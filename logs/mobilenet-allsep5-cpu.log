@@ -1,0 +1,3 @@
+2020-05-02 19:48:47,641 - mobilenet-allsep5-cpu - INFO - batch size: 128
+2020-05-02 19:48:47,641 - mobilenet-allsep5-cpu - INFO - platform: CPU
+2020-05-02 19:50:42,068 - mobilenet-allsep5-cpu - INFO - model: mobilenet-allsep5-cpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 0.0014841249150534472, var of time: 3.417302206518424e-11

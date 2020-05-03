@@ -1,0 +1,165 @@
+2020-05-01 13:25:27,340 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:25:27,340 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:28:34,841 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024264870273570218, var of time: 6.855866441440154e-11
+2020-05-01 13:28:41,701 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:28:41,702 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:31:10,613 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019134809946020443, var of time: 8.5312014081909e-11
+2020-05-01 13:31:17,691 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:31:17,691 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:34:29,115 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002490313978244861, var of time: 7.99267849290218e-11
+2020-05-01 13:34:35,565 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:34:35,565 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:37:03,934 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019113228283822534, var of time: 8.647918577168598e-11
+2020-05-01 13:37:10,154 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:37:10,155 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:40:23,543 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002494186790039142, var of time: 4.3024123075175836e-12
+2020-05-01 13:40:30,070 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:40:30,070 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:43:43,310 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024915755540132526, var of time: 4.621854726461996e-11
+2020-05-01 13:43:49,527 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:43:49,528 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:47:04,372 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025079713885982832, var of time: 1.0004669335584395e-10
+2020-05-01 13:47:11,123 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:47:11,124 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:49:39,247 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019305437182386715, var of time: 8.094007094499429e-12
+2020-05-01 13:49:45,326 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:49:45,327 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:53:01,139 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025268864010771115, var of time: 2.477743369018319e-10
+2020-05-01 13:53:08,028 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:53:08,029 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:56:22,966 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002520014109710852, var of time: 8.444546107779007e-11
+2020-05-01 13:56:29,874 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:56:29,874 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 13:58:57,168 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019075419940054418, var of time: 3.5750538352845154e-11
+2020-05-01 13:59:03,317 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 13:59:03,317 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:02:18,734 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025281117918590705, var of time: 2.709848625222962e-11
+2020-05-01 14:02:25,467 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:02:25,467 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:05:38,630 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002502701977888743, var of time: 8.765454429268756e-12
+2020-05-01 14:05:45,006 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:05:45,007 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:08:59,602 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025182433612644674, var of time: 7.14414795143886e-11
+2020-05-01 14:09:05,896 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:09:05,897 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:12:12,873 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024155510216951367, var of time: 9.340216276335864e-13
+2020-05-01 14:12:19,274 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:12:19,275 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:15:32,611 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002508323515454928, var of time: 1.0223953716121586e-11
+2020-05-01 14:15:39,061 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:15:39,062 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:18:52,519 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024977774731814863, var of time: 7.67516817159557e-11
+2020-05-01 14:18:58,947 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:18:58,947 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:21:28,414 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019238616588215032, var of time: 1.717415625678768e-10
+2020-05-01 14:21:34,806 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:21:34,807 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:24:42,349 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.00241880651563406, var of time: 9.086748170873347e-11
+2020-05-01 14:24:48,661 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:24:48,661 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:27:18,893 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019424365771313508, var of time: 1.3415272860946857e-12
+2020-05-01 14:27:25,230 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:27:25,230 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:30:39,242 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024929631066819033, var of time: 1.5442831356583755e-11
+2020-05-01 14:30:45,982 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:30:45,982 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:34:02,068 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002544142349312703, var of time: 2.157064970076614e-11
+2020-05-01 14:34:08,367 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:34:08,367 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:37:06,190 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0022990488323072593, var of time: 5.6140138131623055e-12
+2020-05-01 14:37:13,247 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:37:13,248 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:40:17,814 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0023974181773761907, var of time: 7.516437530333289e-12
+2020-05-01 14:40:24,789 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:40:24,790 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:42:55,403 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019247313464681307, var of time: 8.861340856539248e-12
+2020-05-01 14:43:02,031 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:43:02,032 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:46:15,126 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002499798598388831, var of time: 7.058479450565055e-11
+2020-05-01 14:46:21,629 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:46:21,629 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:48:50,178 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019220201981564363, var of time: 1.8397013860830963e-10
+2020-05-01 14:48:56,493 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:48:56,493 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:52:11,534 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025119969869653387, var of time: 2.522039212501748e-13
+2020-05-01 14:52:17,930 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:52:17,930 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:54:44,524 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0018879985871414343, var of time: 1.0147204584789484e-10
+2020-05-01 14:54:51,160 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:54:51,161 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 14:58:05,650 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002521172681202491, var of time: 3.53617802163603e-11
+2020-05-01 14:58:11,901 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 14:58:11,902 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:01:18,245 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002410144054641326, var of time: 1.2353656976395552e-11
+2020-05-01 15:01:24,745 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:01:24,745 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:04:38,813 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002506839279085398, var of time: 2.079595624662867e-11
+2020-05-01 15:04:45,379 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:04:45,379 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:07:58,619 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002507404821614424, var of time: 6.785920174953032e-11
+2020-05-01 15:08:05,266 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:08:05,266 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:11:20,171 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002523692722121874, var of time: 3.232625716723098e-12
+2020-05-01 15:11:27,219 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:11:27,219 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:14:25,302 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002304023715356986, var of time: 1.66486596877274e-10
+2020-05-01 15:14:31,700 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:14:31,700 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:17:00,448 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019308906607329844, var of time: 3.7385085570560306e-11
+2020-05-01 15:17:06,692 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:17:06,692 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:20:23,715 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025533810009558994, var of time: 8.213909254760064e-11
+2020-05-01 15:20:30,420 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:20:30,420 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:23:44,682 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025001916227241354, var of time: 9.212514944727606e-12
+2020-05-01 15:23:51,042 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:23:51,042 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:27:06,363 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025340116831163565, var of time: 2.758141478524967e-10
+2020-05-01 15:27:12,837 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:27:12,837 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:30:26,254 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024887999023000397, var of time: 2.3794826972754707e-11
+2020-05-01 15:30:32,969 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:30:32,970 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:33:00,497 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.001918355630089839, var of time: 6.324591216885995e-11
+2020-05-01 15:33:07,385 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:33:07,385 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:36:24,630 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002545989106098811, var of time: 6.113055842183235e-11
+2020-05-01 15:36:30,717 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:36:30,717 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:39:46,071 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002529082956413428, var of time: 9.427649097558285e-11
+2020-05-01 15:39:52,227 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:39:52,227 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:43:08,430 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002535840775817633, var of time: 1.4700386198143744e-11
+2020-05-01 15:43:15,139 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:43:15,139 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:46:29,443 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025233290965358418, var of time: 7.67168282056788e-12
+2020-05-01 15:46:36,439 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:46:36,439 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:49:50,600 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025189447961747645, var of time: 2.0422082299571007e-10
+2020-05-01 15:49:57,108 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:49:57,108 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:53:09,661 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0024854402678708234, var of time: 4.5347471259850664e-11
+2020-05-01 15:53:17,200 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:53:17,200 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:55:47,005 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019392721913754941, var of time: 7.926955822532787e-12
+2020-05-01 15:55:53,836 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:55:53,836 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 15:58:27,844 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.00198075366516908, var of time: 2.4321728181529806e-11
+2020-05-01 15:58:34,606 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 15:58:34,606 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:01:03,572 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019297495670616627, var of time: 5.4072932708047146e-11
+2020-05-01 16:01:10,779 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 16:01:10,779 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:03:39,278 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019077058384815854, var of time: 1.304715733251802e-10
+2020-05-01 16:03:45,709 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 16:03:45,709 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:07:01,711 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.002527646981179714, var of time: 7.268020139131336e-11
+2020-05-01 16:07:08,122 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 16:07:08,123 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:09:38,576 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0019455054774880408, var of time: 1.0455369910354314e-11
+2020-05-01 16:09:44,563 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 16:09:44,563 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:12:42,372 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0022957087556521095, var of time: 4.8536331482496664e-12
+2020-05-01 16:12:48,853 - modelv2-cpu - INFO - batch size: 128
+2020-05-01 16:12:48,853 - modelv2-cpu - INFO - platform: CPU
+2020-05-01 16:16:05,727 - modelv2-cpu - INFO - model: modelv2-cpu, params: 2.2367 M, flops: 0.02559 GMac, mean of time: 0.0025463711904982725, var of time: 3.367659014854492e-11

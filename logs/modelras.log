@@ -1,0 +1,26 @@
+2020-05-03 02:05:49,018 - modelras - INFO - batch size: 128
+2020-05-03 02:05:49,020 - modelras - INFO - platform: GPU
+2020-05-03 02:05:56,162 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 6.709349652131398e-05, var of time: 2.460961791603582e-13
+2020-05-03 02:06:55,909 - modelras - INFO - batch size: 128
+2020-05-03 02:06:55,910 - modelras - INFO - platform: GPU
+2020-05-03 02:07:02,365 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 6.832620749870936e-05, var of time: 3.2286529085299007e-12
+2020-05-03 02:07:53,726 - modelras - INFO - batch size: 128
+2020-05-03 02:07:53,727 - modelras - INFO - platform: GPU
+2020-05-03 02:08:00,197 - modelras - INFO - model: modelras, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 6.744936729470889e-05, var of time: 9.149552519176913e-13
+2020-05-03 09:35:08,528 - modelras - INFO - batch size: 128
+2020-05-03 09:35:08,528 - modelras - INFO - platform: GPU
+2020-05-03 09:35:12,516 - modelras - INFO - model: modelras, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 4.272572696208953e-05, var of time: 2.4135554665957138e-17
+2020-05-03 09:35:43,790 - modelras - INFO - batch size: 128
+2020-05-03 09:35:43,790 - modelras - INFO - platform: GPU
+2020-05-03 09:35:47,578 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 3.8333423435688016e-05, var of time: 2.9959992819957777e-16
+2020-05-03 09:47:03,524 - modelras - INFO - batch size: 128
+2020-05-03 09:47:03,524 - modelras - INFO - platform: GPU
+2020-05-03 09:47:07,178 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 3.8295661409695945e-05, var of time: 3.700427310250988e-17
+2020-05-03 09:47:41,740 - modelras - INFO - batch size: 128
+2020-05-03 09:47:41,740 - modelras - INFO - platform: CPU
+2020-05-03 09:49:48,760 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 0.0016466112496952214, var of time: 8.144634576521012e-11
+2020-05-03 10:08:48,721 - modelras - INFO - batch size: 128
+2020-05-03 10:08:48,721 - modelras - INFO - platform: CPU
+2020-05-03 10:10:32,866 - modelras - INFO - model: modelras, params: 471.882 k, flops: 0.026349 GMac, mean of time: 0.001349942721426487, var of time: 1.3516814070107987e-11
+2020-05-03 10:12:12,492 - modelras - INFO - batch size: 128
+2020-05-03 10:12:12,492 - modelras - INFO - platform: CPU

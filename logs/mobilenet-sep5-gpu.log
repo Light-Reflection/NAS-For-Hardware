@@ -1,0 +1,3 @@
+2020-05-02 20:27:44,111 - mobilenet-sep5-gpu - INFO - batch size: 128
+2020-05-02 20:27:44,111 - mobilenet-sep5-gpu - INFO - platform: GPU
+2020-05-02 20:27:48,524 - mobilenet-sep5-gpu - INFO - model: mobilenet-sep5-gpu, params: 3.2961 M, flops: 0.049588 GMac, mean of time: 4.911107942461968e-05, var of time: 2.6424927061330767e-17

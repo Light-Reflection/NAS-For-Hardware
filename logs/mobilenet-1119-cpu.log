@@ -1,0 +1,12 @@
+2020-05-02 22:50:43,256 - mobilenet-1119-cpu - INFO - batch size: 128
+2020-05-02 22:50:43,256 - mobilenet-1119-cpu - INFO - platform: CPU
+2020-05-02 22:52:40,896 - mobilenet-1119-cpu - INFO - model: mobilenet-1119-cpu, params: 9.2195 M, flops: 0.046668 GMac, mean of time: 0.0015222441529234249, var of time: 1.6979106078834678e-11
+2020-05-02 23:01:06,513 - mobilenet-1119-cpu - INFO - batch size: 128
+2020-05-02 23:01:06,513 - mobilenet-1119-cpu - INFO - platform: CPU
+2020-05-02 23:03:01,903 - mobilenet-1119-cpu - INFO - model: mobilenet-1119-cpu, params: 9.2195 M, flops: 0.046668 GMac, mean of time: 0.001490227188915014, var of time: 6.939593443176373e-12
+2020-05-02 23:05:00,777 - mobilenet-1119-cpu - INFO - batch size: 128
+2020-05-02 23:05:00,777 - mobilenet-1119-cpu - INFO - platform: CPU
+2020-05-02 23:07:27,879 - mobilenet-1119-cpu - INFO - model: mobilenet-1119-cpu, params: 868.81 k, flops: 0.050108 GMac, mean of time: 0.0019025835456947485, var of time: 3.7011774324578416e-10
+2020-05-02 23:13:20,395 - mobilenet-1119-cpu - INFO - batch size: 128
+2020-05-02 23:13:20,395 - mobilenet-1119-cpu - INFO - platform: CPU
+2020-05-02 23:15:49,347 - mobilenet-1119-cpu - INFO - model: mobilenet-1119-cpu, params: 868.81 k, flops: 0.050108 GMac, mean of time: 0.0019331171922385693, var of time: 9.687131882971157e-11

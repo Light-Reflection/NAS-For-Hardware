@@ -1,0 +1,12 @@
+2020-05-02 20:44:59,137 - model-cpu - INFO - batch size: 128
+2020-05-02 20:44:59,137 - model-cpu - INFO - platform: CPU
+2020-05-02 20:46:45,976 - model-cpu - INFO - model: model-cpu, params: 1.108 M, flops: 0.034534 GMac, mean of time: 0.001382713261991739, var of time: 7.053959749670823e-11
+2020-05-02 20:49:11,800 - model-cpu - INFO - batch size: 128
+2020-05-02 20:49:11,800 - model-cpu - INFO - platform: CPU
+2020-05-02 20:50:57,468 - model-cpu - INFO - model: model-cpu, params: 924.874 k, flops: 0.029238 GMac, mean of time: 0.0013688379526138304, var of time: 1.1175408942918633e-11
+2020-05-02 23:32:01,785 - model-cpu - INFO - batch size: 128
+2020-05-02 23:32:01,785 - model-cpu - INFO - platform: GPU
+2020-05-02 23:32:05,158 - model-cpu - INFO - model: model-cpu, params: 924.874 k, flops: 0.029238 GMac, mean of time: 3.708517799774806e-05, var of time: 2.606004147044925e-16
+2020-05-02 23:36:53,644 - model-cpu - INFO - batch size: 128
+2020-05-02 23:36:53,645 - model-cpu - INFO - platform: GPU
+2020-05-02 23:36:57,007 - model-cpu - INFO - model: model-cpu, params: 924.874 k, flops: 0.029238 GMac, mean of time: 3.664550061027209e-05, var of time: 1.2654868665320276e-15

@@ -1,0 +1,6 @@
+2020-05-03 09:53:59,535 - modelgpu - INFO - batch size: 128
+2020-05-03 09:53:59,536 - modelgpu - INFO - platform: CPU
+2020-05-03 09:55:54,581 - modelgpu - INFO - model: modelgpu, params: 1.1019 M, flops: 0.034977 GMac, mean of time: 0.0014834705057243508, var of time: 1.5771587388171458e-10
+2020-05-03 10:04:06,982 - modelgpu - INFO - batch size: 128
+2020-05-03 10:04:06,982 - modelgpu - INFO - platform: CPU
+2020-05-03 10:05:34,850 - modelgpu - INFO - model: modelgpu, params: 489.098 k, flops: 0.029068 GMac, mean of time: 0.0011354983287552992, var of time: 1.2468934405895305e-11
