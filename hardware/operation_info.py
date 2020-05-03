@@ -3,12 +3,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import torch.nn as nn
-from  .flops_counter import get_model_complexity_info as get_flops
+from  flops_counter import get_model_complexity_info as get_flops
 # TODO: FIX the import issue
 import torch
 import time
 import numpy as np
-from .operations import OPS
+from operations import OPS
 import os
 import logging
 # from generator.SuperNet import supernet
@@ -43,6 +43,20 @@ def get_op_info(op, input_shape, batch_size, platform, seed=0):
 
     op.eval()
     t_mean, t_var = get_mean_lat(op, inputs)
+    return flops, params, t_mean, t_var
+
+def get_gan_info(model, input_shape=100, batch_size=128, platform='GPU', seed=0):
+    set_torch(seed=0)
+    flops, params = get_flops_params(model, input_shape, True)
+    inputs = list(input_shape)
+    inputs.insert(0, batch_size)
+    inputs = torch.randn(inputs)
+    if platform == 'GPU':
+        print("GGGGPPPUUUU")
+        model.cuda()
+        inputs = inputs.cuda()
+    model.eval()
+    t_mean, t_var = get_mean_lat(model, inputs)
     return flops, params, t_mean, t_var
 
 def get_mean_lat(op, inputs, nums_data=10):
@@ -207,8 +221,61 @@ def test_op():
             flops, params, tm, tv = get_op_info(op, input_shape=shape, batch_size=bs, platform=platform)
             logger.info("Op: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
 
+
+
+class Generator(nn.Module):
+    def __init__(self, ngpu=0):
+        nz = 100
+        ngf = 64
+        nc = 3
+        super(Generator, self).__init__()
+        self.ngpu = ngpu
+        self.main = nn.Sequential(
+            # input is Z, going into a convolution
+            nn.ConvTranspose2d( nz, ngf * 8, 4, 1, 0, bias=False), # 12 8 4 2
+            # nn.ConvTranspose2d( nz, ngf * 8, 4, 1, 0, bias=False),
+            nn.BatchNorm2d(ngf * 8),
+            nn.ReLU(True),
+            # state size. (ngf*8) x 4 x 4
+            nn.ConvTranspose2d(ngf * 8, ngf * 4, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf * 4),
+            nn.ReLU(True),
+            # state size. (ngf*4) x 8 x 8
+            nn.ConvTranspose2d( ngf * 4, ngf * 2, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf * 2),
+            nn.ReLU(True),
+            # state size. (ngf*2) x 16 x 16
+            nn.ConvTranspose2d( ngf * 2, ngf, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(ngf),
+            nn.ReLU(True),
+            # state size. (ngf) x 32 x 32
+            nn.ConvTranspose2d( ngf, nc, 4, 2, 1, bias=False),
+            nn.Tanh()
+            # state size. (nc) x 64 x 64
+        )
+
+    def forward(self, input):
+        return self.main(input)
+
+
+def test_gan_model(name, model=None, platform='CPU'):
+    import logging
+    logger = set_logger(path='./', type=name)
+    bs = 1
+    logger.info("batch size: " + str(bs))
+    logger.info("platform: " + str(platform))
+    # cfg = {'model_name': 'mbv1'}
+    # model = get_model(cfg)
+    shape = (100,1,1)
+    flops, params, tm, tv = get_gan_info(model, input_shape=shape, batch_size=bs, platform=platform)
+    logger.info(
+        "model: {}, params: {}, flops: {}, mean of time: {}, var of time: {}".format(name, params, flops, tm, tv))
+
+
 if __name__ == '__main__':
-    test_model('C-MBV1-CPU')
+    test_gan_model('test-gan', model=Generator())
+
+    # test_model('C-MBV1-CPU')
     
     # bs = 1
     # platform = 'CPU'
